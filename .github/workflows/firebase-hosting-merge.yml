@@ -16,6 +16,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: beta
+      - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter pub run intl_utils:generate
       - run: flutter build web
