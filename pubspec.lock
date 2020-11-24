@@ -49,7 +49,7 @@ packages:
       name: black_hole_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.15"
+    version: "0.2.16"
   build:
     dependency: transitive
     description:
@@ -744,4 +744,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.12.0-0 <3.0.0"
-  flutter: ">=1.22.0 <2.0.0"
+  flutter: ">=1.24.0-7.0.pre <2.0.0"
