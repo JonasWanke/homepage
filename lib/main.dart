@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/app/module.dart';
+import 'package:homepage/settings/module.dart';
 
-void main() {
-  runApp(MyApp());
-}
+Future<void> main() async {
+  await initApp();
+  await initSettings();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Jonas Wanke',
-      home: Placeholder(),
-    );
-  }
+  runApp(App());
 }
