@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:homepage/generated/l10n.dart';
 import 'package:homepage/settings/module.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
@@ -11,14 +12,15 @@ import '../utils.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PreferenceBuilder<ThemeMode>(
-      preference: services.preferences.themeMode,
-      builder: (context, themeMode) {
+    return PreferenceBuilder<Brightness>(
+      preference: services.preferences.brightness,
+      builder: (context, brightness) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Jonas Wanke',
           theme: _createTheme(Brightness.light),
           darkTheme: _createTheme(Brightness.dark),
-          themeMode: themeMode,
+          themeMode: brightness.isLight ? ThemeMode.light : ThemeMode.dark,
           onGenerateRoute: router.onGenerateRoute,
           navigatorObservers: [createLoggingNavigatorObserver()],
           localizationsDelegates: [
@@ -34,5 +36,8 @@ class App extends StatelessWidget {
 }
 
 ThemeData _createTheme(Brightness brightness) {
-  return ThemeData(brightness: brightness);
+  return ThemeData(
+    brightness: brightness,
+    applyElevationOverlayColor: true,
+  );
 }

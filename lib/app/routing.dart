@@ -5,6 +5,7 @@ import 'package:flutter/material.dart' hide Route, Router;
 import 'package:flutter_deep_linking/flutter_deep_linking.dart';
 
 import 'utils.dart';
+import 'widgets/app_bar.dart';
 
 String get _domain => window.location.href.removePrefix('www.');
 String webUrl(String path) => 'https://$_domain/$path';
@@ -29,7 +30,7 @@ class NotFoundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.s.app_error_pageNotFound)),
+      appBar: FancyAppBar(title: Text(context.s.app_error_pageNotFound)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 64),
         child: Center(

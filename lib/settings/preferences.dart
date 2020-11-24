@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
@@ -6,28 +7,27 @@ import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 class Preferences {
   Preferences._(StreamingSharedPreferences sharedPreferences)
       : assert(sharedPreferences != null),
-        themeMode = sharedPreferences.getCustomValue(
-          'themeMode',
-          defaultValue: ThemeMode.system,
-          adapter: _ThemeModeAdapter(),
+        brightness = sharedPreferences.getCustomValue(
+          'brightness',
+          defaultValue: SchedulerBinding.instance.window.platformBrightness,
+          adapter: _BrightnessAdapter(),
         );
   static Future<Preferences> create() async =>
       Preferences._(await StreamingSharedPreferences.instance);
 
-  final Preference<ThemeMode> themeMode;
+  final Preference<Brightness> brightness;
 }
 
 extension PreferencesGetIt on GetIt {
   Preferences get preferences => get<Preferences>();
 }
 
-class _ThemeModeAdapter extends PreferenceAdapter<ThemeMode> {
+class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
   @override
-  ThemeMode getValue(SharedPreferences preferences, String key) {
+  Brightness getValue(SharedPreferences preferences, String key) {
     return {
-      'system': ThemeMode.system,
-      'light': ThemeMode.light,
-      'dark': ThemeMode.dark,
+      'light': Brightness.light,
+      'dark': Brightness.dark,
     }[preferences.getString(key)];
   }
 
@@ -35,12 +35,11 @@ class _ThemeModeAdapter extends PreferenceAdapter<ThemeMode> {
   Future<bool> setValue(
     SharedPreferences preferences,
     String key,
-    ThemeMode value,
+    Brightness value,
   ) {
     final string = {
-      ThemeMode.system: 'system',
-      ThemeMode.light: 'light',
-      ThemeMode.dark: 'dark',
+      Brightness.light: 'light',
+      Brightness.dark: 'dark',
     }[value];
     return preferences.setString(key, string);
   }
