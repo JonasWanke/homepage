@@ -1,6 +1,7 @@
 import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:homepage/settings/module.dart';
 
 import '../services.dart';
@@ -22,19 +23,20 @@ class FancyAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 8),
-          child: _buildBrightnessToggle(),
+          child: _buildBrightnessToggle(context),
         ),
       ],
     );
   }
 
-  Widget _buildBrightnessToggle() {
+  Widget _buildBrightnessToggle(BuildContext context) {
     return DayNightSwitcherIcon(
       isDarkModeEnabled: services.preferences.brightness.getValue().isDark,
       onStateChanged: (isDark) {
         final brightness = isDark ? Brightness.dark : Brightness.light;
         services.preferences.brightness.setValue(brightness);
       },
+      nightBackgroundColor: context.theme.scaffoldBackgroundColor,
     );
   }
 }
