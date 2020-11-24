@@ -1,6 +1,6 @@
+import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utils.dart';
@@ -31,9 +31,15 @@ class HelloWorldWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: context.s.app_landingPage_helloWorld_prefix),
+          _text(context.s.app_landingPage_helloWorld_prefix),
           TextSpan(text: 'Jonas Wanke\n', style: TextStyle(fontSize: 56)),
-          TextSpan(text: context.s.app_landingPage_helloWorld_suffix),
+          _text(context.s.app_landingPage_helloWorld_suffix_text1),
+          _link(
+            context,
+            context.s.app_landingPage_helloWorld_suffix_link1,
+            'https://github.com/JonasWanke',
+          ),
+          _text(context.s.app_landingPage_helloWorld_suffix_text2),
         ],
       ),
       style: TextStyle(fontSize: 20),
@@ -112,32 +118,24 @@ class ContactPossibility extends StatelessWidget {
 class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    TextSpan text(String text) => TextSpan(text: text);
-    TextSpan link(String text, String targetUrl) {
-      return TextSpan(
-        text: text,
-        style: TextStyle(decoration: TextDecoration.underline),
-        recognizer: TapGestureRecognizer()
-          ..onTap = () => tryLaunchingUrl(targetUrl),
-      );
-    }
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text.rich(
         TextSpan(
           children: [
-            text(context.s.app_landingPage_footer_text1),
-            link(
+            _text(context.s.app_landingPage_footer_text1),
+            _link(
+              context,
               context.s.app_landingPage_footer_link1,
               'https://gib.wanke.jetzt/1€',
             ),
-            text(context.s.app_landingPage_footer_text2),
-            link(
+            _text(context.s.app_landingPage_footer_text2),
+            _link(
+              context,
               context.s.app_landingPage_footer_link2,
               'https://github.com/JonasWanke/homepage',
             ),
-            text(context.s.app_landingPage_footer_text3),
+            _text(context.s.app_landingPage_footer_text3),
           ],
         ),
         style: context.textTheme.caption,
@@ -145,4 +143,18 @@ class Footer extends StatelessWidget {
       ),
     );
   }
+}
+
+TextSpan _text(String text) => TextSpan(text: text);
+TextSpan _link(BuildContext context, String text, String targetUrl) {
+  return TextSpan(
+    text: text,
+    style: TextStyle(
+      decoration: TextDecoration.underline,
+      decorationColor:
+          context.theme.scaffoldBackgroundColor.mediumEmphasisOnColor,
+    ),
+    recognizer: TapGestureRecognizer()
+      ..onTap = () => tryLaunchingUrl(targetUrl),
+  );
 }
