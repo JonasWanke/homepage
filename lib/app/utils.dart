@@ -1,8 +1,8 @@
 import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/generated/l10n.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final logger = Logger(
   filter: ProductionFilter(),
@@ -15,10 +15,10 @@ LoggingNavigatorObserver createLoggingNavigatorObserver() {
 }
 
 extension ContextWithLocalization on BuildContext {
-  S get s => S.of(this);
+  AppLocalizations get l10n => AppLocalizations.of(this)!;
 }
 
-typedef L10nStringGetter = String Function(S);
+typedef L10nStringGetter = String Function(AppLocalizations);
 
 bool get isInDebugMode {
   var inDebugMode = false;

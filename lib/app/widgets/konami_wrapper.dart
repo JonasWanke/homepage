@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 
+import 'package:collection/collection.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dartx/dartx.dart';
-import 'package:collection/collection.dart';
 
 class KonamiWrapper extends StatefulWidget {
-  const KonamiWrapper({@required this.child});
+  const KonamiWrapper({required this.child});
 
   final Widget child;
 
@@ -31,7 +31,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
   final _focusNode = FocusNode()..requestFocus();
   final _events = <RawKeyEvent>[];
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

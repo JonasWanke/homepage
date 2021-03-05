@@ -19,19 +19,19 @@ final router = Router(
 );
 
 class NotFoundPage extends StatelessWidget {
-  const NotFoundPage(this.uri) : assert(uri != null);
+  const NotFoundPage(this.uri);
 
   final Uri uri;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FancyAppBar(title: Text(context.s.app_error_pageNotFound)),
+      appBar: FancyAppBar(title: Text(context.l10n.app_error_pageNotFound)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 64),
         child: Center(
           child: Text(
-            context.s.app_error_pageNotFound_message(uri),
+            context.l10n.app_error_pageNotFound_message(uri),
             textAlign: TextAlign.center,
           ),
         ),

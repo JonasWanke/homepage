@@ -6,10 +6,9 @@ import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 class Preferences {
   Preferences._(StreamingSharedPreferences sharedPreferences)
-      : assert(sharedPreferences != null),
-        brightness = sharedPreferences.getCustomValue(
+      : brightness = sharedPreferences.getCustomValue(
           'brightness',
-          defaultValue: SchedulerBinding.instance.window.platformBrightness,
+          defaultValue: SchedulerBinding.instance!.window.platformBrightness,
           adapter: _BrightnessAdapter(),
         );
   static Future<Preferences> create() async =>
@@ -24,7 +23,7 @@ extension PreferencesGetIt on GetIt {
 
 class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
   @override
-  Brightness getValue(SharedPreferences preferences, String key) {
+  Brightness? getValue(SharedPreferences preferences, String key) {
     return {
       'light': Brightness.light,
       'dark': Brightness.dark,
@@ -40,7 +39,7 @@ class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
     final string = {
       Brightness.light: 'light',
       Brightness.dark: 'dark',
-    }[value];
+    }[value]!;
     return preferences.setString(key, string);
   }
 }

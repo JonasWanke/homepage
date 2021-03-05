@@ -31,15 +31,15 @@ class HelloWorldWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          _text(context.s.app_landingPage_helloWorld_prefix),
+          _text(context.l10n.app_landingPage_helloWorld_prefix),
           TextSpan(text: 'Jonas Wanke\n', style: TextStyle(fontSize: 56)),
-          _text(context.s.app_landingPage_helloWorld_suffix_text1),
+          _text(context.l10n.app_landingPage_helloWorld_suffix_text1),
           _link(
             context,
-            context.s.app_landingPage_helloWorld_suffix_link1,
+            context.l10n.app_landingPage_helloWorld_suffix_link1,
             'https://github.com/JonasWanke',
           ),
-          _text(context.s.app_landingPage_helloWorld_suffix_text2),
+          _text(context.l10n.app_landingPage_helloWorld_suffix_text2),
         ],
       ),
       style: TextStyle(fontSize: 20),
@@ -54,7 +54,7 @@ class ContactWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          context.s.app_landingPage_contact,
+          context.l10n.app_landingPage_contact,
           style: TextStyle(fontSize: 20),
         ),
         SizedBox(height: 8),
@@ -123,19 +123,19 @@ class Footer extends StatelessWidget {
       child: Text.rich(
         TextSpan(
           children: [
-            _text(context.s.app_landingPage_footer_text1),
+            _text(context.l10n.app_landingPage_footer_text1),
             _link(
               context,
-              context.s.app_landingPage_footer_link1,
+              context.l10n.app_landingPage_footer_link1,
               'https://gib.wanke.jetzt/1€',
             ),
-            _text(context.s.app_landingPage_footer_text2),
+            _text(context.l10n.app_landingPage_footer_text2),
             _link(
               context,
-              context.s.app_landingPage_footer_link2,
+              context.l10n.app_landingPage_footer_link2,
               'https://github.com/JonasWanke/homepage',
             ),
-            _text(context.s.app_landingPage_footer_text3),
+            _text(context.l10n.app_landingPage_footer_text3),
           ],
         ),
         style: context.textTheme.caption,
