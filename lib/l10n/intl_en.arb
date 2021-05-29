@@ -6,7 +6,7 @@
       "uri": {}
     }
   },
-  "app_landingPage_helloWorld_prefix": "Hello, world! 👋🏻 I'm\n",
+  "app_landingPage_helloWorld_prefix": "Hello, world! 👋 I'm\n",
   "app_landingPage_helloWorld_suffix_text1": "and I develop ",
   "app_landingPage_helloWorld_suffix_link1": "open source projects",
   "app_landingPage_helloWorld_suffix_text2": ",\nmainly with Flutter.",
