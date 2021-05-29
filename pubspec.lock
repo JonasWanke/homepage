@@ -248,11 +248,9 @@ packages:
   streaming_shared_preferences:
     dependency: "direct main"
     description:
-      path: "."
-      ref: a460743730d4653176455747362579a76f542e18
-      resolved-ref: a460743730d4653176455747362579a76f542e18
-      url: "https://github.com/JonasWanke/streaming_shared_preferences.git"
-    source: git
+      name: streaming_shared_preferences
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "2.0.0"
   supercharged:
     dependency: "direct main"
