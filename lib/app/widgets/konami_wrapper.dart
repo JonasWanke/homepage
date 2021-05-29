@@ -39,7 +39,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 1500),
     );
   }
 
@@ -52,7 +52,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
         animation: _controller,
         builder: (context, child) {
           return Transform.rotate(
-            angle: _controller.value * math.pi * 2,
+            angle: Curves.easeInOut.transform(_controller.value) * math.pi * 2,
             child: child,
           );
         },
