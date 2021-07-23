@@ -67,11 +67,6 @@ class ContactWidget extends StatelessWidget {
               'https://t.me/JonasWanke',
             ),
             ContactPossibility(
-              FontAwesomeIcons.whatsapp,
-              'WhatsApp',
-              'https://wa.me/+491626304343',
-            ),
-            ContactPossibility(
               Icons.mail_outline,
               'E-Mail',
               'mailto:contact+homepage@jonas-wanke.com',
