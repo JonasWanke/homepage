@@ -2,8 +2,6 @@ import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const pageHorizontalPadding = 32.0;
-
 final logger = Logger(filter: ProductionFilter(), printer: SimplePrinter());
 LoggingNavigatorObserver createLoggingNavigatorObserver() {
   return LoggingNavigatorObserver(

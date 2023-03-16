@@ -12,7 +12,7 @@ import '../widgets/app_bar.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final sliver = MultiSliver(children: [
+    final content = MultiSliver(children: [
       SliverToBoxAdapter(
         child: Column(children: [
           SizedBox(height: context.mediaQuery.size.height / 5),
@@ -28,10 +28,7 @@ class LandingPage extends StatelessWidget {
           const SizedBox(height: 8),
         ]),
       ),
-      const SliverPadding(
-        padding: EdgeInsets.symmetric(horizontal: pageHorizontalPadding),
-        sliver: ProjectsSliver(),
-      ),
+      const ProjectsSliver(),
     ]);
     return Scaffold(
       appBar: const FancyAppBar(),
@@ -39,16 +36,11 @@ class LandingPage extends StatelessWidget {
         builder: (horizontalMargin) => CustomScrollView(slivers: [
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-            sliver: sliver,
+            sliver: content,
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(
-                pageHorizontalPadding,
-                24,
-                pageHorizontalPadding,
-                8,
-              ),
+              padding: const EdgeInsets.fromLTRB(3, 24, 3, 8),
               child: _Footer(),
             ),
           ),
