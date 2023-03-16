@@ -31,5 +31,13 @@ ThemeData _createTheme(Brightness brightness) {
   return ThemeData(
     brightness: brightness,
     applyElevationOverlayColor: true,
+    textTheme: TextTheme(
+      headlineMedium: TextStyle(color: brightness.mediumEmphasisOnColor),
+    ),
+    cardTheme: const CardTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
+    ),
   );
 }

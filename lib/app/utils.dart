@@ -27,3 +27,8 @@ Future<bool> tryLaunchingUrl(Uri url) async {
   }
   return false;
 }
+
+extension SetExtension<T> on Set<T> {
+  Set<T> addImmutable(T item) => Set.of(this)..add(item);
+  Set<T> removeImmutable(T item) => Set.of(this)..remove(item);
+}

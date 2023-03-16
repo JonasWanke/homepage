@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../projects/_.dart';
 import '../utils.dart';
 import '../widgets/app_bar.dart';
 
@@ -11,13 +12,37 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const FancyAppBar(),
-      body: Column(children: [
-        const Spacer(),
-        Center(child: _HelloWorldWidget()),
-        const SizedBox(height: 64),
-        Center(child: _ContactWidget()),
-        const Spacer(),
-        _Footer(),
+      body: CustomScrollView(slivers: [
+        SliverToBoxAdapter(
+          child: Column(children: [
+            SizedBox(height: context.mediaQuery.size.height / 5),
+            _HelloWorldWidget(),
+            const SizedBox(height: 64),
+            Center(child: _ContactWidget()),
+            SizedBox(height: context.mediaQuery.size.height / 5),
+            Text(
+              'What I do:',
+              style: context.textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+          ]),
+        ),
+        const SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: pageHorizontalPadding),
+          sliver: ProjectsSliver(),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              pageHorizontalPadding,
+              24,
+              pageHorizontalPadding,
+              8,
+            ),
+            child: _Footer(),
+          ),
+        ),
       ]),
     );
   }
@@ -109,33 +134,27 @@ class _ContactPossibility extends StatelessWidget {
 class _Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: pageHorizontalPadding,
-        vertical: 8,
-      ),
-      child: Text.rich(
-        TextSpan(children: [
-          _text(
-            'Contact options are listed in preference order. This website '
-            "doesn't use cookies, but feel free to ",
-          ),
-          _link(
-            context,
-            'buy me one',
-            Uri.parse('https://gib.wanke.jetzt/1€'),
-          ),
-          _text(" 🍪. Made with ❤️ and Flutter. It's open source – "),
-          _link(
-            context,
-            'the repository',
-            Uri.parse('https://github.com/JonasWanke/homepage'),
-          ),
-          _text(' contains the source code and privacy policy.'),
-        ]),
-        style: context.textTheme.bodySmall,
-        textAlign: TextAlign.center,
-      ),
+    return Text.rich(
+      TextSpan(children: [
+        _text(
+          'Contact options are listed in preference order. This website '
+          "doesn't use cookies, but feel free to ",
+        ),
+        _link(
+          context,
+          'buy me one',
+          Uri.parse('https://gib.wanke.jetzt/1€'),
+        ),
+        _text(" 🍪. Made with ❤️ and Flutter. It's open source – "),
+        _link(
+          context,
+          'the repository',
+          Uri.parse('https://github.com/JonasWanke/homepage'),
+        ),
+        _text(' contains the source code and privacy policy.'),
+      ]),
+      style: context.textTheme.bodySmall,
+      textAlign: TextAlign.center,
     );
   }
 }
