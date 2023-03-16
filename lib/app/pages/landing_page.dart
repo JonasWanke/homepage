@@ -110,7 +110,10 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(
+        horizontal: pageHorizontalPadding,
+        vertical: 8,
+      ),
       child: Text.rich(
         TextSpan(children: [
           _text(
