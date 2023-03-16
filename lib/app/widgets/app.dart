@@ -35,6 +35,7 @@ ThemeData _createTheme(Brightness brightness) {
       headlineMedium: TextStyle(color: brightness.mediumEmphasisOnColor),
     ),
     cardTheme: const CardTheme(
+      margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),

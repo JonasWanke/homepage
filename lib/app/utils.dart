@@ -32,3 +32,8 @@ extension SetExtension<T> on Set<T> {
   Set<T> addImmutable(T item) => Set.of(this)..add(item);
   Set<T> removeImmutable(T item) => Set.of(this)..remove(item);
 }
+
+extension DoubleExtension on double {
+  double mapRange(double min, double max, double targetMin, double targetMax) =>
+      targetMin + (targetMax - targetMin) / (max - min) * (this - min);
+}

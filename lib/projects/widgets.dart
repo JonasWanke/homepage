@@ -17,6 +17,8 @@ class ProjectsSliver extends HookWidget {
         .toList();
     return SliverMasonryGrid.extent(
       maxCrossAxisExtent: 384,
+      mainAxisSpacing: 16,
+      crossAxisSpacing: 16,
       childCount: projects.length,
       itemBuilder: (context, index) =>
           ProjectCard(projects[index], tagFilters: tagFilters),
@@ -47,34 +49,43 @@ class ProjectCard extends StatelessWidget {
       ),
       style: context.textTheme.titleLarge,
     );
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            title,
-            Text(project.description),
-            const SizedBox(height: 8),
-            WrapSuper(
-              spacing: 16,
-              children: [
-                for (final tag in project.tags.sortedBy<num>((it) => it.index))
-                  _TagChip(
-                    tag,
-                    isSelected: tagFilters.value.contains(tag),
-                    onSelectedChange: (isSelected) {
-                      tagFilters.value = isSelected
-                          ? tagFilters.value.addImmutable(tag)
-                          : tagFilters.value.removeImmutable(tag);
-                    },
-                  ),
-              ],
-            ),
-          ],
-        ),
+
+    final tags = WrapSuper(
+      spacing: 8,
+      lineSpacing: 8,
+      children: [
+        for (final tag in project.tags.sortedBy<num>((it) => it.index))
+          _TagChip(
+            tag,
+            isSelected: tagFilters.value.contains(tag),
+            onSelectedChange: (isSelected) {
+              tagFilters.value = isSelected
+                  ? tagFilters.value.addImmutable(tag)
+                  : tagFilters.value.removeImmutable(tag);
+            },
+          ),
+      ],
+    );
+
+    Widget child = Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          title,
+          Text(project.description),
+          const SizedBox(height: 8),
+          tags,
+        ],
       ),
     );
+    if (project.isArchived) {
+      child = Tooltip(
+        message: 'This project is archived.',
+        child: Opacity(opacity: 0.5, child: child),
+      );
+    }
+    return Card(child: child);
   }
 }
 
@@ -92,6 +103,7 @@ class _TagChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
+      tooltip: tag.tooltip,
       side: BorderSide(
         color: context.theme.colorScheme.surface.contrastColor.withOpacity(0.1),
       ),

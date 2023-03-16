@@ -2,48 +2,58 @@ import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../projects/_.dart';
 import '../utils.dart';
+import '../widgets/adaptive_page.dart';
 import '../widgets/app_bar.dart';
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final sliver = MultiSliver(children: [
+      SliverToBoxAdapter(
+        child: Column(children: [
+          SizedBox(height: context.mediaQuery.size.height / 5),
+          _HelloWorldWidget(),
+          const SizedBox(height: 64),
+          Center(child: _ContactWidget()),
+          SizedBox(height: context.mediaQuery.size.height / 5),
+          Text(
+            'What I do:',
+            style: context.textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8),
+        ]),
+      ),
+      const SliverPadding(
+        padding: EdgeInsets.symmetric(horizontal: pageHorizontalPadding),
+        sliver: ProjectsSliver(),
+      ),
+    ]);
     return Scaffold(
       appBar: const FancyAppBar(),
-      body: CustomScrollView(slivers: [
-        SliverToBoxAdapter(
-          child: Column(children: [
-            SizedBox(height: context.mediaQuery.size.height / 5),
-            _HelloWorldWidget(),
-            const SizedBox(height: 64),
-            Center(child: _ContactWidget()),
-            SizedBox(height: context.mediaQuery.size.height / 5),
-            Text(
-              'What I do:',
-              style: context.textTheme.headlineMedium,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-          ]),
-        ),
-        const SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: pageHorizontalPadding),
-          sliver: ProjectsSliver(),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(
-              pageHorizontalPadding,
-              24,
-              pageHorizontalPadding,
-              8,
-            ),
-            child: _Footer(),
+      body: AdaptivePage(
+        builder: (horizontalMargin) => CustomScrollView(slivers: [
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
+            sliver: sliver,
           ),
-        ),
-      ]),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(
+                pageHorizontalPadding,
+                24,
+                pageHorizontalPadding,
+                8,
+              ),
+              child: _Footer(),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }
