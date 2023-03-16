@@ -2,6 +2,7 @@ import 'package:align_positioned/align_positioned.dart';
 import 'package:dartx/dartx.dart'
     show
         ComparableSmallerEqualsExtension,
+        IntRangeToExtension,
         IterableMinBy,
         IterableSortedByDescending;
 
@@ -17,37 +18,61 @@ class ActivitiesGanttChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (activities.isEmpty) return const SizedBox();
+
     final currentMonth = LocalMonth.current;
     final yPositions = _calculateActivityPositions();
 
-    final firstMonth =
-        activities.map((it) => it.start).minOrNull ?? currentMonth;
+    final firstMonth = activities.map((it) => it.start).min;
     final lastMonth = currentMonth.plus(months: 1);
     final monthWidth = 1 / lastMonth.difference(firstMonth);
 
-    return SizedBox(
-      height: ((yPositions.values.maxOrNull ?? -1) + 1) * _activityHeight,
-      child: Stack(
-        children: yPositions.entries.map((it) {
-          final activity = it.key;
-          final yPosition = it.value;
-
-          final duration =
-              (activity.end ?? currentMonth).difference(activity.start) + 1;
-          return AlignPositioned(
-            alignment: Alignment.topLeft,
-            moveByContainerWidth:
-                activity.start.difference(firstMonth) * monthWidth,
-            dy: yPosition * _activityHeight,
-            childWidthRatio: duration * monthWidth,
-            childHeight: _activityHeight,
-            child: Padding(
-              padding: const EdgeInsets.all(2),
-              child: _ActivityEntry(activity),
+    final yearLabelsAndDividers =
+        (firstMonth.year + 1).rangeTo(lastMonth.year).map((year) {
+      return AlignPositioned(
+        alignment: Alignment(
+          LocalMonth(year, 01)
+              .difference(firstMonth)
+              .toDouble()
+              .mapRange(0, lastMonth.difference(firstMonth).toDouble(), -1, 1),
+          0,
+        ),
+        childHeightRatio: 1,
+        child: Column(children: [
+          SizedBox(
+            height: _activityHeight * 0.75,
+            child: Center(
+              child: Text(year.toString(), textAlign: TextAlign.center),
             ),
-          );
-        }).toList(),
-      ),
+          ),
+          const Expanded(child: VerticalDivider()),
+        ]),
+      );
+    });
+
+    final activityChildren = yPositions.entries.map((it) {
+      final activity = it.key;
+      final yPosition = it.value;
+
+      final duration =
+          (activity.end ?? currentMonth).difference(activity.start) + 1;
+      return AlignPositioned(
+        alignment: Alignment.topLeft,
+        moveByContainerWidth:
+            activity.start.difference(firstMonth) * monthWidth,
+        dy: (yPosition + 1) * _activityHeight,
+        childWidthRatio: duration * monthWidth,
+        childHeight: _activityHeight,
+        child: Padding(
+          padding: const EdgeInsets.all(2),
+          child: _ActivityEntry(activity),
+        ),
+      );
+    });
+
+    return SizedBox(
+      height: (yPositions.values.max + 2.25) * _activityHeight,
+      child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
     );
   }
 
