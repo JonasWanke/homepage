@@ -5,7 +5,6 @@ import 'package:flutter/material.dart' hide Route, Router;
 import 'package:flutter_deep_linking/flutter_deep_linking.dart';
 
 import 'pages/landing_page.dart';
-import 'utils.dart';
 import 'widgets/app_bar.dart';
 
 String get domain => Uri.parse(window.location.href).host.removePrefix('www.');
@@ -26,12 +25,12 @@ class NotFoundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FancyAppBar(title: Text(context.l10n.app_error_pageNotFound)),
+      appBar: const FancyAppBar(title: Text('Page not found')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 64),
         child: Center(
           child: Text(
-            context.l10n.app_error_pageNotFound_message(uri),
+            "404 – We couldn't find the page you were looking for:\n$uri",
             textAlign: TextAlign.center,
           ),
         ),

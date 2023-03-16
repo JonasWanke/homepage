@@ -28,15 +28,15 @@ class HelloWorldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(children: [
-        _text(context.l10n.app_landingPage_helloWorld_prefix),
+        _text("Hello, world! 👋 I'm\n"),
         const TextSpan(text: 'Jonas Wanke\n', style: TextStyle(fontSize: 56)),
-        _text(context.l10n.app_landingPage_helloWorld_suffix_text1),
+        _text('and I develop '),
         _link(
           context,
-          context.l10n.app_landingPage_helloWorld_suffix_link1,
+          'open source projects',
           Uri.parse('https://github.com/JonasWanke'),
         ),
-        _text(context.l10n.app_landingPage_helloWorld_suffix_text2),
+        _text(',\nmainly with Flutter.'),
       ]),
       style: const TextStyle(fontSize: 20),
       textAlign: TextAlign.center,
@@ -49,9 +49,9 @@ class ContactWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          context.l10n.app_landingPage_contact,
-          style: const TextStyle(fontSize: 20),
+        const Text(
+          "Want to contact me? Don't hesitate :)",
+          style: TextStyle(fontSize: 20),
         ),
         const SizedBox(height: 8),
         Row(
@@ -113,19 +113,22 @@ class Footer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text.rich(
         TextSpan(children: [
-          _text(context.l10n.app_landingPage_footer_text1),
+          _text(
+            'Contact options are listed in preference order. This website '
+            "doesn't use cookies, but feel free to ",
+          ),
           _link(
             context,
-            context.l10n.app_landingPage_footer_link1,
+            'buy me one',
             Uri.parse('https://gib.wanke.jetzt/1€'),
           ),
-          _text(context.l10n.app_landingPage_footer_text2),
+          _text(" 🍪. Made with ❤️ and Flutter. It's open source – "),
           _link(
             context,
-            context.l10n.app_landingPage_footer_link2,
+            'the repository',
             Uri.parse('https://github.com/JonasWanke/homepage'),
           ),
-          _text(context.l10n.app_landingPage_footer_text3),
+          _text(' contains the source code and privacy policy.'),
         ]),
         style: context.textTheme.bodySmall,
         textAlign: TextAlign.center,
