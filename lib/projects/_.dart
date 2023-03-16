@@ -1,2 +1,1 @@
-export 'data.dart';
-export 'widgets.dart';
+export 'widgets/projects_sliver.dart';

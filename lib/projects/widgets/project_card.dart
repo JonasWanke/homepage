@@ -1,30 +1,6 @@
-import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import '../app/_.dart';
-import 'data.dart';
-
-class ProjectsSliver extends HookWidget {
-  const ProjectsSliver({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final tagFilters = useState(<Tag>{});
-
-    final projects = Project.values
-        .where((project) => project.tags.containsAll(tagFilters.value))
-        .toList();
-    return SliverMasonryGrid.extent(
-      maxCrossAxisExtent: 384,
-      mainAxisSpacing: 16,
-      crossAxisSpacing: 16,
-      childCount: projects.length,
-      itemBuilder: (context, index) =>
-          ProjectCard(projects[index], tagFilters: tagFilters),
-    );
-  }
-}
+import '../../app/_.dart';
+import '../project.dart';
+import '../tag.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard(this.project, {required this.tagFilters});
