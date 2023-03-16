@@ -10,7 +10,8 @@ part 'activity.freezed.dart';
 @freezed
 class Activity with _$Activity {
   const factory Activity(
-    String title, {
+    String title,
+    ActivityType type, {
     required LocalMonth start,
     LocalMonth? end,
     required String description,
@@ -20,6 +21,38 @@ class Activity with _$Activity {
   const Activity._();
 
   bool get isOngoing => end == null;
+}
+
+enum ActivityType {
+  competition,
+  education,
+  project,
+  volunteering,
+  work;
+
+  Color getCardColor(BuildContext context) {
+    final Color color;
+    switch (this) {
+      case ActivityType.competition:
+        color = Colors.yellow;
+        break;
+      case ActivityType.education:
+        color = Colors.green;
+        break;
+      case ActivityType.project:
+        color = Colors.purple;
+        break;
+      case ActivityType.volunteering:
+        color = Colors.orange;
+        break;
+      case ActivityType.work:
+        color = Colors.blue.shade900;
+        break;
+    }
+    return color
+        .withOpacity(0.1)
+        .alphaBlendOn(context.theme.colorScheme.surface);
+  }
 }
 
 @freezed

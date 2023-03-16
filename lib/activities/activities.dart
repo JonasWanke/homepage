@@ -5,6 +5,7 @@ import 'tag.dart';
 final activities = [
   Activity(
     'WorldSkills Germany Expert',
+    ActivityType.volunteering,
     start: LocalMonth(2020, 06),
     description:
         'Since 2020, I lead the skill/discipline “Mobile Applications Development” in Germany.',
@@ -15,6 +16,7 @@ final activities = [
   ),
   Activity(
     'WorldSkills Germany National Judge & Trainer',
+    ActivityType.volunteering,
     start: LocalMonth(2018, 02),
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
@@ -24,7 +26,16 @@ final activities = [
     },
   ),
   Activity(
+    'smusy.',
+    ActivityType.work,
+    start: LocalMonth(2020, 09),
+    description: '',
+    tags: {Tag.dart, Tag.flutter},
+    links: {Link.other(Uri.parse('https://smusy.app'), 'Homepage')},
+  ),
+  Activity(
     '🍭 Candy',
+    ActivityType.project,
     start: LocalMonth(2020, 06),
     description:
         'A sweet programming language that is robust, minimalistic, and expressive.',
@@ -33,6 +44,7 @@ final activities = [
   ),
   Activity(
     'Timetable',
+    ActivityType.project,
     start: LocalMonth(2020, 01),
     description:
         '📅 Customizable flutter calendar widget including day and week views',
@@ -44,6 +56,7 @@ final activities = [
   ),
   Activity(
     'black_hole_flutter',
+    ActivityType.project,
     start: LocalMonth(2020, 03),
     description:
         '🛠 A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
@@ -55,6 +68,7 @@ final activities = [
   ),
   Activity(
     'swipeable_page_route',
+    ActivityType.project,
     start: LocalMonth(2020, 04),
     description:
         '🔙 Swipe to navigate back and admire beautifully morphing widgets',
@@ -66,6 +80,7 @@ final activities = [
   ),
   Activity(
     'rrule',
+    ActivityType.project,
     start: LocalMonth(2020, 05),
     description:
         '🔁 Recurrence rule parsing & calculation as defined in the iCalendar RFC',
@@ -77,6 +92,7 @@ final activities = [
   ),
   Activity(
     'debug_overlay',
+    ActivityType.project,
     start: LocalMonth(2021, 03),
     description:
         '🐛 View debug infos and change settings via a central overlay for your app',
@@ -88,6 +104,7 @@ final activities = [
   ),
   Activity(
     'Homepage',
+    ActivityType.project,
     start: LocalMonth(2017, 03),
     description: "You're looking at it!",
     tags: {Tag.dart, Tag.flutter},
@@ -125,11 +142,62 @@ final activities = [
   // ),
   Activity(
     '🥉 Bronze Medal at the WorldSkills Abu Dhabi 2017',
+    ActivityType.competition,
     start: LocalMonth(2016, 11),
     end: LocalMonth(2017, 10),
     description:
         'I competed in the skill/discipline “IT Software Solutions for Business” and won a bronze medal.',
     tags: {Tag.android, Tag.cSharp, Tag.kotlin, Tag.worldSkills},
+    links: {
+      Link.other(
+        Uri.parse(
+          'https://worldskillsabudhabi2017.com/en/skills/it-software-solutions-business/index.html',
+        ),
+        'Official results of this skill',
+      ),
+      Link.other(
+        Uri.parse(
+          'https://www.worldskillsgermany.com/hall-of-fame/worldskills/worldskills-abu-dhabi-2017/',
+        ),
+        "WorldSkills Germany's page about this event",
+      ),
+      Link.other(
+        Uri.parse(
+          'https://www.worldskillsgermany.com/blog/2017/10/20/deutsches-nationalteam-mit-guter-wm-bilanz/',
+        ),
+        "WorldSkills Germany's article about this event's results",
+      ),
+      Link.other(
+        Uri.parse(
+          'https://www.berliner-woche.de/adlershof/c-leute/gymnasiast-jonas-wanke-aus-adlershof-holte-bei-der-weltmeisterschaft-worldskills-bronze_a135986',
+        ),
+        'Article in the newspaper “Berliner Woche”',
+      ),
+    },
+  ),
+  Activity(
+    'Internship: dBildungscloud (formerly HPI Schul-Cloud)',
+    ActivityType.work,
+    start: LocalMonth(2017, 07),
+    end: LocalMonth(2017, 08),
+    description:
+        'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.', // TODO
+    tags: {Tag.android, Tag.kotlin},
+    links: {
+      Link.other(
+        Uri.parse('https://dbildungscloud.de'),
+        'Homepage of the dBildungscloud',
+      ),
+    },
+  ),
+  Activity(
+    'dBildungscloud (formerly HPI Schul-Cloud)',
+    ActivityType.work,
+    start: LocalMonth(2017, 12),
+    end: LocalMonth(2021, 03),
+    description:
+        'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
+    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
     links: {
       const Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
       Link.other(
@@ -142,24 +210,6 @@ final activities = [
       ),
     },
   ),
-  // Activity(
-  //   'dBildungscloud (formerly HPI Schul-Cloud)',
-  //   isArchived: true,
-  //   description:
-  //       'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
-  //   tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
-  //   links: {
-  //     const Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
-  //     Link.other(
-  //       Uri.parse('https://dbildungscloud.de'),
-  //       'Homepage of the dBildungscloud',
-  //     ),
-  //     Link.other(
-  //       Uri.parse('https://blog.dbildungscloud.de/author/jonas-wanke/'),
-  //       'Blog article by me',
-  //     ),
-  //   },
-  // ),
   // Activity(
   //   'Light your Dog',
   //   isArchived: true,

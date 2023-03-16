@@ -61,7 +61,7 @@ class ActivityCard extends StatelessWidget {
         child: Opacity(opacity: 0.5, child: child),
       );
     }
-    return Card(child: child);
+    return Card(color: activity.type.getCardColor(context), child: child);
   }
 }
 

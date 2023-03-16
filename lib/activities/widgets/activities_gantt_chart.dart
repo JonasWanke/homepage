@@ -79,6 +79,7 @@ class _ActivityEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     final representativeTag = activity.tags.minBy((it) => it.index);
     return Card(
+      color: activity.type.getCardColor(context),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
