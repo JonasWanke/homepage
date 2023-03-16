@@ -24,11 +24,11 @@ bool get isInDebugMode {
 }
 
 /// Tries launching a url.
-Future<bool> tryLaunchingUrl(String url) async {
+Future<bool> tryLaunchingUrl(Uri url) async {
   logger.i("Trying to launch url '$url'…");
 
-  if (await canLaunch(url)) {
-    await launch(url);
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
     return true;
   }
   return false;

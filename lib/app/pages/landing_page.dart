@@ -34,7 +34,7 @@ class HelloWorldWidget extends StatelessWidget {
         _link(
           context,
           context.l10n.app_landingPage_helloWorld_suffix_link1,
-          'https://github.com/JonasWanke',
+          Uri.parse('https://github.com/JonasWanke'),
         ),
         _text(context.l10n.app_landingPage_helloWorld_suffix_text2),
       ]),
@@ -56,26 +56,26 @@ class ContactWidget extends StatelessWidget {
         const SizedBox(height: 8),
         Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             ContactPossibility(
-              FontAwesomeIcons.telegramPlane,
+              FontAwesomeIcons.telegram,
               'Telegram',
-              'https://t.me/JonasWanke',
+              Uri.parse('https://t.me/JonasWanke'),
             ),
             ContactPossibility(
               Icons.mail_outline,
               'E-Mail',
-              'mailto:contact+homepage@jonas-wanke.com',
+              Uri.parse('mailto:contact+homepage@jonas-wanke.com'),
             ),
             ContactPossibility(
               FontAwesomeIcons.linkedinIn,
               'LinkedIn',
-              'https://linkedin.com/in/jonas-wanke',
+              Uri.parse('https://linkedin.com/in/jonas-wanke'),
             ),
             ContactPossibility(
               FontAwesomeIcons.instagram,
               'Instagram',
-              'https://instagram.com/jonas.wanke',
+              Uri.parse('https://instagram.com/jonas.wanke'),
             ),
             // ContactPossibility(
             //   FontAwesomeIcons.twitter,
@@ -94,7 +94,7 @@ class ContactPossibility extends StatelessWidget {
 
   final IconData icon;
   final String name;
-  final String url;
+  final Uri url;
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +117,13 @@ class Footer extends StatelessWidget {
           _link(
             context,
             context.l10n.app_landingPage_footer_link1,
-            'https://gib.wanke.jetzt/1€',
+            Uri.parse('https://gib.wanke.jetzt/1€'),
           ),
           _text(context.l10n.app_landingPage_footer_text2),
           _link(
             context,
             context.l10n.app_landingPage_footer_link2,
-            'https://github.com/JonasWanke/homepage',
+            Uri.parse('https://github.com/JonasWanke/homepage'),
           ),
           _text(context.l10n.app_landingPage_footer_text3),
         ]),
@@ -135,7 +135,7 @@ class Footer extends StatelessWidget {
 }
 
 TextSpan _text(String text) => TextSpan(text: text);
-TextSpan _link(BuildContext context, String text, String targetUrl) {
+TextSpan _link(BuildContext context, String text, Uri targetUrl) {
   return TextSpan(
     text: text,
     style: TextStyle(
