@@ -13,17 +13,17 @@ class LandingPage extends StatelessWidget {
       appBar: const FancyAppBar(),
       body: Column(children: [
         const Spacer(),
-        Center(child: HelloWorldWidget()),
+        Center(child: _HelloWorldWidget()),
         const SizedBox(height: 64),
-        Center(child: ContactWidget()),
+        Center(child: _ContactWidget()),
         const Spacer(),
-        Footer(),
+        _Footer(),
       ]),
     );
   }
 }
 
-class HelloWorldWidget extends StatelessWidget {
+class _HelloWorldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
@@ -44,7 +44,7 @@ class HelloWorldWidget extends StatelessWidget {
   }
 }
 
-class ContactWidget extends StatelessWidget {
+class _ContactWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,27 +57,27 @@ class ContactWidget extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ContactPossibility(
+            _ContactPossibility(
               FontAwesomeIcons.telegram,
               'Telegram',
               Uri.parse('https://t.me/JonasWanke'),
             ),
-            ContactPossibility(
+            _ContactPossibility(
               Icons.mail_outline,
               'E-Mail',
               Uri.parse('mailto:contact+homepage@jonas-wanke.com'),
             ),
-            ContactPossibility(
+            _ContactPossibility(
               FontAwesomeIcons.linkedinIn,
               'LinkedIn',
               Uri.parse('https://linkedin.com/in/jonas-wanke'),
             ),
-            ContactPossibility(
+            _ContactPossibility(
               FontAwesomeIcons.instagram,
               'Instagram',
               Uri.parse('https://instagram.com/jonas.wanke'),
             ),
-            // ContactPossibility(
+            // _ContactPossibility(
             //   FontAwesomeIcons.twitter,
             //   'Twitter',
             //   'https://twitter.com/JonasWanke',
@@ -89,8 +89,8 @@ class ContactWidget extends StatelessWidget {
   }
 }
 
-class ContactPossibility extends StatelessWidget {
-  const ContactPossibility(this.icon, this.name, this.url);
+class _ContactPossibility extends StatelessWidget {
+  const _ContactPossibility(this.icon, this.name, this.url);
 
   final IconData icon;
   final String name;
@@ -106,7 +106,7 @@ class ContactPossibility extends StatelessWidget {
   }
 }
 
-class Footer extends StatelessWidget {
+class _Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
