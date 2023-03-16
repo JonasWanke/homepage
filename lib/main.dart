@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app/module.dart';
-import 'settings/module.dart';
+import 'app/_.dart';
+import 'settings/_.dart';
 
 Future<void> main() async {
   await initApp();

@@ -93,8 +93,8 @@ dart_code_metrics:
     - avoid-banned-imports:
         entries:
           - paths: ['.*']
-            deny: ["^(?:\\.\\./)+module\\.dart$"]
-            message: Don't import the `module.dart` of your own module.
+            deny: ["^(?:\\.\\./)+_\\.dart$"]
+            message: Don't import the `_.dart` of your own module.
     - avoid-border-all
     - avoid-cascade-after-if-null
     - avoid-collection-methods-with-unrelated-types
@@ -128,7 +128,6 @@ dart_code_metrics:
         allowed-line-count: 5
         ignored-named-arguments:
           - builder
-          - rowBuilder
     - prefer-first
     - prefer-immediate-return
     - prefer-intl-name
