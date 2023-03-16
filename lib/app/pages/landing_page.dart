@@ -61,7 +61,7 @@ class _HelloWorldWidget extends StatelessWidget {
           'open source projects',
           Uri.parse('https://github.com/JonasWanke'),
         ),
-        _text(',\nmainly with Flutter.'),
+        _text(',\nmainly with Flutter and Rust.'),
       ]),
       style: const TextStyle(fontSize: 20),
       textAlign: TextAlign.center,
