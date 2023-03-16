@@ -28,7 +28,7 @@ class NotFoundPage extends StatelessWidget {
     return Scaffold(
       appBar: FancyAppBar(title: Text(context.l10n.app_error_pageNotFound)),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 64),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 64),
         child: Center(
           child: Text(
             context.l10n.app_error_pageNotFound_message(uri),

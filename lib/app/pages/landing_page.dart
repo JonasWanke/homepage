@@ -10,17 +10,15 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FancyAppBar(),
-      body: Column(
-        children: [
-          Spacer(),
-          Center(child: HelloWorldWidget()),
-          SizedBox(height: 64),
-          Center(child: ContactWidget()),
-          Spacer(),
-          Footer(),
-        ],
-      ),
+      appBar: const FancyAppBar(),
+      body: Column(children: [
+        const Spacer(),
+        Center(child: HelloWorldWidget()),
+        const SizedBox(height: 64),
+        Center(child: ContactWidget()),
+        const Spacer(),
+        Footer(),
+      ]),
     );
   }
 }
@@ -29,20 +27,18 @@ class HelloWorldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      TextSpan(
-        children: [
-          _text(context.l10n.app_landingPage_helloWorld_prefix),
-          TextSpan(text: 'Jonas Wanke\n', style: TextStyle(fontSize: 56)),
-          _text(context.l10n.app_landingPage_helloWorld_suffix_text1),
-          _link(
-            context,
-            context.l10n.app_landingPage_helloWorld_suffix_link1,
-            'https://github.com/JonasWanke',
-          ),
-          _text(context.l10n.app_landingPage_helloWorld_suffix_text2),
-        ],
-      ),
-      style: TextStyle(fontSize: 20),
+      TextSpan(children: [
+        _text(context.l10n.app_landingPage_helloWorld_prefix),
+        const TextSpan(text: 'Jonas Wanke\n', style: TextStyle(fontSize: 56)),
+        _text(context.l10n.app_landingPage_helloWorld_suffix_text1),
+        _link(
+          context,
+          context.l10n.app_landingPage_helloWorld_suffix_link1,
+          'https://github.com/JonasWanke',
+        ),
+        _text(context.l10n.app_landingPage_helloWorld_suffix_text2),
+      ]),
+      style: const TextStyle(fontSize: 20),
       textAlign: TextAlign.center,
     );
   }
@@ -55,12 +51,12 @@ class ContactWidget extends StatelessWidget {
       children: [
         Text(
           context.l10n.app_landingPage_contact,
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: const [
             ContactPossibility(
               FontAwesomeIcons.telegramPlane,
               'Telegram',
@@ -103,7 +99,7 @@ class ContactPossibility extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () => tryLaunchingUrl(url),
+      onPressed: () async => tryLaunchingUrl(url),
       tooltip: name,
       icon: FaIcon(icon),
     );
@@ -116,24 +112,22 @@ class Footer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text.rich(
-        TextSpan(
-          children: [
-            _text(context.l10n.app_landingPage_footer_text1),
-            _link(
-              context,
-              context.l10n.app_landingPage_footer_link1,
-              'https://gib.wanke.jetzt/1€',
-            ),
-            _text(context.l10n.app_landingPage_footer_text2),
-            _link(
-              context,
-              context.l10n.app_landingPage_footer_link2,
-              'https://github.com/JonasWanke/homepage',
-            ),
-            _text(context.l10n.app_landingPage_footer_text3),
-          ],
-        ),
-        style: context.textTheme.caption,
+        TextSpan(children: [
+          _text(context.l10n.app_landingPage_footer_text1),
+          _link(
+            context,
+            context.l10n.app_landingPage_footer_link1,
+            'https://gib.wanke.jetzt/1€',
+          ),
+          _text(context.l10n.app_landingPage_footer_text2),
+          _link(
+            context,
+            context.l10n.app_landingPage_footer_link2,
+            'https://github.com/JonasWanke/homepage',
+          ),
+          _text(context.l10n.app_landingPage_footer_text3),
+        ]),
+        style: context.textTheme.bodySmall,
         textAlign: TextAlign.center,
       ),
     );
@@ -150,6 +144,6 @@ TextSpan _link(BuildContext context, String text, String targetUrl) {
           context.theme.scaffoldBackgroundColor.mediumEmphasisOnColor,
     ),
     recognizer: TapGestureRecognizer()
-      ..onTap = () => tryLaunchingUrl(targetUrl),
+      ..onTap = () async => tryLaunchingUrl(targetUrl),
   );
 }

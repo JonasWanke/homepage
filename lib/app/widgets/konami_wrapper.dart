@@ -11,7 +11,7 @@ class KonamiWrapper extends StatefulWidget {
   final Widget child;
 
   @override
-  _KonamiWrapperState createState() => _KonamiWrapperState();
+  State<KonamiWrapper> createState() => _KonamiWrapperState();
 }
 
 class _KonamiWrapperState extends State<KonamiWrapper>
@@ -39,7 +39,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1500),
     );
   }
 
@@ -67,7 +67,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
     if (_events.length < _code.length) return;
 
     final filtered = _events.takeLast(_code.length).map((it) => it.logicalKey);
-    if (!DeepCollectionEquality().equals(filtered, _code)) return;
+    if (!const DeepCollectionEquality().equals(filtered, _code)) return;
 
     _controller.reset();
     _controller.forward();

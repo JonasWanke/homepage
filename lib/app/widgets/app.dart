@@ -1,7 +1,6 @@
 import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 import '../../settings/module.dart';
 import '../routing.dart';
