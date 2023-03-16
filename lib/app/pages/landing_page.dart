@@ -15,16 +15,18 @@ class LandingPage extends StatelessWidget {
     final content = MultiSliver(children: [
       SliverToBoxAdapter(
         child: Column(children: [
-          SizedBox(height: context.mediaQuery.size.height / 5),
+          SizedBox(height: context.mediaQuery.size.height / 6),
           _HelloWorldWidget(),
           const SizedBox(height: 64),
           Center(child: _ContactWidget()),
-          SizedBox(height: context.mediaQuery.size.height / 5),
+          SizedBox(height: context.mediaQuery.size.height / 6),
           Text(
             'What I do:',
             style: context.textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
+          const SizedBox(height: 8),
+          const ActivitiesGanttChart(),
           const SizedBox(height: 8),
         ]),
       ),

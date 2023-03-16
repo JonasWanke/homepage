@@ -7,6 +7,7 @@ environment:
   flutter: '>=3.7.0'
 
 dependencies:
+  align_positioned: ^3.0.0
   assorted_layout_widgets: ^7.0.0
   black_hole_flutter: ^1.0.1
   collection: ^1.15.0
@@ -20,6 +21,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   freezed_annotation: ^2.0.3
   get_it: ^7.1.3
+  intl: ^0.18.0
   logger: ^1.0.0-nullsafety.0
   rxdart: ^0.27.0
   sliver_tools: ^0.2.9

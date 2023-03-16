@@ -55,9 +55,9 @@ class ActivityCard extends StatelessWidget {
         ],
       ),
     );
-    if (activity.isArchived) {
+    if (!activity.isOngoing) {
       child = Tooltip(
-        message: 'This activity is archived.',
+        message: 'This activity has ended.',
         child: Opacity(opacity: 0.5, child: child),
       );
     }

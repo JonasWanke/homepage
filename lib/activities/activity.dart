@@ -2,6 +2,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../app/_.dart';
+import 'local_month.dart';
 import 'tag.dart';
 
 part 'activity.freezed.dart';
@@ -10,14 +11,16 @@ part 'activity.freezed.dart';
 class Activity with _$Activity {
   const factory Activity(
     String title, {
-    @Default(false) bool isArchived,
+    required LocalMonth start,
+    LocalMonth? end,
     required String description,
     required Set<Tag> tags,
     required Set<Link> links,
   }) = _Activity;
-}
+  const Activity._();
 
-enum ActivityStatus { active, archived }
+  bool get isOngoing => end == null;
+}
 
 @freezed
 class Link with _$Link {
