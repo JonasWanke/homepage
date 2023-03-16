@@ -1,8 +1,8 @@
 import 'project.dart';
 import 'tag.dart';
 
-final projects = [
-  Project(
+final activities = [
+  Activity(
     'Expert at WorldSkills Germany',
     description:
         'Since 2020, I lead the skill/discipline “Mobile Applications Development” in Germany.',
@@ -11,7 +11,7 @@ final projects = [
       Link.other(Uri.parse('https://blz-it.de/en/skill08'), 'Our homepage'),
     },
   ),
-  Project(
+  Activity(
     'National Judge & Trainer at WorldSkills Germany',
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
@@ -20,14 +20,14 @@ final projects = [
       Link.other(Uri.parse('https://blz-it.de/en/skill09'), 'Our homepage'),
     },
   ),
-  Project(
+  Activity(
     '🍭 Candy',
     description:
         'A sweet programming language that is robust, minimalistic, and expressive.',
     tags: {Tag.rust},
     links: {const Link.gitHub('candy-lang', 'candy')},
   ),
-  Project(
+  Activity(
     'Timetable',
     description:
         '📅 Customizable flutter calendar widget including day and week views',
@@ -37,7 +37,7 @@ final projects = [
       const Link.pubDev('timetable'),
     },
   ),
-  Project(
+  Activity(
     'black_hole_flutter',
     description:
         '🛠 A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
@@ -47,7 +47,7 @@ final projects = [
       const Link.pubDev('black_hole_flutter'),
     },
   ),
-  Project(
+  Activity(
     'swipeable_page_route',
     description:
         '🔙 Swipe to navigate back and admire beautifully morphing widgets',
@@ -57,7 +57,7 @@ final projects = [
       const Link.pubDev('swipeable_page_route'),
     },
   ),
-  Project(
+  Activity(
     'rrule',
     description:
         '🔁 Recurrence rule parsing & calculation as defined in the iCalendar RFC',
@@ -67,7 +67,7 @@ final projects = [
       const Link.pubDev('rrule'),
     },
   ),
-  Project(
+  Activity(
     'debug_overlay',
     description:
         '🐛 View debug infos and change settings via a central overlay for your app',
@@ -77,13 +77,13 @@ final projects = [
       const Link.pubDev('debug_overlay'),
     },
   ),
-  Project(
+  Activity(
     'Homepage',
     description: "You're looking at it!",
     tags: {Tag.dart, Tag.flutter},
     links: {const Link.gitHub('JonasWanke', 'homepage')},
   ),
-  Project(
+  Activity(
     '🧭 flutter_deep_linking',
     description:
         'Handle all your routing with proper deep links and handle them declaratively!',
@@ -93,7 +93,7 @@ final projects = [
       const Link.pubDev('flutter_deep_linking'),
     },
   ),
-  Project(
+  Activity(
     '🔟 data_size',
     description:
         'Customizable data size (bit & byte) formatting for interfacing with the user',
@@ -103,7 +103,7 @@ final projects = [
       const Link.pubDev('data_size'),
     },
   ),
-  Project(
+  Activity(
     "Cap'n Proto for Dart",
     description:
         "Pure Dart implementation of Cap'n Proto – an extremely efficient protocol for sharing data and capabilities",
@@ -113,7 +113,7 @@ final projects = [
       const Link.pubDev('capnproto'),
     },
   ),
-  Project(
+  Activity(
     '🥉 Bronze Medal at the WorldSkills Abu Dhabi 2017',
     description:
         'I competed in the skill/discipline “IT Software Solutions for Business” and won a bronze medal.',
@@ -130,7 +130,7 @@ final projects = [
       ),
     },
   ),
-  Project(
+  Activity(
     'dBildungscloud (formerly HPI Schul-Cloud)',
     isArchived: true,
     description:
@@ -148,7 +148,7 @@ final projects = [
       ),
     },
   ),
-  Project(
+  Activity(
     'Light your Dog',
     isArchived: true,
     description:
@@ -163,7 +163,7 @@ final projects = [
       ),
     },
   ),
-  Project(
+  Activity(
     'DOSUAS',
     isArchived: true,
     description:
@@ -178,14 +178,14 @@ final projects = [
       ),
     },
   ),
-  Project(
+  Activity(
     '🌍 L42n – for even better L10n!',
     isArchived: true,
     description: 'A desktop editor for .arb-files',
     tags: {Tag.dart, Tag.flutter},
     links: {const Link.gitHub('JonasWanke', 'l42n')},
   ),
-  Project(
+  Activity(
     '🦄 Unicorn',
     isArchived: true,
     description: 'A tool to create, work on, test, and deploy projects',

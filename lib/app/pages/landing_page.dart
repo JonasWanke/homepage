@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
-import '../../projects/_.dart';
+import '../../activities/_.dart';
 import '../utils.dart';
 import '../widgets/adaptive_page.dart';
 import '../widgets/app_bar.dart';
@@ -28,7 +28,7 @@ class LandingPage extends StatelessWidget {
           const SizedBox(height: 8),
         ]),
       ),
-      const ProjectsSliver(),
+      const ActivitiesSliver(),
     ]);
     return Scaffold(
       appBar: const FancyAppBar(),

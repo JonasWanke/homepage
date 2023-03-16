@@ -1,22 +1,22 @@
 import '../../app/_.dart';
-import '../project.dart';
+import '../activity.dart';
 import '../tag.dart';
 
-class ProjectCard extends StatelessWidget {
-  const ProjectCard(this.project, {required this.tagFilters});
+class ActivityCard extends StatelessWidget {
+  const ActivityCard(this.activity, {required this.tagFilters});
 
-  final Project project;
+  final Activity activity;
   final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
   Widget build(BuildContext context) {
     final title = Text.rich(
       TextSpan(
-        text: project.title,
+        text: activity.title,
         children: [
-          if (project.tags.isNotEmpty)
+          if (activity.tags.isNotEmpty)
             const WidgetSpan(child: SizedBox(width: 8)),
-          for (final tag in project.links)
+          for (final tag in activity.links)
             WidgetSpan(
               child: _LinkButton(tag),
               alignment: PlaceholderAlignment.middle,
@@ -30,7 +30,7 @@ class ProjectCard extends StatelessWidget {
       spacing: 8,
       lineSpacing: 8,
       children: [
-        for (final tag in project.tags.sortedBy<num>((it) => it.index))
+        for (final tag in activity.tags.sortedBy<num>((it) => it.index))
           _TagChip(
             tag,
             isSelected: tagFilters.value.contains(tag),
@@ -49,15 +49,15 @@ class ProjectCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           title,
-          Text(project.description),
+          Text(activity.description),
           const SizedBox(height: 8),
           tags,
         ],
       ),
     );
-    if (project.isArchived) {
+    if (activity.isArchived) {
       child = Tooltip(
-        message: 'This project is archived.',
+        message: 'This activity is archived.',
         child: Opacity(opacity: 0.5, child: child),
       );
     }

@@ -4,20 +4,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../app/_.dart';
 import 'tag.dart';
 
-part 'project.freezed.dart';
+part 'activity.freezed.dart';
 
 @freezed
-class Project with _$Project {
-  const factory Project(
+class Activity with _$Activity {
+  const factory Activity(
     String title, {
     @Default(false) bool isArchived,
     required String description,
     required Set<Tag> tags,
     required Set<Link> links,
-  }) = _Project;
+  }) = _Activity;
 }
 
-enum ProjectStatus { active, archived }
+enum ActivityStatus { active, archived }
 
 @freezed
 class Link with _$Link {
