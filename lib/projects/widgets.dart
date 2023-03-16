@@ -32,13 +32,29 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final title = Text.rich(
+      TextSpan(
+        text: project.title,
+        children: [
+          if (project.tags.isNotEmpty)
+            const WidgetSpan(child: SizedBox(width: 8)),
+          for (final tag in project.links)
+            WidgetSpan(
+              child: _LinkButton(tag),
+              alignment: PlaceholderAlignment.middle,
+            ),
+        ],
+      ),
+      style: context.textTheme.titleLarge,
+    );
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(project.title, style: context.textTheme.titleMedium),
+            title,
+            Text(project.description),
             const SizedBox(height: 8),
             WrapSuper(
               spacing: 16,
@@ -54,12 +70,6 @@ class ProjectCard extends StatelessWidget {
                     },
                   ),
               ],
-            ),
-            const SizedBox(height: 8),
-            Text(project.description),
-            const SizedBox(height: 8),
-            WrapSuper(
-              children: [for (final tag in project.links) _LinkButton(tag)],
             ),
           ],
         ),
@@ -87,6 +97,8 @@ class _TagChip extends StatelessWidget {
       ),
       backgroundColor: Colors.transparent,
       selected: isSelected,
+      selectedColor: context.theme.primaryColor.withOpacity(0.15),
+      showCheckmark: false,
       onSelected: onSelectedChange,
       avatar: tag.icon,
       label: Text(tag.title),
@@ -102,9 +114,11 @@ class _LinkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      visualDensity: VisualDensity.compact,
       onPressed: () async => tryLaunchingUrl(link.url),
       tooltip: link.tooltip,
-      icon: link.icon,
+      iconSize: 20,
+      icon: SizedBox.square(dimension: 20, child: link.icon),
     );
   }
 }
