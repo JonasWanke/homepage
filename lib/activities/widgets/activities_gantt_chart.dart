@@ -1,10 +1,6 @@
 import 'package:align_positioned/align_positioned.dart';
 import 'package:dartx/dartx.dart'
-    show
-        ComparableSmallerEqualsExtension,
-        IntRangeToExtension,
-        IterableMinBy,
-        IterableSortedByDescending;
+    show ComparableSmallerEqualsExtension, IntRangeToExtension, IterableMinBy;
 import 'package:tuple/tuple.dart';
 
 import '../../app/_.dart';
@@ -149,12 +145,5 @@ extension on Activity {
     final thisEnd = end ?? currentMonth;
     final otherEnd = other.end ?? currentMonth;
     return start <= otherEnd && other.start <= thisEnd;
-  }
-}
-
-extension on List<Activity> {
-  List<Activity> sortedByEndLength() {
-    return sortedByDescending((it) => it.end ?? LocalMonth.current)
-        .thenByDescending((it) => it.start);
   }
 }

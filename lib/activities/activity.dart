@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -23,6 +24,13 @@ class Activity with _$Activity {
   const Activity._();
 
   bool get isOngoing => end == null;
+}
+
+extension ListOfActivity on List<Activity> {
+  List<Activity> sortedByEndLength() {
+    return sortedByDescending((it) => it.end ?? LocalMonth.current)
+        .thenByDescending((it) => it.start);
+  }
 }
 
 enum ActivityType {
