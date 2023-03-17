@@ -18,7 +18,6 @@ class SliverActivities extends HookWidget {
     final typeFilterWidget = ChipGroup(
       alignment: WrapSuperAlignment.center,
       children: [
-        const Text('Type:'),
         for (final type in ActivityType.values)
           ActivityTypeChip(type, filters: typeFilters),
       ],
@@ -28,8 +27,8 @@ class SliverActivities extends HookWidget {
     final tagFilterWidget = ChipGroup(
       alignment: WrapSuperAlignment.center,
       children: [
-        const Text('Tags:'),
-        for (final tag in Tag.values) TagChip(tag, filters: tagFilters),
+        for (final tag in Tag.values.sortedBy((it) => it.title))
+          TagChip(tag, filters: tagFilters),
       ],
     );
 
@@ -44,17 +43,22 @@ class SliverActivities extends HookWidget {
       SliverToBoxAdapter(
         child: Column(children: [
           typeFilterWidget,
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
           tagFilterWidget,
-          const SizedBox(height: 8),
-          ActivitiesGanttChart(activities: filteredActivities),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
+          if (filteredActivities.isEmpty)
+            const Text('No activities match your filters')
+          else ...[
+            ActivitiesGanttChart(activities: filteredActivities),
+            const SizedBox(height: 16),
+          ],
         ]),
       ),
-      SliverActivitiesGrid(
-        activities: filteredActivities,
-        tagFilters: tagFilters,
-      ),
+      if (filteredActivities.isNotEmpty)
+        SliverActivitiesGrid(
+          activities: filteredActivities,
+          tagFilters: tagFilters,
+        ),
     ]);
   }
 }

@@ -13,7 +13,8 @@ import '../local_month.dart';
 import 'activity_card.dart';
 
 class ActivitiesGanttChart extends StatelessWidget {
-  const ActivitiesGanttChart({super.key, required this.activities});
+  ActivitiesGanttChart({super.key, required this.activities})
+      : assert(activities.isNotEmpty);
 
   static const _activityHeight = 32.0;
 
@@ -21,8 +22,6 @@ class ActivitiesGanttChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (activities.isEmpty) return const SizedBox();
-
     final currentMonth = LocalMonth.current;
     final firstMonth = activities.map((it) => it.start).min;
     final lastMonth = currentMonth.plus(months: 1);
