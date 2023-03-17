@@ -31,7 +31,7 @@ class TagChip extends StatelessWidget {
       tag,
       filters,
       tag.title,
-      avatar: tag.icon,
+      avatar: tag.icon.widget,
       tooltip: tag.tooltip,
     );
   }

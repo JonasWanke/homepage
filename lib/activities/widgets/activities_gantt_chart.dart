@@ -127,7 +127,10 @@ class _ActivityEntry extends StatelessWidget {
         if (representativeTag != null)
           Padding(
             padding: const EdgeInsets.only(top: 4, right: 8, bottom: 4),
-            child: AspectRatio(aspectRatio: 1, child: representativeTag.icon),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: representativeTag.icon.widget,
+            ),
           ),
         Expanded(
           child: Text(
