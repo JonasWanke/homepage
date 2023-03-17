@@ -105,8 +105,8 @@ class _ActivityEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final representativeTag = activity.tags.minBy((it) => it.index);
-    return Card(
-      color: activity.type.getCardColor(context),
+    return ActivityTypeColoredCard(
+      activity.type,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),

@@ -30,7 +30,7 @@ class App extends StatelessWidget {
 ThemeData _createTheme(Brightness brightness) {
   return ThemeData(
     brightness: brightness,
-    applyElevationOverlayColor: true,
+    useMaterial3: true,
     textTheme: TextTheme(
       headlineMedium: TextStyle(color: brightness.mediumEmphasisOnColor),
     ),

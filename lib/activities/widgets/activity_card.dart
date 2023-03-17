@@ -49,7 +49,27 @@ class ActivityCard extends StatelessWidget {
         child: Opacity(opacity: 0.5, child: child),
       );
     }
-    return Card(color: activity.type.getCardColor(context), child: child);
+    return ActivityTypeColoredCard(activity.type, child: child);
+  }
+}
+
+class ActivityTypeColoredCard extends StatelessWidget {
+  const ActivityTypeColoredCard(this.type, {this.shape, required this.child});
+
+  final ActivityType type;
+  final ShapeBorder? shape;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: shape,
+      surfaceTintColor: Colors.transparent,
+      color: type.tintColor.alphaBlendOn(
+        context.theme.colorScheme.surface.estimatedBrightness.color,
+      ),
+      child: child,
+    );
   }
 }
 

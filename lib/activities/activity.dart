@@ -49,11 +49,7 @@ enum ActivityType {
     }
   }
 
-  Color getCardColor(BuildContext context) {
-    return color
-        .withOpacity(0.1)
-        .alphaBlendOn(context.theme.colorScheme.surface);
-  }
+  Color get tintColor => color.withOpacity(0.1);
 }
 
 @freezed
