@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart' show IterableContainsAny;
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -37,7 +38,10 @@ class SliverActivities extends HookWidget {
           (it) =>
               typeFilters.value.isEmpty || typeFilters.value.contains(it.type),
         )
-        .where((it) => it.tags.containsAll(tagFilters.value))
+        .where(
+          (it) =>
+              tagFilters.value.isEmpty || tagFilters.value.containsAny(it.tags),
+        )
         .toList();
     return MultiSliver(children: [
       SliverToBoxAdapter(
