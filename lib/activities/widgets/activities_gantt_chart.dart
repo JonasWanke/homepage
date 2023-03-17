@@ -73,6 +73,7 @@ class ActivitiesGanttChart extends StatelessWidget {
             activity.start.difference(firstMonth) * monthWidth,
         dy: (position + 1) * _activityHeight,
         childWidthRatio: duration * monthWidth,
+        minChildWidth: _activityHeight,
         childHeight: _activityHeight,
         child: Padding(
           padding: const EdgeInsets.all(2),
@@ -123,10 +124,9 @@ class _ActivityEntry extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: Row(children: [
-        const SizedBox(width: 8),
         if (representativeTag != null)
           Padding(
-            padding: const EdgeInsets.only(top: 4, right: 8, bottom: 4),
+            padding: const EdgeInsets.all(4),
             child: AspectRatio(
               aspectRatio: 1,
               child: representativeTag.icon.widget,
