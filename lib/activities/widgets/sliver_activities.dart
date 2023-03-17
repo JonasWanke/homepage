@@ -49,7 +49,10 @@ class SliverActivities extends HookWidget {
           if (filteredActivities.isEmpty)
             const Text('No activities match your filters')
           else ...[
-            ActivitiesGanttChart(activities: filteredActivities),
+            ActivitiesGanttChart(
+              activities: filteredActivities,
+              tagFilters: tagFilters,
+            ),
             const SizedBox(height: 16),
           ],
         ]),

@@ -22,6 +22,7 @@ dependencies:
   freezed_annotation: ^2.0.3
   get_it: ^7.1.3
   intl: ^0.18.0
+  just_the_tooltip: ^0.0.12
   logger: ^1.0.0-nullsafety.0
   rxdart: ^0.27.0
   sliver_tools: ^0.2.9

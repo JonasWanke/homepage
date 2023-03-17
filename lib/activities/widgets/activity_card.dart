@@ -7,6 +7,8 @@ import 'chips.dart';
 class ActivityCard extends StatelessWidget {
   const ActivityCard(this.activity, {required this.tagFilters});
 
+  static const maxWidth = 384.0;
+
   final Activity activity;
   final ValueNotifier<Set<Tag>> tagFilters;
 
@@ -54,6 +56,7 @@ class ActivityCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             title,

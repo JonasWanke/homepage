@@ -1,20 +1,28 @@
 import 'package:align_positioned/align_positioned.dart';
 import 'package:dartx/dartx.dart'
     show ComparableSmallerEqualsExtension, IntRangeToExtension, IterableMinBy;
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../app/_.dart';
 import '../activity.dart';
 import '../local_month.dart';
+import '../tag.dart';
 import 'activity_card.dart';
 
 class ActivitiesGanttChart extends StatelessWidget {
-  ActivitiesGanttChart({super.key, required this.activities})
-      : assert(activities.isNotEmpty);
+  ActivitiesGanttChart({
+    super.key,
+    required this.activities,
+    required this.tagFilters,
+  }) : assert(activities.isNotEmpty);
 
   static const _activityHeight = 32.0;
+  static const _activityPadding = 2.0;
 
   final List<Activity> activities;
+  final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +80,8 @@ class ActivitiesGanttChart extends StatelessWidget {
         minChildWidth: _activityHeight,
         childHeight: _activityHeight,
         child: Padding(
-          padding: const EdgeInsets.all(2),
-          child: _ActivityEntry(activity),
+          padding: const EdgeInsets.all(_activityPadding),
+          child: _ActivityEntry(activity, tagFilters: tagFilters),
         ),
       );
     });
@@ -106,35 +114,54 @@ class ActivitiesGanttChart extends StatelessWidget {
   }
 }
 
-class _ActivityEntry extends StatelessWidget {
-  const _ActivityEntry(this.activity);
+class _ActivityEntry extends HookWidget {
+  const _ActivityEntry(this.activity, {required this.tagFilters});
 
   final Activity activity;
+  final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
   Widget build(BuildContext context) {
     final representativeTag = activity.tags.minBy((it) => it.index);
-    return ActivityColoredCard(
+    final child = ActivityColoredCard(
       activity,
       borderRadius: const BorderRadius.all(Radius.circular(8)),
-      child: Row(children: [
-        if (representativeTag != null)
-          Padding(
-            padding: const EdgeInsets.all(4),
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: representativeTag.icon.widget,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (representativeTag != null)
+            Padding(
+              padding: const EdgeInsets.all(4),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: representativeTag.icon.widget,
+              ),
+            ),
+          Flexible(
+            child: Text(
+              activity.title,
+              maxLines: 1,
+              softWrap: false,
+              overflow: TextOverflow.fade,
             ),
           ),
-        Expanded(
-          child: Text(
-            activity.title,
-            maxLines: 1,
-            softWrap: false,
-            overflow: TextOverflow.fade,
-          ),
-        ),
-      ]),
+        ],
+      ),
+    );
+    return JustTheTooltip(
+      borderRadius: const BorderRadius.all(Radius.circular(cardBorderRadius)),
+      backgroundColor: activity.type.color,
+      content: ConstrainedBox(
+        constraints:
+            BoxConstraints.loose(const Size.square(ActivityCard.maxWidth)),
+        child: ActivityCard(activity, tagFilters: tagFilters),
+      ),
+      child: SizedBox(
+        // Seems to be required for JustTheTooltip to work properly
+        height: ActivitiesGanttChart._activityHeight -
+            ActivitiesGanttChart._activityPadding * 2,
+        child: child,
+      ),
     );
   }
 }

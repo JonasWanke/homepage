@@ -19,7 +19,7 @@ class SliverActivitiesGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final activities = this.activities.sortedByEndLength();
     return SliverMasonryGrid.extent(
-      maxCrossAxisExtent: 384,
+      maxCrossAxisExtent: ActivityCard.maxWidth,
       mainAxisSpacing: 16,
       crossAxisSpacing: 16,
       childCount: activities.length,
