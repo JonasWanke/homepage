@@ -176,6 +176,21 @@ final activities = [
     },
   ),
   Activity(
+    'Bachelor of Science',
+    ActivityType.education,
+    start: LocalMonth(2018, 10),
+    end: LocalMonth(2021, 09),
+    description:
+        'I learned practical software engineering and more collaborative development, as well as deepened my understanding of fundamentals in the IT-Systems Engineering course of studies at the Hasso Plattner Institute.',
+    tags: {},
+    links: {
+      Link.other(
+        Uri.parse('https://hpi.de'),
+        'Homepage of the Hasso Plattner Institute',
+      ),
+    },
+  ),
+  Activity(
     'Internship: dBildungscloud (formerly HPI Schul-Cloud)',
     ActivityType.work,
     start: LocalMonth(2017, 07),

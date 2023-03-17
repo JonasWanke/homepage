@@ -1,6 +1,7 @@
 import '../../app/_.dart';
 import '../activity.dart';
 import '../tag.dart';
+import 'chips.dart';
 
 class ActivityCard extends StatelessWidget {
   const ActivityCard(this.activity, {required this.tagFilters});
@@ -26,22 +27,9 @@ class ActivityCard extends StatelessWidget {
       style: context.textTheme.titleLarge,
     );
 
-    final tags = WrapSuper(
-      spacing: 8,
-      lineSpacing: 8,
-      children: [
-        for (final tag in activity.tags.sortedBy<num>((it) => it.index))
-          _TagChip(
-            tag,
-            isSelected: tagFilters.value.contains(tag),
-            onSelectedChange: (isSelected) {
-              tagFilters.value = isSelected
-                  ? tagFilters.value.addImmutable(tag)
-                  : tagFilters.value.removeImmutable(tag);
-            },
-          ),
-      ],
-    );
+    final tags = ChipGroup(children: [
+      for (final tag in activity.tags) TagChip(tag, filters: tagFilters),
+    ]);
 
     Widget child = Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
@@ -62,35 +50,6 @@ class ActivityCard extends StatelessWidget {
       );
     }
     return Card(color: activity.type.getCardColor(context), child: child);
-  }
-}
-
-class _TagChip extends StatelessWidget {
-  const _TagChip(
-    this.tag, {
-    required this.isSelected,
-    required this.onSelectedChange,
-  });
-
-  final Tag tag;
-  final bool isSelected;
-  final ValueChanged<bool> onSelectedChange;
-
-  @override
-  Widget build(BuildContext context) {
-    return FilterChip(
-      tooltip: tag.tooltip,
-      side: BorderSide(
-        color: context.theme.colorScheme.surface.contrastColor.withOpacity(0.1),
-      ),
-      backgroundColor: Colors.transparent,
-      selected: isSelected,
-      selectedColor: context.theme.primaryColor.withOpacity(0.15),
-      showCheckmark: false,
-      onSelected: onSelectedChange,
-      avatar: tag.icon,
-      label: Text(tag.title),
-    );
   }
 }
 

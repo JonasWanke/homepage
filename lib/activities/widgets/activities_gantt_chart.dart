@@ -7,14 +7,15 @@ import 'package:dartx/dartx.dart'
         IterableSortedByDescending;
 
 import '../../app/_.dart';
-import '../activities.dart';
 import '../activity.dart';
 import '../local_month.dart';
 
 class ActivitiesGanttChart extends StatelessWidget {
-  const ActivitiesGanttChart({super.key});
+  const ActivitiesGanttChart({super.key, required this.activities});
 
   static const _activityHeight = 32.0;
+
+  final List<Activity> activities;
 
   @override
   Widget build(BuildContext context) {

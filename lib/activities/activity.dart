@@ -24,31 +24,32 @@ class Activity with _$Activity {
 }
 
 enum ActivityType {
-  competition,
-  education,
-  project,
-  volunteering,
-  work;
+  education('Education'),
+  work('Work'),
+  volunteering('Volunteering'),
+  competition('Competition'),
+  project('Project');
 
-  Color getCardColor(BuildContext context) {
-    final Color color;
+  const ActivityType(this.title);
+
+  final String title;
+
+  Color get color {
     switch (this) {
       case ActivityType.competition:
-        color = Colors.yellow;
-        break;
+        return Colors.yellow;
       case ActivityType.education:
-        color = Colors.green;
-        break;
+        return Colors.green;
       case ActivityType.project:
-        color = Colors.purple;
-        break;
+        return Colors.purple;
       case ActivityType.volunteering:
-        color = Colors.orange;
-        break;
+        return Colors.orange;
       case ActivityType.work:
-        color = Colors.blue.shade900;
-        break;
+        return Colors.blue.shade900;
     }
+  }
+
+  Color getCardColor(BuildContext context) {
     return color
         .withOpacity(0.1)
         .alphaBlendOn(context.theme.colorScheme.surface);

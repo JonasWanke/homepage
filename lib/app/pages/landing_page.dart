@@ -26,11 +26,9 @@ class LandingPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
-          const ActivitiesGanttChart(),
-          const SizedBox(height: 8),
         ]),
       ),
-      const ActivitiesSliver(),
+      const SliverActivities(),
     ]);
     return Scaffold(
       appBar: const FancyAppBar(),

@@ -27,6 +27,7 @@ dependencies:
   sliver_tools: ^0.2.9
   streaming_shared_preferences: ^2.0.0
   todo: ^2.0.0
+  tuple: ^2.0.1
   url_launcher: ^6.0.1
 
 dev_dependencies:
