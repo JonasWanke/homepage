@@ -111,10 +111,11 @@ class _ActivityEntry extends StatelessWidget {
       ),
       child: Row(children: [
         const SizedBox(width: 8),
-        if (representativeTag != null) ...[
-          AspectRatio(aspectRatio: 1, child: representativeTag.icon),
-          const SizedBox(width: 8),
-        ],
+        if (representativeTag != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4, right: 8, bottom: 4),
+            child: AspectRatio(aspectRatio: 1, child: representativeTag.icon),
+          ),
         Expanded(
           child: Text(
             activity.title,

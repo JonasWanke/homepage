@@ -32,7 +32,7 @@ class ActivityCard extends StatelessWidget {
     ]);
 
     Widget child = Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
