@@ -4,10 +4,10 @@ import 'package:dartx/dartx.dart'
         ComparableSmallerEqualsExtension,
         IntRangeToExtension,
         IterableMinBy,
-        IterableNone,
-        IterableSortedBy;
+        IterableSortedByDescending;
+import 'package:tuple/tuple.dart';
 
-import '../../app/_.dart' hide IterableExtension;
+import '../../app/_.dart';
 import '../activity.dart';
 import '../local_month.dart';
 import 'activity_card.dart';
@@ -50,7 +50,17 @@ class ActivitiesGanttChart extends StatelessWidget {
       );
     });
 
-    final positions = _calculateActivityPositions(activities);
+    final maxYAndPositions = activities
+        .groupListsBy((it) => it.type)
+        .entries
+        .sortedBy<num>((it) => it.key.index)
+        .fold(const Tuple2(0, <Activity, int>{}), (state, it) {
+      final positions = _calculateActivityPositions(it.value, state.item1);
+      positions.addAll(state.item2);
+      return Tuple2(positions.values.max + 1, positions);
+    });
+    final maxY = maxYAndPositions.item1;
+    final positions = maxYAndPositions.item2;
     final activityChildren = positions.entries.map((it) {
       final activity = it.key;
       final position = it.value;
@@ -72,15 +82,18 @@ class ActivitiesGanttChart extends StatelessWidget {
     });
 
     return SizedBox(
-      height: (positions.values.max + 2.25) * _activityHeight,
+      height: (maxY + 1.25) * _activityHeight,
       child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
     );
   }
 
-  Map<Activity, int> _calculateActivityPositions(List<Activity> activities) {
+  Map<Activity, int> _calculateActivityPositions(
+    List<Activity> activities,
+    int minY,
+  ) {
     final yPositions = <Activity, int>{};
-    for (final activity in activities.sortedByTypeEndLength()) {
-      var y = 0;
+    for (final activity in activities.sortedByEndLength()) {
+      var y = minY;
       while (true) {
         final intersectingActivities =
             yPositions.entries.where((it) => it.value == y).map((it) => it.key);
@@ -139,9 +152,8 @@ extension on Activity {
 }
 
 extension on List<Activity> {
-  List<Activity> sortedByTypeEndLength() {
-    return sortedBy((it) => it.type.index)
-        .thenByDescending((it) => it.end ?? LocalMonth.current)
+  List<Activity> sortedByEndLength() {
+    return sortedByDescending((it) => it.end ?? LocalMonth.current)
         .thenByDescending((it) => it.start);
   }
 }
