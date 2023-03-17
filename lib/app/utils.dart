@@ -15,6 +15,8 @@ bool get isInDebugMode {
   return inDebugMode;
 }
 
+const cardBorderRadius = 16.0;
+
 /// Tries launching a url.
 Future<bool> tryLaunchingUrl(Uri url) async {
   logger.i("Trying to launch url '$url'…");

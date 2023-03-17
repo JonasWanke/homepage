@@ -14,7 +14,8 @@ class ActivityTypeChip extends StatelessWidget {
       type,
       filters,
       type.title,
-      backgroundColor: type.tintColor,
+      backgroundColor: type.backgroundColor,
+      borderColor: type.borderColor,
     );
   }
 }
@@ -45,6 +46,7 @@ class _Chip<T> extends StatelessWidget {
     this.avatar,
     this.tooltip,
     this.backgroundColor,
+    this.borderColor,
   });
 
   final T value;
@@ -53,35 +55,25 @@ class _Chip<T> extends StatelessWidget {
   final Widget? avatar;
   final String? tooltip;
   final Color? backgroundColor;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
     final isSelected = filters.value.contains(value);
-
-    final Color unselectedSideColor;
-    final Color backgroundColor;
-    final Color? selectedColor;
-    if (this.backgroundColor == null) {
-      unselectedSideColor =
-          context.theme.colorScheme.surface.contrastColor.withOpacity(0.1);
-      backgroundColor = Colors.transparent;
-      selectedColor = null;
-    } else {
-      unselectedSideColor = this.backgroundColor!.withOpacity(0.4);
-      backgroundColor = this.backgroundColor!;
-      selectedColor = this.backgroundColor!.withOpacity(0.4);
-    }
-
     return Theme(
       data: ThemeData(canvasColor: Colors.transparent),
       child: FilterChip(
         tooltip: tooltip,
         side: isSelected
             ? BorderSide.none
-            : BorderSide(color: unselectedSideColor),
-        backgroundColor: backgroundColor,
+            : BorderSide(
+                color: borderColor ??
+                    context.theme.colorScheme.surface.contrastColor
+                        .withOpacity(0.1),
+              ),
+        backgroundColor: backgroundColor ?? Colors.transparent,
         selected: isSelected,
-        selectedColor: selectedColor,
+        selectedColor: borderColor,
         onSelected: (isSelected) {
           filters.value = isSelected
               ? filters.value.addImmutable(value)

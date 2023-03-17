@@ -21,7 +21,7 @@ class LandingPage extends StatelessWidget {
           Center(child: _ContactWidget()),
           SizedBox(height: context.mediaQuery.size.height / 6),
           Text(
-            'What I do:',
+            'What I do/did:',
             style: context.textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),

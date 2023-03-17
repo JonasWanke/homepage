@@ -13,6 +13,7 @@ class Activity with _$Activity {
   const factory Activity(
     String title,
     ActivityType type, {
+    @Default(false) bool isHighlight,
     required LocalMonth start,
     LocalMonth? end,
     required String? description,
@@ -50,7 +51,8 @@ enum ActivityType {
     }
   }
 
-  Color get tintColor => color.withOpacity(0.1);
+  Color get backgroundColor => color.withOpacity(0.1);
+  Color get borderColor => color.withOpacity(0.4);
 }
 
 @freezed

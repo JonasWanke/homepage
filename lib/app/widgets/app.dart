@@ -37,7 +37,7 @@ ThemeData _createTheme(Brightness brightness) {
     cardTheme: const CardTheme(
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(Radius.circular(cardBorderRadius)),
       ),
     ),
   );

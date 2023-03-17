@@ -118,11 +118,9 @@ class _ActivityEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final representativeTag = activity.tags.minBy((it) => it.index);
-    return ActivityTypeColoredCard(
-      activity.type,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-      ),
+    return ActivityColoredCard(
+      activity,
+      borderRadius: const BorderRadius.all(Radius.circular(8)),
       child: Row(children: [
         if (representativeTag != null)
           Padding(

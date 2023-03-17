@@ -31,43 +31,49 @@ class ActivityCard extends StatelessWidget {
       for (final tag in activity.tags) TagChip(tag, filters: tagFilters),
     ]);
 
-    Widget child = Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          title,
-          if (activity.description != null) ...[
-            Text(activity.description!),
-            const SizedBox(height: 8),
+    return ActivityColoredCard(
+      activity,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            title,
+            if (activity.description != null) ...[
+              Text(activity.description!),
+              const SizedBox(height: 8),
+            ],
+            tags,
           ],
-          tags,
-        ],
+        ),
       ),
     );
-    if (!activity.isOngoing) {
-      child = Tooltip(
-        message: 'This activity has ended.',
-        child: Opacity(opacity: 0.5, child: child),
-      );
-    }
-    return ActivityTypeColoredCard(activity.type, child: child);
   }
 }
 
-class ActivityTypeColoredCard extends StatelessWidget {
-  const ActivityTypeColoredCard(this.type, {this.shape, required this.child});
+class ActivityColoredCard extends StatelessWidget {
+  const ActivityColoredCard(
+    this.activity, {
+    this.borderRadius,
+    required this.child,
+  });
 
-  final ActivityType type;
-  final ShapeBorder? shape;
+  final Activity activity;
+  final BorderRadius? borderRadius;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: shape,
+      shape: RoundedRectangleBorder(
+        side: activity.isHighlight
+            ? BorderSide(color: activity.type.borderColor)
+            : BorderSide.none,
+        borderRadius: borderRadius ??
+            const BorderRadius.all(Radius.circular(cardBorderRadius)),
+      ),
       surfaceTintColor: Colors.transparent,
-      color: type.tintColor.alphaBlendOn(
+      color: activity.type.backgroundColor.alphaBlendOn(
         context.theme.colorScheme.surface.estimatedBrightness.color,
       ),
       child: child,

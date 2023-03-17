@@ -10,6 +10,7 @@ final activities = [
   Activity(
     'Bachelor of Science',
     ActivityType.education,
+    isHighlight: true,
     start: LocalMonth(2018, 10),
     end: LocalMonth(2021, 09),
     description:
@@ -22,6 +23,7 @@ final activities = [
   Activity(
     'Flutter, Dart, & Google Cloud Developer at smusy.',
     ActivityType.work,
+    isHighlight: true,
     start: LocalMonth(2020, 09),
     description:
         'I co-architected and co-designed the smusy.app, dashboards, backend, and API.',
@@ -38,6 +40,7 @@ final activities = [
   Activity(
     'Android Developer for Skill Checker',
     ActivityType.work,
+    isHighlight: true,
     start: LocalMonth(2018, 11),
     end: LocalMonth(2019, 02),
     description:
@@ -48,6 +51,7 @@ final activities = [
   Activity(
     'Flutter and Android developer at dBildungscloud',
     ActivityType.work,
+    isHighlight: true,
     start: LocalMonth(2017, 12),
     end: LocalMonth(2021, 03),
     description:
@@ -78,6 +82,7 @@ final activities = [
   Activity(
     'WorldSkills Germany Expert',
     ActivityType.volunteering,
+    isHighlight: true,
     start: LocalMonth(2020, 06),
     description:
         'I co-organized national competitions and prepared competitors for WorldSkills as the expert and national coach for the skill/discipline “Mobile Applications Development” at WorldSkills Germany.',
@@ -134,6 +139,7 @@ final activities = [
   Activity(
     'WorldSkills Germany Jury Member & National Trainer',
     ActivityType.volunteering,
+    isHighlight: true,
     start: LocalMonth(2018, 02),
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
@@ -148,6 +154,7 @@ final activities = [
   Activity(
     '🥉 Bronze Medal at the WorldSkills Abu Dhabi 2017',
     ActivityType.competition,
+    isHighlight: true,
     start: LocalMonth(2017, 10),
     end: LocalMonth(2017, 10),
     description:
@@ -187,6 +194,7 @@ final activities = [
   Activity(
     'DOSUAS',
     ActivityType.competition,
+    isHighlight: true,
     start: LocalMonth(2017, 12),
     end: LocalMonth(2018, 05),
     description:
@@ -303,6 +311,7 @@ final activities = [
   Activity(
     '🍭 Candy',
     ActivityType.project,
+    isHighlight: true,
     start: LocalMonth(2020, 06),
     description:
         "A sweet programming language that is robust, minimalistic, and expressive. We're creating this language from scratch.",
@@ -383,6 +392,7 @@ final activities = [
   Activity(
     '📅 Timetable',
     ActivityType.project,
+    isHighlight: true,
     start: LocalMonth(2020, 01),
     description:
         'Customizable flutter calendar widget including day and week views',
