@@ -37,8 +37,10 @@ class ActivityCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           title,
-          Text(activity.description),
-          const SizedBox(height: 8),
+          if (activity.description != null) ...[
+            Text(activity.description!),
+            const SizedBox(height: 8),
+          ],
           tags,
         ],
       ),
