@@ -4,11 +4,13 @@ import 'package:dartx/dartx.dart'
         ComparableSmallerEqualsExtension,
         IntRangeToExtension,
         IterableMinBy,
-        IterableSortedByDescending;
+        IterableNone,
+        IterableSortedBy;
 
-import '../../app/_.dart';
+import '../../app/_.dart' hide IterableExtension;
 import '../activity.dart';
 import '../local_month.dart';
+import 'activity_card.dart';
 
 class ActivitiesGanttChart extends StatelessWidget {
   const ActivitiesGanttChart({super.key, required this.activities});
@@ -22,8 +24,6 @@ class ActivitiesGanttChart extends StatelessWidget {
     if (activities.isEmpty) return const SizedBox();
 
     final currentMonth = LocalMonth.current;
-    final yPositions = _calculateActivityPositions();
-
     final firstMonth = activities.map((it) => it.start).min;
     final lastMonth = currentMonth.plus(months: 1);
     final monthWidth = 1 / lastMonth.difference(firstMonth);
@@ -51,9 +51,10 @@ class ActivitiesGanttChart extends StatelessWidget {
       );
     });
 
-    final activityChildren = yPositions.entries.map((it) {
+    final positions = _calculateActivityPositions(activities);
+    final activityChildren = positions.entries.map((it) {
       final activity = it.key;
-      final yPosition = it.value;
+      final position = it.value;
 
       final duration =
           (activity.end ?? currentMonth).difference(activity.start) + 1;
@@ -61,7 +62,7 @@ class ActivitiesGanttChart extends StatelessWidget {
         alignment: Alignment.topLeft,
         moveByContainerWidth:
             activity.start.difference(firstMonth) * monthWidth,
-        dy: (yPosition + 1) * _activityHeight,
+        dy: (position + 1) * _activityHeight,
         childWidthRatio: duration * monthWidth,
         childHeight: _activityHeight,
         child: Padding(
@@ -72,14 +73,14 @@ class ActivitiesGanttChart extends StatelessWidget {
     });
 
     return SizedBox(
-      height: (yPositions.values.max + 2.25) * _activityHeight,
+      height: (positions.values.max + 2.25) * _activityHeight,
       child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
     );
   }
 
-  Map<Activity, int> _calculateActivityPositions() {
+  Map<Activity, int> _calculateActivityPositions(List<Activity> activities) {
     final yPositions = <Activity, int>{};
-    for (final activity in activities.sortedByEndLength()) {
+    for (final activity in activities.sortedByTypeEndLength()) {
       var y = 0;
       while (true) {
         final intersectingActivities =
@@ -138,8 +139,9 @@ extension on Activity {
 }
 
 extension on List<Activity> {
-  List<Activity> sortedByEndLength() {
-    return sortedByDescending((it) => it.end ?? LocalMonth.current)
+  List<Activity> sortedByTypeEndLength() {
+    return sortedBy((it) => it.type.index)
+        .thenByDescending((it) => it.end ?? LocalMonth.current)
         .thenByDescending((it) => it.start);
   }
 }
