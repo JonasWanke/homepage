@@ -142,7 +142,7 @@ class _ActivityEntry extends HookWidget {
               activity.title,
               maxLines: 1,
               softWrap: false,
-              overflow: TextOverflow.fade,
+              overflow: TextOverflow.clip,
             ),
           ),
         ],
