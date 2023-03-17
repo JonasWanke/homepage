@@ -80,7 +80,10 @@ class _Chip<T> extends StatelessWidget {
               : filters.value.removeImmutable(value);
         },
         avatar: avatar,
-        label: Text(label),
+        label: Text(
+          label,
+          style: TextStyle(color: context.textTheme.labelMedium!.color),
+        ),
       ),
     );
   }

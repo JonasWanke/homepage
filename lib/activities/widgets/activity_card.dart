@@ -73,9 +73,8 @@ class ActivityColoredCard extends StatelessWidget {
             const BorderRadius.all(Radius.circular(cardBorderRadius)),
       ),
       surfaceTintColor: Colors.transparent,
-      color: activity.type.backgroundColor.alphaBlendOn(
-        context.theme.colorScheme.surface.estimatedBrightness.color,
-      ),
+      color: activity.type.backgroundColor
+          .alphaBlendOn(context.theme.colorScheme.surface),
       child: child,
     );
   }

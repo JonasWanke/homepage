@@ -31,9 +31,9 @@ class LandingPage extends StatelessWidget {
       const SliverActivities(),
     ]);
     return Scaffold(
-      appBar: const FancyAppBar(),
       body: AdaptivePage(
         builder: (horizontalMargin) => CustomScrollView(slivers: [
+          const SliverToBoxAdapter(child: FancyAppBar()),
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
             sliver: content,
