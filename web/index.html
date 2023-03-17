@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jonas Wanke</title>
+    <meta name="description" content="Homepage of Jonas Wanke" />
+    <base href="/" />
 
-<head>
-  <meta charset="utf-8">
-  <title>Jonas Wanke</title>
-  <meta name="description" content="Homepage of Jonas Wanke">
-  <base href="/">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
 
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <meta name="theme-color" content="#3f51b5" />
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <meta name="theme-color" content="#3f51b5">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="homepage" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  </head>
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="homepage">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-</head>
-
-<body>
-  <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
+  <body>
+    <script>
+      var serviceWorkerVersion = null;
+      var scriptLoaded = false;
+      function loadMainDartJs() {
+        if (scriptLoaded) {
+          return;
+        }
+        scriptLoaded = true;
+        var scriptTag = document.createElement('script');
+        scriptTag.src = 'main.dart.js';
+        scriptTag.type = 'application/javascript';
+        document.body.append(scriptTag);
       }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register(serviceWorkerUrl)
-          .then((reg) => {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          var serviceWorkerUrl =
+            'flutter_service_worker.js?v=' + serviceWorkerVersion;
+          navigator.serviceWorker.register(serviceWorkerUrl).then((reg) => {
             function waitForActivation(serviceWorker) {
               serviceWorker.addEventListener('statechange', () => {
                 if (serviceWorker.state == 'activated') {
@@ -60,19 +59,18 @@
             }
           });
 
-        setTimeout(() => {
-          if (!scriptLoaded) {
-            console.warn(
-              'Failed to load app from service worker. Falling back to plain <script> tag.',
-            );
-            loadMainDartJs();
-          }
-        }, 4000);
-      });
-    } else {
-      loadMainDartJs();
-    }
-  </script>
-</body>
-
+          setTimeout(() => {
+            if (!scriptLoaded) {
+              console.warn(
+                'Failed to load app from service worker. Falling back to plain <script> tag.'
+              );
+              loadMainDartJs();
+            }
+          }, 4000);
+        });
+      } else {
+        loadMainDartJs();
+      }
+    </script>
+  </body>
 </html>
