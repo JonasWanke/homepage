@@ -1,5 +1,3 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../app/_.dart';
 import 'activity.dart';
 import 'local_month.dart';
@@ -32,6 +30,7 @@ final activities = [
       Tag.android,
       Tag.dart,
       Tag.flutter,
+      Tag.firebase,
       Tag.googleCloudPlatform,
       Tag.terraform,
     },
@@ -62,10 +61,9 @@ final activities = [
     links: {
       const Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
       _dBildungscloudHomepageLink,
-      Link.other(
+      Link.article(
         Uri.parse('https://blog.dbildungscloud.de/author/jonas-wanke/'),
         'Blog article by me',
-        icon: const Icon(Icons.article_outlined),
       ),
     },
   ),
@@ -77,7 +75,7 @@ final activities = [
     description:
         "During summer vacations at school, I worked on the HPI Schul-Cloud's (now called dBildungscloud) Android app.",
     primaryTag: PrimaryTag.dBildungscloud,
-    tags: {Tag.android, Tag.java},
+    tags: {Tag.android, Tag.firebase, Tag.java},
     links: {_dBildungscloudHomepageLink},
   ),
 
@@ -114,12 +112,11 @@ final activities = [
         'Members of the Culinary Club regularly meet to cook or bake together. I was responsible for the baking part and organized a motive cake workshop. I also lead the creation of the HPI summer party cake in 2019 feeding around 400 people.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
     links: {
-      Link.other(
+      Link.newspaperArticle(
+        'Märkische Allgemeine Zeitung',
         Uri.parse(
           'https://www.maz-online.de/lokales/potsdam/hpi-feiert-14-sommerfest-in-potsdam-SSDZ5UPGFDFJ45JT2IA3J4YVKM.html',
         ),
-        'Article about the HPI summer party 2019 including a photo of the cake',
-        icon: const Icon(Icons.cake_outlined),
       ),
     },
   ),
@@ -156,16 +153,15 @@ final activities = [
     start: LocalMonth(2017, 10),
     end: LocalMonth(2017, 10),
     description:
-        'I won a bronze medal (first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor',
+        'I won a bronze medal (first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
-      Link.other(
+      Link.competitionResults(
         Uri.parse(
           'https://worldskillsabudhabi2017.com/en/skills/it-software-solutions-business/index.html',
         ),
         'Official results of this skill',
-        icon: const Icon(FontAwesomeIcons.award),
       ),
       Link.other(
         Uri.parse(
@@ -174,19 +170,17 @@ final activities = [
         "WorldSkills Germany's page about this event",
         icon: const Icon(Icons.web_outlined),
       ),
-      Link.other(
+      Link.article(
         Uri.parse(
           'https://www.worldskillsgermany.com/blog/2017/10/20/deutsches-nationalteam-mit-guter-wm-bilanz/',
         ),
         "WorldSkills Germany's article about this event's results",
-        icon: const Icon(Icons.article_outlined),
       ),
-      Link.other(
+      Link.newspaperArticle(
+        'Berliner Woche',
         Uri.parse(
           'https://www.berliner-woche.de/adlershof/c-leute/gymnasiast-jonas-wanke-aus-adlershof-holte-bei-der-weltmeisterschaft-worldskills-bronze_a135986',
         ),
-        'Article in the newspaper “Berliner Woche”',
-        icon: const Icon(Icons.article_outlined),
       ),
     },
   ),
@@ -200,19 +194,17 @@ final activities = [
         "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D-picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
     primaryTag: PrimaryTag.jugendForscht,
     links: {
-      Link.other(
+      Link.competitionResults(
         Uri.parse(
           'https://www.eduard-rhein-stiftung.de/konrad-zuse-jugendpreises-2018-fuer-informatik-der-eduard-rhein-stiftung-dosuas-die-symphonie-des-sehens-akustischer-wegweiser/',
         ),
         "Entry about the youth prize on the Eduard Rhein Foundation's website",
-        icon: const Icon(FontAwesomeIcons.award),
       ),
-      Link.other(
+      Link.newspaperArticle(
+        'Berliner Woche',
         Uri.parse(
           'https://www.berliner-woche.de/friedrichshain/c-bildung/mit-den-ohren-sehen-sonderpreis-fuer-friedrichshainer-schueler-bei-jugend-forscht_a163463',
         ),
-        'Article in the newspaper “Berliner Woche”',
-        icon: const Icon(Icons.article_outlined),
       ),
     },
   ),
@@ -226,33 +218,38 @@ final activities = [
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
-      Link.other(
-        Uri.parse(
-          'https://worldskillsabudhabi2017.com/en/skills/it-software-solutions-business/index.html',
-        ),
-        'Official results of this skill',
-        icon: const Icon(FontAwesomeIcons.award),
+      const Link.youTubeVideo('BsBxcwiwOeg', 'Video about this event'),
+      Link.article(
+        Uri.parse('https://hhgym.de/worldskills-einstein-cup/'),
+        "My school's article about this event",
       ),
-      Link.other(
+      Link.article(
         Uri.parse(
-          'https://www.worldskillsgermany.com/hall-of-fame/worldskills/worldskills-abu-dhabi-2017/',
+          'https://www.worldskillsgermany.com/blog/2017/06/01/junge-europaeische-it-exzellenz-beim-albert-einstein-cup/',
         ),
-        "WorldSkills Germany's page about this event",
-        icon: const Icon(Icons.web_outlined),
+        "WorldSkills Germany's article about this event",
       ),
-      Link.other(
-        Uri.parse(
-          'https://www.worldskillsgermany.com/blog/2017/10/20/deutsches-nationalteam-mit-guter-wm-bilanz/',
-        ),
-        "WorldSkills Germany's article about this event's results",
-        icon: const Icon(Icons.article_outlined),
+    },
+  ),
+  Activity(
+    '🥈 Silver Medal at the German championships',
+    ActivityType.competition,
+    start: LocalMonth(2017, 02),
+    end: LocalMonth(2017, 02),
+    description:
+        'I won the silver medal (2nd place) at the German championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among eight competitors.',
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.cSharp, Tag.kotlin},
+    links: {
+      Link.article(
+        Uri.parse('https://hhgym.de/deutsche-meisterschaften-der-it-berufe/'),
+        "My school's article about this event",
       ),
-      Link.other(
+      Link.article(
         Uri.parse(
-          'https://www.berliner-woche.de/adlershof/c-leute/gymnasiast-jonas-wanke-aus-adlershof-holte-bei-der-weltmeisterschaft-worldskills-bronze_a135986',
+          'https://www.worldskillsgermany.com/blog/2017/02/20/meisterhaft-junge-berufe%e2%80%90champions-ueberzeugen-mit-top%e2%80%90leistungen-auf-der-didacta/',
         ),
-        'Article in the newspaper “Berliner Woche”',
-        icon: const Icon(Icons.article_outlined),
+        "WorldSkills Germany's article about this event",
       ),
     },
   ),
@@ -261,23 +258,14 @@ final activities = [
     ActivityType.competition,
     start: LocalMonth(2016, 06),
     end: LocalMonth(2016, 06),
-    description:
-        'I won a silver medal in computer science at the Mathematical Grammar School Cup in Belgrade.',
+    description: 'I won a silver medal in the computer science category.',
+    primaryTag: PrimaryTag.mathematicalGrammarSchoolCup,
     tags: {Tag.cSharp},
     links: {
-      Link.other(
-        Uri.parse(
-          'https://www.eduard-rhein-stiftung.de/konrad-zuse-jugendpreises-2018-fuer-informatik-der-eduard-rhein-stiftung-dosuas-die-symphonie-des-sehens-akustischer-wegweiser/',
-        ),
-        "Entry about the youth prize on the Eduard Rhein Foundation's website",
-        icon: const Icon(FontAwesomeIcons.award),
-      ),
-      Link.other(
-        Uri.parse(
-          'https://www.berliner-woche.de/friedrichshain/c-bildung/mit-den-ohren-sehen-sonderpreis-fuer-friedrichshainer-schueler-bei-jugend-forscht_a163463',
-        ),
-        'Article in the newspaper “Berliner Woche”',
-        icon: const Icon(Icons.article_outlined),
+      Link.homepage(Uri.parse('https://www.cup.mg.edu.rs/')),
+      Link.competitionResults(
+        Uri.parse('https://www.cup.mg.edu.rs/mgsc/mgsc-2016'),
+        'Problems, solutions, and results of this competition',
       ),
     },
   ),
@@ -427,23 +415,22 @@ final activities = [
     description:
         'Light your Dog developed illuminated dog harnesses as an alternative to lighted collars. The harness is fitted to the anatomy of the dog and is optionally customizable using an android app via bluetooth, e.g., for changing colors. With this project, we participated in the competition Jugend forscht.',
     primaryTag: PrimaryTag.jugendForscht,
-    tags: {Tag.android, Tag.java},
+    tags: {Tag.android, Tag.firebase, Tag.java},
     links: {
       const Link.instagram('lightyourdog'),
       const Link.twitter('LightYourDog'),
-      Link.other(
+      Link.newspaperArticle(
+        'Berliner Woche',
         Uri.parse(
           'https://www.berliner-woche.de/koepenick/c-bildung/jugend-forscht-hundegeschirr-bringt-bello-zum-leuchten_a119538',
         ),
-        'Article in the newspaper “Berliner Woche”',
-        icon: const Icon(Icons.article_outlined),
       ),
     },
   ),
 ];
 
 final _germanItSkillsSocialLinks = {
-  const Link.youTube('GermanItSkills'),
+  const Link.youTubeChannel('GermanItSkills'),
   const Link.instagram('german.it.skills'),
   const Link.facebook('GermanItSkills'),
   const Link.twitter('GermanItSkills'),

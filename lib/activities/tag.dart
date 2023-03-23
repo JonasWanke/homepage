@@ -15,10 +15,12 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
   const factory PrimaryTag(String title, String description, BrandIcon icon) =
       _PrimaryTag;
 
+  // Sorted alphabetically
   static final values = [
     dBildungscloud,
     hassoPlattnerInstitute,
     jugendForscht,
+    mathematicalGrammarSchoolCup,
     smusy,
     worldSkills,
   ];
@@ -30,13 +32,18 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
   );
   static const hassoPlattnerInstitute = PrimaryTag(
     'Hasso Plattner Institute',
-    'The Hasso Plattner Institute for Digital Engineering hosts the Digital Engineering Faculty of the University of Potsdam.',
+    'The Hasso Plattner Institute for Digital Engineering hosts the Digital Engineering Faculty of the University of Potsdam, Germany.',
     BrandIcon.hassoPlattnerInstitute,
   );
   static const jugendForscht = PrimaryTag(
     'Jugend forscht',
-    'A German youth science competition',
+    'Jugend forscht is an annual German youth STEM competition.',
     BrandIcon.jugendForscht,
+  );
+  static const mathematicalGrammarSchoolCup = PrimaryTag(
+    'Mathematical Grammar School Cup',
+    'The Mathematical Grammar School Cup is a competition in mathematics, physics, and computer science, hosted by the Mathematical Grammar School in Belgrade, Serbia.',
+    BrandIcon.mathematicalGrammarSchool,
   );
   static const smusy = PrimaryTag(
     'smusy.',
@@ -54,12 +61,14 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
 class Tag extends BaseTag with _$Tag {
   const factory Tag(String title, String description, BrandIcon icon) = _Tag;
 
+  // Sorted by importance
   static final values = [
     flutter,
     dart,
     rust,
     terraform,
     googleCloudPlatform,
+    firebase,
     android,
     kotlin,
     cSharp,
@@ -85,6 +94,11 @@ class Tag extends BaseTag with _$Tag {
     'Flutter',
     '“Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.”',
     BrandIcon.flutter,
+  );
+  static const firebase = Tag(
+    'Firebase',
+    'Firebase is an app development platform by Google for building and growing apps and games.',
+    BrandIcon.firebase,
   );
   static const googleCloudPlatform = Tag(
     'Google Cloud Platform',

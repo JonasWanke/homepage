@@ -6,6 +6,7 @@ enum BrandIcon {
   dart(proportionalPadding: EdgeInsets.all(0.1)),
   dBildungscloud(),
   facebook(),
+  firebase(),
   flutter(),
   googleCloudPlatform(),
   googlePlay(),
@@ -16,6 +17,7 @@ enum BrandIcon {
   kotlin(
     proportionalPadding: EdgeInsets.only(left: 0.2, top: 0.1, bottom: 0.1),
   ),
+  mathematicalGrammarSchool(),
   rust(),
   smusy(proportionalPadding: EdgeInsets.all(0.15)),
   terraform(proportionalPadding: EdgeInsets.all(0.1)),

@@ -66,14 +66,21 @@ enum ActivityType {
 
 @freezed
 class Link with _$Link {
+  const factory Link.article(Uri url, String tooltip) = _ArticleLink;
+  const factory Link.competitionResults(Uri url, String tooltip) =
+      _CompetitionResultsLink;
   const factory Link.facebook(String pageName) = _FacebookLink;
   const factory Link.gitHub(String owner, String repo) = _GitHubLink;
   const factory Link.googlePlay(String applicationId) = _GooglePlayLink;
   const factory Link.homepage(Uri url) = _HomepageLink;
   const factory Link.instagram(String username) = _InstagramLink;
+  const factory Link.newspaperArticle(String newspaperName, Uri url) =
+      _NewspaperArticleLink;
   const factory Link.pubDev(String packageName) = _PubDevLink;
   const factory Link.twitter(String username) = _TwitterLink;
-  const factory Link.youTube(String handle) = _YouTubeLink;
+  const factory Link.youTubeChannel(String handle) = _YouTubeChannelLink;
+  const factory Link.youTubeVideo(String id, String tooltip) =
+      _YouTubeVideoLink;
   const factory Link.other(
     Uri url,
     String tooltip, {
@@ -83,20 +90,26 @@ class Link with _$Link {
 
   Widget get icon {
     return map(
+      article: (_) => const Icon(Icons.article_outlined),
+      competitionResults: (_) => const Icon(FontAwesomeIcons.award),
       facebook: (_) => BrandIcon.facebook.widget,
       gitHub: (_) => const Icon(FontAwesomeIcons.github),
       googlePlay: (_) => BrandIcon.googlePlay.widget,
       homepage: (_) => const Icon(Icons.web_outlined),
       instagram: (_) => BrandIcon.instagram.widget,
+      newspaperArticle: (_) => const Icon(Icons.article_outlined),
       pubDev: (_) => BrandIcon.dart.widget,
       twitter: (_) => BrandIcon.twitter.widget,
-      youTube: (_) => BrandIcon.youTube.widget,
+      youTubeChannel: (_) => BrandIcon.youTube.widget,
+      youTubeVideo: (_) => BrandIcon.youTube.widget,
       other: (it) => it.icon,
     );
   }
 
   Uri get url {
     return map(
+      article: (it) => it.url,
+      competitionResults: (it) => it.url,
       facebook: (it) => Uri.https('facebook.com', '/${it.pageName}'),
       gitHub: (it) => Uri.https('github.com', '/${it.owner}/${it.repo}'),
       googlePlay: (it) => Uri.https(
@@ -105,23 +118,30 @@ class Link with _$Link {
       ),
       homepage: (it) => it.url,
       instagram: (it) => Uri.https('instagram.com', '/${it.username}'),
+      newspaperArticle: (it) => it.url,
       pubDev: (it) => Uri.https('pub.dev', '/packages/${it.packageName}'),
       twitter: (it) => Uri.https('twitter.com', '/${it.username}'),
-      youTube: (it) => Uri.https('youtube.com', '/@${it.handle}'),
+      youTubeChannel: (it) => Uri.https('youtube.com', '/@${it.handle}'),
+      youTubeVideo: (it) => Uri.https('youtube.com', '/watch', {'v': it.id}),
       other: (it) => it.url,
     );
   }
 
   String get tooltip {
     return map(
+      article: (it) => it.tooltip,
+      competitionResults: (it) => it.tooltip,
       facebook: (_) => 'View on Facebook',
       gitHub: (_) => 'View on GitHub',
       googlePlay: (_) => 'View on Google Play',
       homepage: (_) => 'Open homepage',
       instagram: (_) => 'View on Instagram',
+      newspaperArticle: (it) =>
+          'Read an article in the newspaper “${it.newspaperName}”',
       pubDev: (_) => 'View on pub.dev',
       twitter: (_) => 'View on Twitter',
-      youTube: (_) => 'View on YouTube',
+      youTubeChannel: (_) => 'View channel on YouTube',
+      youTubeVideo: (it) => it.tooltip,
       other: (it) => it.tooltip,
     );
   }
