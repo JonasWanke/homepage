@@ -39,8 +39,8 @@ class SliverActivities extends HookWidget {
           getFromActivity: (it) => [it.type],
         )
         .whereFiltersMatch(
-          typeFilters.value,
-          getFromActivity: (it) => [if (it.primaryTag != null) it.primaryTag],
+          primaryTagFilters.value,
+          getFromActivity: (it) => [if (it.primaryTag != null) it.primaryTag!],
         )
         .whereFiltersMatch(tagFilters.value, getFromActivity: (it) => it.tags)
         .toList();
