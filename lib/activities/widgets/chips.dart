@@ -1,6 +1,7 @@
 import '../../app/_.dart';
 import '../activity.dart';
 import '../tag.dart';
+import 'sliver_activities.dart';
 
 class ActivityTypeChip extends StatelessWidget {
   const ActivityTypeChip(this.type, {required this.filters});
@@ -20,11 +21,11 @@ class ActivityTypeChip extends StatelessWidget {
   }
 }
 
-class TagChip extends StatelessWidget {
+class TagChip<T extends BaseTag> extends StatelessWidget {
   const TagChip(this.tag, {required this.filters});
 
-  final Tag tag;
-  final ValueNotifier<Set<Tag>> filters;
+  final T tag;
+  final ValueNotifier<Set<T>> filters;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class TagChip extends StatelessWidget {
       filters,
       tag.title,
       avatar: tag.icon.widget,
-      tooltip: tag.tooltip,
+      tooltip: tag.description,
     );
   }
 }
@@ -74,11 +75,7 @@ class _Chip<T> extends StatelessWidget {
         backgroundColor: backgroundColor ?? Colors.transparent,
         selected: isSelected,
         selectedColor: borderColor,
-        onSelected: (isSelected) {
-          filters.value = isSelected
-              ? filters.value.addImmutable(value)
-              : filters.value.removeImmutable(value);
-        },
+        onSelected: (isSelected) => filters.set(value, isSelected),
         avatar: avatar,
         label: Text(
           label,

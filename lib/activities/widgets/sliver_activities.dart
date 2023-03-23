@@ -16,37 +16,40 @@ class SliverActivities extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final typeFilters = useState(<ActivityType>{});
-    final typeFilterWidget = ChipGroup(
-      alignment: WrapSuperAlignment.center,
-      children: [
-        for (final type in ActivityType.values)
-          ActivityTypeChip(type, filters: typeFilters),
-      ],
+    final typeFilterWidget = _ChipGroupFilterWidget(
+      ActivityType.values,
+      buildChip: (it) => ActivityTypeChip(it, filters: typeFilters),
+    );
+
+    final primaryTagFilters = useState(<PrimaryTag>{});
+    final primaryTagFilterWidget = _ChipGroupFilterWidget(
+      PrimaryTag.values,
+      buildChip: (it) => TagChip(it, filters: primaryTagFilters),
     );
 
     final tagFilters = useState(<Tag>{});
-    final tagFilterWidget = ChipGroup(
-      alignment: WrapSuperAlignment.center,
-      children: [
-        for (final tag in Tag.values.sortedBy((it) => it.title))
-          TagChip(tag, filters: tagFilters),
-      ],
+    final tagFilterWidget = _ChipGroupFilterWidget(
+      Tag.values.sortedBy((it) => it.title),
+      buildChip: (it) => TagChip(it, filters: tagFilters),
     );
 
     final filteredActivities = activities
-        .where(
-          (it) =>
-              typeFilters.value.isEmpty || typeFilters.value.contains(it.type),
+        .whereFiltersMatch(
+          typeFilters.value,
+          getFromActivity: (it) => [it.type],
         )
-        .where(
-          (it) =>
-              tagFilters.value.isEmpty || tagFilters.value.containsAny(it.tags),
+        .whereFiltersMatch(
+          typeFilters.value,
+          getFromActivity: (it) => [if (it.primaryTag != null) it.primaryTag],
         )
+        .whereFiltersMatch(tagFilters.value, getFromActivity: (it) => it.tags)
         .toList();
     return MultiSliver(children: [
       SliverToBoxAdapter(
         child: Column(children: [
           typeFilterWidget,
+          const SizedBox(height: 16),
+          primaryTagFilterWidget,
           const SizedBox(height: 16),
           tagFilterWidget,
           const SizedBox(height: 16),
@@ -55,6 +58,7 @@ class SliverActivities extends HookWidget {
           else ...[
             ActivitiesGanttChart(
               activities: filteredActivities,
+              primaryTagFilters: primaryTagFilters,
               tagFilters: tagFilters,
             ),
             const SizedBox(height: 16),
@@ -64,8 +68,43 @@ class SliverActivities extends HookWidget {
       if (filteredActivities.isNotEmpty)
         SliverActivitiesGrid(
           activities: filteredActivities,
+          primaryTagFilters: primaryTagFilters,
           tagFilters: tagFilters,
         ),
     ]);
+  }
+}
+
+extension Filters<T> on ValueNotifier<Set<T>> {
+  // ignore: avoid_positional_boolean_parameters
+  void set(T filter, bool isIncluded) {
+    value =
+        isIncluded ? value.addImmutable(filter) : value.removeImmutable(filter);
+  }
+}
+
+extension on Iterable<Activity> {
+  Iterable<Activity> whereFiltersMatch<T>(
+    Set<T> filters, {
+    required Iterable<T> Function(Activity) getFromActivity,
+  }) {
+    if (filters.isEmpty) return this;
+
+    return where((it) => getFromActivity(it).containsAny(filters));
+  }
+}
+
+class _ChipGroupFilterWidget<T> extends StatelessWidget {
+  const _ChipGroupFilterWidget(this.values, {required this.buildChip});
+
+  final List<T> values;
+  final Widget Function(T) buildChip;
+
+  @override
+  Widget build(BuildContext context) {
+    return ChipGroup(
+      alignment: WrapSuperAlignment.center,
+      children: [for (final value in values) buildChip(value)],
+    );
   }
 }

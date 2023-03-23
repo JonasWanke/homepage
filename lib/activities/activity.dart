@@ -18,8 +18,9 @@ class Activity with _$Activity {
     required LocalMonth start,
     LocalMonth? end,
     required String? description,
-    required Set<Tag> tags,
-    required Set<Link> links,
+    PrimaryTag? primaryTag,
+    @Default(<Tag>{}) Set<Tag> tags,
+    @Default(<Link>{}) Set<Link> links,
   }) = _Activity;
   const Activity._();
 

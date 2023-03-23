@@ -15,6 +15,7 @@ class ActivitiesGanttChart extends StatelessWidget {
   ActivitiesGanttChart({
     super.key,
     required this.activities,
+    required this.primaryTagFilters,
     required this.tagFilters,
   }) : assert(activities.isNotEmpty);
 
@@ -22,6 +23,7 @@ class ActivitiesGanttChart extends StatelessWidget {
   static const _activityPadding = 2.0;
 
   final List<Activity> activities;
+  final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
   final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
@@ -81,7 +83,11 @@ class ActivitiesGanttChart extends StatelessWidget {
         childHeight: _activityHeight,
         child: Padding(
           padding: const EdgeInsets.all(_activityPadding),
-          child: _ActivityEntry(activity, tagFilters: tagFilters),
+          child: _ActivityEntry(
+            activity,
+            primaryTagFilters: primaryTagFilters,
+            tagFilters: tagFilters,
+          ),
         ),
       );
     });
@@ -115,27 +121,31 @@ class ActivitiesGanttChart extends StatelessWidget {
 }
 
 class _ActivityEntry extends HookWidget {
-  const _ActivityEntry(this.activity, {required this.tagFilters});
+  const _ActivityEntry(
+    this.activity, {
+    required this.primaryTagFilters,
+    required this.tagFilters,
+  });
 
   final Activity activity;
+  final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
   final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
   Widget build(BuildContext context) {
-    final representativeTag = activity.tags.minBy((it) => it.index);
+    final representativeIcon = activity.primaryTag?.icon ??
+        activity.tags.minBy(Tag.values.indexOf)?.icon;
     final child = ActivityColoredCard(
       activity,
       borderRadius: const BorderRadius.all(Radius.circular(8)),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (representativeTag != null)
+          if (representativeIcon != null)
             Padding(
               padding: const EdgeInsets.all(4),
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: representativeTag.icon.widget,
-              ),
+              child:
+                  AspectRatio(aspectRatio: 1, child: representativeIcon.widget),
             ),
           Flexible(
             child: Text(
@@ -154,7 +164,11 @@ class _ActivityEntry extends HookWidget {
       content: ConstrainedBox(
         constraints:
             BoxConstraints.loose(const Size.square(ActivityCard.maxWidth)),
-        child: ActivityCard(activity, tagFilters: tagFilters),
+        child: ActivityCard(
+          activity,
+          primaryTagFilters: primaryTagFilters,
+          tagFilters: tagFilters,
+        ),
       ),
       child: SizedBox(
         // Seems to be required for JustTheTooltip to work properly

@@ -15,7 +15,7 @@ final activities = [
     end: LocalMonth(2021, 09),
     description:
         'I learned practical software engineering and more collaborative development, as well as deepened my understanding of fundamentals in the IT-Systems Engineering course of studies at the Hasso Plattner Institute.',
-    tags: {Tag.hassoPlattnerInstitute},
+    primaryTag: PrimaryTag.hassoPlattnerInstitute,
     links: {Link.homepage(Uri.parse('https://hpi.de'))},
   ),
 
@@ -27,12 +27,12 @@ final activities = [
     start: LocalMonth(2020, 09),
     description:
         'I co-architected and co-designed the smusy.app, dashboards, backend, and API.',
+    primaryTag: PrimaryTag.smusy,
     tags: {
       Tag.android,
       Tag.dart,
       Tag.flutter,
       Tag.googleCloudPlatform,
-      Tag.smusy,
       Tag.terraform,
     },
     links: {Link.homepage(Uri.parse('https://smusy.app'))},
@@ -45,7 +45,8 @@ final activities = [
     end: LocalMonth(2019, 02),
     description:
         'I worked for Samsung and WorldSkills Germany on the SkillChecker Android app that helps young people find a professional orientation.',
-    tags: {Tag.android, Tag.kotlin, Tag.worldSkills},
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.kotlin},
     links: {const Link.googlePlay('com.worldskills.skillchecker')},
   ),
   Activity(
@@ -56,7 +57,8 @@ final activities = [
     end: LocalMonth(2021, 03),
     description:
         'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
-    tags: {Tag.android, Tag.dart, Tag.dBildungscloud, Tag.flutter, Tag.kotlin},
+    primaryTag: PrimaryTag.dBildungscloud,
+    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
     links: {
       const Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
       _dBildungscloudHomepageLink,
@@ -74,7 +76,8 @@ final activities = [
     end: LocalMonth(2017, 08),
     description:
         "During summer vacations at school, I worked on the HPI Schul-Cloud's (now called dBildungscloud) Android app.",
-    tags: {Tag.android, Tag.dBildungscloud, Tag.java},
+    primaryTag: PrimaryTag.dBildungscloud,
+    tags: {Tag.android, Tag.java},
     links: {_dBildungscloudHomepageLink},
   ),
 
@@ -86,7 +89,8 @@ final activities = [
     start: LocalMonth(2020, 06),
     description:
         'I co-organized national competitions and prepared competitors for WorldSkills as the expert and national coach for the skill/discipline “Mobile Applications Development” at WorldSkills Germany.',
-    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin, Tag.worldSkills},
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
     links: {
       Link.homepage(Uri.parse('https://blz-it.de/en/skill08')),
       ..._germanItSkillsSocialLinks,
@@ -99,8 +103,7 @@ final activities = [
     end: LocalMonth(2021, 09),
     description:
         'The events club is responsible for food and beverages at many HPI events like the christmas party, halloween party, and spring festival.',
-    tags: {Tag.hassoPlattnerInstitute},
-    links: {},
+    primaryTag: PrimaryTag.hassoPlattnerInstitute,
   ),
   Activity(
     'Co-Head of the Culinary Club',
@@ -109,7 +112,7 @@ final activities = [
     end: LocalMonth(2020, 11),
     description:
         'Members of the Culinary Club regularly meet to cook or bake together. I was responsible for the baking part and organized a motive cake workshop. I also lead the creation of the HPI summer party cake in 2019 feeding around 400 people.',
-    tags: {Tag.hassoPlattnerInstitute},
+    primaryTag: PrimaryTag.hassoPlattnerInstitute,
     links: {
       Link.other(
         Uri.parse(
@@ -127,14 +130,8 @@ final activities = [
     end: LocalMonth(2021, 09),
     description:
         'I rebuilt the club from the ground up and organized weekly meetings. As part of the club, I organized a Google I/O Extended Event (2019) and Flutter, Material Design, Kotlin, and Git workshops. I also architected & co-designed the native HPI Android app and later on the Flutter app, as well as the backend.',
-    tags: {
-      Tag.android,
-      Tag.dart,
-      Tag.flutter,
-      Tag.hassoPlattnerInstitute,
-      Tag.kotlin,
-    },
-    links: {},
+    primaryTag: PrimaryTag.hassoPlattnerInstitute,
+    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
   ),
   Activity(
     'WorldSkills Germany Jury Member & National Trainer',
@@ -143,7 +140,8 @@ final activities = [
     start: LocalMonth(2018, 02),
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
-    tags: {Tag.android, Tag.cSharp, Tag.worldSkills},
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.cSharp},
     links: {
       Link.homepage(Uri.parse('https://blz-it.de/en/skill09')),
       ..._germanItSkillsSocialLinks,
@@ -159,7 +157,8 @@ final activities = [
     end: LocalMonth(2017, 10),
     description:
         'I won a bronze medal (first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor',
-    tags: {Tag.android, Tag.cSharp, Tag.kotlin, Tag.worldSkills},
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
       Link.other(
         Uri.parse(
@@ -199,7 +198,7 @@ final activities = [
     end: LocalMonth(2018, 05),
     description:
         "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D-picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
-    tags: {Tag.jugendForscht},
+    primaryTag: PrimaryTag.jugendForscht,
     links: {
       Link.other(
         Uri.parse(
@@ -224,7 +223,8 @@ final activities = [
     end: LocalMonth(2017, 06),
     description:
         'I won the bronze medal (3rd place) at the European championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among seven competitors.',
-    tags: {Tag.android, Tag.cSharp, Tag.kotlin, Tag.worldSkills},
+    primaryTag: PrimaryTag.worldSkills,
+    tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
       Link.other(
         Uri.parse(
@@ -426,7 +426,8 @@ final activities = [
     end: LocalMonth(2018, 05),
     description:
         'Light your Dog developed illuminated dog harnesses as an alternative to lighted collars. The harness is fitted to the anatomy of the dog and is optionally customizable using an android app via bluetooth, e.g., for changing colors. With this project, we participated in the competition Jugend forscht.',
-    tags: {Tag.android, Tag.java, Tag.jugendForscht},
+    primaryTag: PrimaryTag.jugendForscht,
+    tags: {Tag.android, Tag.java},
     links: {
       const Link.instagram('lightyourdog'),
       const Link.twitter('LightYourDog'),

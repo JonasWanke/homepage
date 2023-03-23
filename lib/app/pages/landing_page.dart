@@ -25,7 +25,7 @@ class LandingPage extends StatelessWidget {
             style: context.textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
         ]),
       ),
       const SliverActivities(),

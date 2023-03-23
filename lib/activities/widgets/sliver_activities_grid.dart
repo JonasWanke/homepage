@@ -9,10 +9,12 @@ class SliverActivitiesGrid extends StatelessWidget {
   const SliverActivitiesGrid({
     super.key,
     required this.activities,
+    required this.primaryTagFilters,
     required this.tagFilters,
   });
 
   final List<Activity> activities;
+  final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
   final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
@@ -23,8 +25,11 @@ class SliverActivitiesGrid extends StatelessWidget {
       mainAxisSpacing: 16,
       crossAxisSpacing: 16,
       childCount: activities.length,
-      itemBuilder: (context, index) =>
-          ActivityCard(activities[index], tagFilters: tagFilters),
+      itemBuilder: (context, index) => ActivityCard(
+        activities[index],
+        primaryTagFilters: primaryTagFilters,
+        tagFilters: tagFilters,
+      ),
     );
   }
 }

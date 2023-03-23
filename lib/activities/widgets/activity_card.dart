@@ -3,13 +3,20 @@ import '../activity.dart';
 import '../local_month.dart';
 import '../tag.dart';
 import 'chips.dart';
+import 'sliver_activities.dart';
 
 class ActivityCard extends StatelessWidget {
-  const ActivityCard(this.activity, {required this.tagFilters});
+  const ActivityCard(
+    this.activity, {
+    required this.primaryTagFilters,
+    required this.tagFilters,
+  });
 
   static const maxWidth = 384.0;
+  static const _horizontalPadding = 16.0;
 
   final Activity activity;
+  final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
   final ValueNotifier<Set<Tag>> tagFilters;
 
   @override
@@ -54,24 +61,49 @@ class ActivityCard extends StatelessWidget {
     return ActivityColoredCard(
       activity,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: _buildColumn(shouldPadHorizontally: false, [
+          _buildColumn([
             title,
             const SizedBox(height: 4),
             range,
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
+          ]),
+          if (activity.primaryTag != null) ...[
+            _PrimaryTagTile(
+              activity.primaryTag!,
+              primaryTagFilters: primaryTagFilters,
+            ),
+            const SizedBox(height: 8),
+          ],
+          _buildColumn([
             if (activity.description != null) ...[
               Text(activity.description!),
               const SizedBox(height: 8),
             ],
             tags,
-          ],
-        ),
+          ]),
+        ]),
       ),
     );
+  }
+
+  Widget _buildColumn(
+    List<Widget> children, {
+    bool shouldPadHorizontally = true,
+  }) {
+    Widget child = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: children,
+    );
+    if (shouldPadHorizontally) {
+      child = Padding(
+        padding: const EdgeInsets.symmetric(horizontal: _horizontalPadding),
+        child: child,
+      );
+    }
+    return child;
   }
 }
 
@@ -100,6 +132,22 @@ class ActivityColoredCard extends StatelessWidget {
       color: activity.type.backgroundColor
           .alphaBlendOn(context.theme.colorScheme.surface),
       child: child,
+    );
+  }
+}
+
+class _PrimaryTagTile extends StatelessWidget {
+  const _PrimaryTagTile(this.primaryTag, {required this.primaryTagFilters});
+
+  final PrimaryTag primaryTag;
+  final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: () => primaryTagFilters.set(primaryTag, true),
+      leading: SizedBox.square(dimension: 48, child: primaryTag.icon.widget),
+      subtitle: Text(primaryTag.description),
     );
   }
 }
