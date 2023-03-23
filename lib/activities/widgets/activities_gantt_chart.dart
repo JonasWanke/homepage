@@ -162,8 +162,7 @@ class _ActivityEntry extends HookWidget {
       borderRadius: const BorderRadius.all(Radius.circular(cardBorderRadius)),
       backgroundColor: activity.type.color,
       content: ConstrainedBox(
-        constraints:
-            BoxConstraints.loose(const Size.square(ActivityCard.maxWidth)),
+        constraints: const BoxConstraints(maxWidth: ActivityCard.maxWidth),
         child: ActivityCard(
           activity,
           primaryTagFilters: primaryTagFilters,
