@@ -29,7 +29,7 @@ class SliverActivities extends HookWidget {
 
     final tagFilters = useState(<Tag>{});
     final tagFilterWidget = _ChipGroupFilterWidget(
-      Tag.values.sortedBy((it) => it.title),
+      Tag.values.sortedBy((it) => it.title.toLowerCase()),
       buildChip: (it) => TagChip(it, filters: tagFilters),
     );
 

@@ -1,3 +1,5 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../app/_.dart';
 
 enum BrandIcon {
@@ -8,11 +10,15 @@ enum BrandIcon {
   facebook(),
   firebase(),
   flutter(),
+  gitHub(widget: Icon(FontAwesomeIcons.github)),
+  gitHubActions(proportionalPadding: EdgeInsets.all(0.1)),
   googleCloudPlatform(),
   googlePlay(),
+  grpc(),
   hassoPlattnerInstitute(proportionalPadding: EdgeInsets.all(0.15)),
   instagram(),
-  java(),
+  java(proportionalPadding: EdgeInsets.only(bottom: 0.1)),
+  jira(),
   jugendForscht(proportionalPadding: EdgeInsets.all(0.1)),
   kotlin(
     proportionalPadding: EdgeInsets.only(left: 0.2, top: 0.1, bottom: 0.1),
@@ -25,13 +31,15 @@ enum BrandIcon {
   worldSkills(),
   youTube();
 
-  const BrandIcon({this.proportionalPadding = EdgeInsets.zero});
+  const BrandIcon({Widget? widget, this.proportionalPadding = EdgeInsets.zero})
+      : _widget = widget;
 
+  final Widget? _widget;
   final EdgeInsets proportionalPadding;
   Widget get widget {
     return ProportionalPadding(
       padding: proportionalPadding,
-      child: Image.asset('assets/icons/$name.webp'),
+      child: _widget ?? Image.asset('assets/icons/$name.webp'),
     );
   }
 }

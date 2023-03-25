@@ -70,7 +70,9 @@ class Link with _$Link {
   const factory Link.competitionResults(Uri url, String tooltip) =
       _CompetitionResultsLink;
   const factory Link.facebook(String pageName) = _FacebookLink;
-  const factory Link.gitHub(String owner, String repo) = _GitHubLink;
+  const factory Link.gitHubOrganization(String owner) = _GitHubOrganizationLink;
+  const factory Link.gitHubRepository(String owner, String repository) =
+      _GitHubRepositoryLink;
   const factory Link.googlePlay(String applicationId) = _GooglePlayLink;
   const factory Link.homepage(Uri url) = _HomepageLink;
   const factory Link.instagram(String username) = _InstagramLink;
@@ -93,7 +95,8 @@ class Link with _$Link {
       article: (_) => const Icon(Icons.article_outlined),
       competitionResults: (_) => const Icon(FontAwesomeIcons.award),
       facebook: (_) => BrandIcon.facebook.widget,
-      gitHub: (_) => const Icon(FontAwesomeIcons.github),
+      gitHubOrganization: (_) => BrandIcon.gitHub.widget,
+      gitHubRepository: (_) => BrandIcon.gitHub.widget,
       googlePlay: (_) => BrandIcon.googlePlay.widget,
       homepage: (_) => const Icon(Icons.web_outlined),
       instagram: (_) => BrandIcon.instagram.widget,
@@ -111,7 +114,9 @@ class Link with _$Link {
       article: (it) => it.url,
       competitionResults: (it) => it.url,
       facebook: (it) => Uri.https('facebook.com', '/${it.pageName}'),
-      gitHub: (it) => Uri.https('github.com', '/${it.owner}/${it.repo}'),
+      gitHubOrganization: (it) => Uri.https('github.com', '/${it.owner}'),
+      gitHubRepository: (it) =>
+          Uri.https('github.com', '/${it.owner}/${it.repository}'),
       googlePlay: (it) => Uri.https(
         'play.google.com',
         '/store/apps/details?id=${it.applicationId}',
@@ -132,7 +137,8 @@ class Link with _$Link {
       article: (it) => it.tooltip,
       competitionResults: (it) => it.tooltip,
       facebook: (_) => 'View on Facebook',
-      gitHub: (_) => 'View on GitHub',
+      gitHubOrganization: (_) => 'View organization on GitHub',
+      gitHubRepository: (_) => 'View repository on GitHub',
       googlePlay: (_) => 'View on Google Play',
       homepage: (_) => 'Open homepage',
       instagram: (_) => 'View on Instagram',

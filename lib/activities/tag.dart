@@ -7,7 +7,7 @@ part 'tag.freezed.dart';
 abstract class BaseTag {
   String get title;
   String get description;
-  BrandIcon get icon;
+  BrandIcon? get icon;
 }
 
 @freezed
@@ -59,16 +59,20 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
 
 @freezed
 class Tag extends BaseTag with _$Tag {
-  const factory Tag(String title, String description, BrandIcon icon) = _Tag;
+  const factory Tag(String title, String description, [BrandIcon? icon]) = _Tag;
 
   // Sorted by importance
   static final values = [
+    rust,
     flutter,
     dart,
-    rust,
     terraform,
     googleCloudPlatform,
     firebase,
+    gitHub,
+    gitHubActions,
+    grpc,
+    protocolBuffers,
     android,
     kotlin,
     cSharp,
@@ -77,22 +81,22 @@ class Tag extends BaseTag with _$Tag {
 
   static const android = Tag(
     'Android',
-    'Android is a mobile operating system based on a modified version of the Linux kernel and other open-source software, designed primarily for touchscreen mobile devices such as smartphones and tablets',
+    'Android is a mobile operating system based on open-source software.',
     BrandIcon.android,
   );
   static const cSharp = Tag(
     'C#',
-    'C# is a modern, object-oriented, and type-safe programming language',
+    'C# is a modern, object-oriented, and type-safe programming language.',
     BrandIcon.cSharp,
   );
   static const dart = Tag(
     'Dart',
-    'Dart is a client-optimized language for fast apps on any platform',
+    'Dart is a client-optimized language for fast apps on any platform.',
     BrandIcon.dart,
   );
   static const flutter = Tag(
     'Flutter',
-    '“Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.”',
+    'Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.',
     BrandIcon.flutter,
   );
   static const firebase = Tag(
@@ -100,20 +104,44 @@ class Tag extends BaseTag with _$Tag {
     'Firebase is an app development platform by Google for building and growing apps and games.',
     BrandIcon.firebase,
   );
+  static const gitHub = Tag(
+    'GitHub',
+    'GitHub is a hosting service for software development and version control using Git plus bug tracking, software feature requests, task management, continuous integration, and wikis.',
+    BrandIcon.gitHub,
+  );
+  static const gitHubActions = Tag(
+    'GitHub Actions',
+    'GitHub Actions makes it easy to automate software workflows by providing a CI/CD platform right from GitHub.',
+    BrandIcon.gitHubActions,
+  );
   static const googleCloudPlatform = Tag(
     'Google Cloud Platform',
-    'Google Cloud Platform is a suite of cloud computing services offered by Google',
+    'Google Cloud Platform is a suite of cloud computing services offered by Google.',
     BrandIcon.googleCloudPlatform,
+  );
+  static const grpc = Tag(
+    'gRPC',
+    'gRPC is a high performance, open source universal RPC framework by Google.',
+    BrandIcon.grpc,
   );
   static const java = Tag(
     'Java',
-    'Java is a high-level, class-based, object-oriented programming language',
+    'Java is a high-level, class-based, object-oriented programming language.',
     BrandIcon.java,
+  );
+  static const jira = Tag(
+    'Jira',
+    'Jira is a platform for planning, tracking, and managing agile and software development projects.',
+    BrandIcon.jira,
   );
   static const kotlin = Tag(
     'Kotlin',
-    'Kotlin is a cross-platform, general-purpose high-level programming language',
+    'Kotlin is a cross-platform, general-purpose high-level programming language.',
     BrandIcon.kotlin,
+  );
+  static const protocolBuffers = Tag(
+    'Protocol Buffers',
+    'Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data, developed by Google.',
   );
   static const rust = Tag(
     'Rust',
@@ -122,7 +150,7 @@ class Tag extends BaseTag with _$Tag {
   );
   static const terraform = Tag(
     'Terraform',
-    'Terraform is an open-source infrastructure as code software tool',
+    'Terraform is an open-source infrastructure as code software tool.',
     BrandIcon.terraform,
   );
 }

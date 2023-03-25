@@ -33,7 +33,7 @@ class TagChip<T extends BaseTag> extends StatelessWidget {
       tag,
       filters,
       tag.title,
-      avatar: tag.icon.widget,
+      avatar: tag.icon?.widget,
       tooltip: tag.description,
     );
   }

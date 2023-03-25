@@ -31,6 +31,8 @@ final activities = [
       Tag.dart,
       Tag.flutter,
       Tag.firebase,
+      Tag.gitHub,
+      Tag.gitHubActions,
       Tag.googleCloudPlatform,
       Tag.terraform,
     },
@@ -57,9 +59,17 @@ final activities = [
     description:
         'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
     primaryTag: PrimaryTag.dBildungscloud,
-    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
+    tags: {
+      Tag.android,
+      Tag.dart,
+      Tag.flutter,
+      Tag.gitHub,
+      Tag.gitHubActions,
+      Tag.jira,
+      Tag.kotlin,
+    },
     links: {
-      const Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
+      const Link.gitHubRepository('hpi-schul-cloud', 'schulcloud-flutter'),
       _dBildungscloudHomepageLink,
       Link.article(
         Uri.parse('https://blog.dbildungscloud.de/author/jonas-wanke/'),
@@ -75,7 +85,7 @@ final activities = [
     description:
         "During summer vacations at school, I worked on the HPI Schul-Cloud's (now called dBildungscloud) Android app.",
     primaryTag: PrimaryTag.dBildungscloud,
-    tags: {Tag.android, Tag.firebase, Tag.java},
+    tags: {Tag.android, Tag.firebase, Tag.gitHub, Tag.java},
     links: {_dBildungscloudHomepageLink},
   ),
 
@@ -88,7 +98,7 @@ final activities = [
     description:
         'I co-organized national competitions and prepared competitors for WorldSkills as the expert and national coach for the skill/discipline “Mobile Applications Development” at WorldSkills Germany.',
     primaryTag: PrimaryTag.worldSkills,
-    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
+    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.gitHub, Tag.kotlin},
     links: {
       Link.homepage(Uri.parse('https://blz-it.de/en/skill08')),
       ..._germanItSkillsSocialLinks,
@@ -128,7 +138,17 @@ final activities = [
     description:
         'I rebuilt the club from the ground up and organized weekly meetings. As part of the club, I organized a Google I/O Extended Event (2019) and Flutter, Material Design, Kotlin, and Git workshops. I also architected & co-designed the native HPI Android app and later on the Flutter app, as well as the backend.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
-    tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
+    tags: {
+      Tag.android,
+      Tag.dart,
+      Tag.flutter,
+      Tag.gitHub,
+      Tag.gitHubActions,
+      Tag.grpc,
+      Tag.kotlin,
+      Tag.protocolBuffers,
+    },
+    links: {const Link.gitHubOrganization('hpi-de')},
   ),
   Activity(
     'WorldSkills Germany Jury Member & National Trainer',
@@ -138,7 +158,7 @@ final activities = [
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
     primaryTag: PrimaryTag.worldSkills,
-    tags: {Tag.android, Tag.cSharp},
+    tags: {Tag.android, Tag.cSharp, Tag.gitHub},
     links: {
       Link.homepage(Uri.parse('https://blz-it.de/en/skill09')),
       ..._germanItSkillsSocialLinks,
@@ -193,6 +213,7 @@ final activities = [
     description:
         "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D-picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
     primaryTag: PrimaryTag.jugendForscht,
+    tags: {Tag.gitHub},
     links: {
       Link.competitionResults(
         Uri.parse(
@@ -277,9 +298,9 @@ final activities = [
     start: LocalMonth(2021, 03),
     description:
         'View debug infos and change settings via a central overlay for your app',
-    tags: {Tag.dart},
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'debug_overlay'),
+      const Link.gitHubRepository('JonasWanke', 'debug_overlay'),
       const Link.pubDev('debug_overlay'),
     },
   ),
@@ -290,9 +311,9 @@ final activities = [
     end: LocalMonth(2021, 05),
     description:
         "Pure Dart implementation of Cap'n Proto – an extremely efficient protocol for sharing data and capabilities",
-    tags: {Tag.dart},
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'capnproto-dart'),
+      const Link.gitHubRepository('JonasWanke', 'capnproto-dart'),
       const Link.pubDev('capnproto'),
     },
   ),
@@ -303,8 +324,8 @@ final activities = [
     start: LocalMonth(2020, 06),
     description:
         "A sweet programming language that is robust, minimalistic, and expressive. We're creating this language from scratch.",
-    tags: {Tag.rust},
-    links: {const Link.gitHub('candy-lang', 'candy')},
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions, Tag.rust},
+    links: {const Link.gitHubRepository('candy-lang', 'candy')},
   ),
   Activity(
     '🔟 data_size',
@@ -313,9 +334,9 @@ final activities = [
     end: LocalMonth(2021, 03),
     description:
         'Customizable data size (bit & byte) formatting for interfacing with the user',
-    tags: {Tag.dart},
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'data_size'),
+      const Link.gitHubRepository('JonasWanke', 'data_size'),
       const Link.pubDev('data_size'),
     },
   ),
@@ -325,9 +346,9 @@ final activities = [
     start: LocalMonth(2020, 05),
     description:
         'Recurrence rule parsing & calculation as defined in the iCalendar RFC',
-    tags: {Tag.dart},
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'rrule'),
+      const Link.gitHubRepository('JonasWanke', 'rrule'),
       const Link.pubDev('rrule'),
     },
   ),
@@ -337,9 +358,9 @@ final activities = [
     start: LocalMonth(2020, 04),
     description:
         'Swipe to navigate back and admire beautifully morphing widgets',
-    tags: {Tag.dart, Tag.flutter},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'swipeable_page_route'),
+      const Link.gitHubRepository('JonasWanke', 'swipeable_page_route'),
       const Link.pubDev('swipeable_page_route'),
     },
   ),
@@ -350,9 +371,9 @@ final activities = [
     end: LocalMonth(2021, 04),
     description:
         'Handle all your routing with proper deep links and handle them declaratively!',
-    tags: {Tag.dart, Tag.flutter},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'flutter_deep_linking'),
+      const Link.gitHubRepository('JonasWanke', 'flutter_deep_linking'),
       const Link.pubDev('flutter_deep_linking'),
     },
   ),
@@ -362,8 +383,8 @@ final activities = [
     start: LocalMonth(2020, 03),
     end: LocalMonth(2020, 03),
     description: 'A desktop editor for .arb-files',
-    tags: {Tag.dart, Tag.flutter},
-    links: {const Link.gitHub('JonasWanke', 'l42n')},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub},
+    links: {const Link.gitHubRepository('JonasWanke', 'l42n')},
   ),
   Activity(
     '🛠 black_hole_flutter',
@@ -371,9 +392,9 @@ final activities = [
     start: LocalMonth(2020, 03),
     description:
         'A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
-    tags: {Tag.dart, Tag.flutter},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'black_hole_flutter'),
+      const Link.gitHubRepository('JonasWanke', 'black_hole_flutter'),
       const Link.pubDev('black_hole_flutter'),
     },
   ),
@@ -384,9 +405,9 @@ final activities = [
     start: LocalMonth(2020, 01),
     description:
         'Customizable flutter calendar widget including day and week views',
-    tags: {Tag.dart, Tag.flutter},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHub('JonasWanke', 'timetable'),
+      const Link.gitHubRepository('JonasWanke', 'timetable'),
       const Link.pubDev('timetable'),
     },
   ),
@@ -396,16 +417,16 @@ final activities = [
     start: LocalMonth(2019, 01),
     end: LocalMonth(2020, 04),
     description: 'A tool to create, work on, test, and deploy projects',
-    tags: {Tag.kotlin},
-    links: {const Link.gitHub('JonasWanke', 'l42n')},
+    tags: {Tag.gitHub, Tag.gitHubActions, Tag.kotlin},
+    links: {const Link.gitHubRepository('JonasWanke', 'l42n')},
   ),
   Activity(
     'Homepage',
     ActivityType.project,
     start: LocalMonth(2017, 03),
     description: "You're looking at it!",
-    tags: {Tag.dart, Tag.flutter},
-    links: {const Link.gitHub('JonasWanke', 'homepage')},
+    tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
+    links: {const Link.gitHubRepository('JonasWanke', 'homepage')},
   ),
   Activity(
     'Light your Dog',
@@ -415,7 +436,7 @@ final activities = [
     description:
         'Light your Dog developed illuminated dog harnesses as an alternative to lighted collars. The harness is fitted to the anatomy of the dog and is optionally customizable using an android app via bluetooth, e.g., for changing colors. With this project, we participated in the competition Jugend forscht.',
     primaryTag: PrimaryTag.jugendForscht,
-    tags: {Tag.android, Tag.firebase, Tag.java},
+    tags: {Tag.android, Tag.firebase, Tag.gitHub, Tag.java},
     links: {
       const Link.instagram('lightyourdog'),
       const Link.twitter('LightYourDog'),
