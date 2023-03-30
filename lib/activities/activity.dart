@@ -9,6 +9,7 @@ class Activity {
   const Activity(
     this.title,
     this.type, {
+    this.emoji,
     this.isHighlight = false,
     required this.start,
     this.end,
@@ -19,6 +20,8 @@ class Activity {
   });
 
   final String title;
+  final String? emoji;
+  String get fullTitle => emoji == null ? title : '$emoji $title';
   final ActivityType type;
   final bool isHighlight;
   final LocalMonth start;
@@ -194,7 +197,7 @@ class Activity {
     start: LocalMonth(2018, 11),
     end: LocalMonth(2021, 09),
     description:
-        'I rebuilt the club from the ground up and organized weekly meetings. As part of the club, I organized a Google I/O Extended Event (2019) and Flutter, Material Design, Kotlin, and Git workshops. I also architected & co-designed the native HPI Android app and later on the Flutter app, as well as the backend.',
+        'I rebuilt the club from the ground up and organized weekly meetings. As part of the club, I organized a Google I/O Extended Event (2019) and Flutter, Material Design, Kotlin, and Git workshops. I also architected & co-designed the native HPI Android app and later on the Flutter app, as well as the backend.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
     tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
   );
@@ -215,7 +218,8 @@ class Activity {
 
   // Competition
   static final worldSkillsAbuDhabi = Activity(
-    '🥉 Bronze Medal at the WorldSkills Abu Dhabi 2017',
+    'Bronze Medal at the WorldSkills Abu Dhabi 2017',
+    emoji: '🥉',
     ActivityType.competition,
     isHighlight: true,
     start: const LocalMonth(2017, 10),
@@ -277,7 +281,8 @@ class Activity {
     },
   );
   static final worldSkillsAlbertEinsteinCup = Activity(
-    '🥉 Bronze Medal at the Albert Einstein Cup',
+    'Bronze Medal at the Albert Einstein Cup',
+    emoji: '🥉',
     ActivityType.competition,
     start: const LocalMonth(2017, 06),
     end: const LocalMonth(2017, 06),
@@ -300,7 +305,8 @@ class Activity {
     },
   );
   static final worldSkillsGermanChampionships = Activity(
-    '🥈 Silver Medal at the German championships',
+    'Silver Medal at the German championships',
+    emoji: '🥈',
     ActivityType.competition,
     start: const LocalMonth(2017, 02),
     end: const LocalMonth(2017, 02),
@@ -340,7 +346,8 @@ class Activity {
 
   // Project
   static final debugOverlay = Activity(
-    '🐛 debug_overlay',
+    'debug_overlay',
+    emoji: '🐛',
     ActivityType.project,
     start: const LocalMonth(2021, 03),
     description:
@@ -365,7 +372,8 @@ class Activity {
     },
   );
   static final candy = Activity(
-    '🍭 Candy',
+    'Candy',
+    emoji: '🍭',
     ActivityType.project,
     isHighlight: true,
     start: const LocalMonth(2020, 06),
@@ -375,7 +383,8 @@ class Activity {
     links: {Link.gitHub('candy-lang', 'candy')},
   );
   static final dataSize = Activity(
-    '🔟 data_size',
+    'data_size',
+    emoji: '🔟',
     ActivityType.project,
     start: const LocalMonth(2020, 05),
     end: const LocalMonth(2021, 03),
@@ -388,7 +397,8 @@ class Activity {
     },
   );
   static final rrule = Activity(
-    '🔁 rrule',
+    'rrule',
+    emoji: '🔁',
     ActivityType.project,
     start: const LocalMonth(2020, 05),
     description:
@@ -400,7 +410,8 @@ class Activity {
     },
   );
   static final swipeablePageRoute = Activity(
-    '🔙 swipeable_page_route',
+    'swipeable_page_route',
+    emoji: '🔙',
     ActivityType.project,
     start: const LocalMonth(2020, 04),
     description:
@@ -412,7 +423,8 @@ class Activity {
     },
   );
   static final flutterDeepLinking = Activity(
-    '🧭 flutter_deep_linking',
+    'flutter_deep_linking',
+    emoji: '🧭',
     ActivityType.project,
     start: const LocalMonth(2020, 03),
     end: const LocalMonth(2021, 04),
@@ -425,7 +437,8 @@ class Activity {
     },
   );
   static final l42n = Activity(
-    '🌍 L42n – for even better L10n!',
+    'L42n – for even better L10n!',
+    emoji: '🌍',
     ActivityType.project,
     start: const LocalMonth(2020, 03),
     end: const LocalMonth(2020, 03),
@@ -434,7 +447,8 @@ class Activity {
     links: {Link.gitHub('JonasWanke', 'l42n')},
   );
   static final blackHoleFlutter = Activity(
-    '🛠 black_hole_flutter',
+    'black_hole_flutter',
+    emoji: '🛠',
     ActivityType.project,
     start: const LocalMonth(2020, 03),
     description:
@@ -446,7 +460,8 @@ class Activity {
     },
   );
   static final timetable = Activity(
-    '📅 Timetable',
+    'Timetable',
+    emoji: '📅',
     ActivityType.project,
     isHighlight: true,
     start: const LocalMonth(2020, 01),
@@ -459,7 +474,8 @@ class Activity {
     },
   );
   static final unicorn = Activity(
-    '🦄 Unicorn',
+    'Unicorn',
+    emoji: '🦄',
     ActivityType.project,
     start: const LocalMonth(2019, 01),
     end: const LocalMonth(2020, 04),

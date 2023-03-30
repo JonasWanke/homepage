@@ -24,7 +24,7 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = Text.rich(
       TextSpan(
-        text: activity.title,
+        text: activity.fullTitle,
         children: [
           if (activity.tags.isNotEmpty)
             const WidgetSpan(child: SizedBox(width: 8)),

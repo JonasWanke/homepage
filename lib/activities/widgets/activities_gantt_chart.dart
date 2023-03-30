@@ -154,7 +154,7 @@ class _ActivityEntry extends HookWidget {
             ),
           Flexible(
             child: Text(
-              activity.title,
+              activity.fullTitle,
               maxLines: 1,
               softWrap: false,
               overflow: TextOverflow.clip,
