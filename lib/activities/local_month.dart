@@ -55,4 +55,13 @@ enum LocalMonthFormat {
   final ValueGetter<DateFormat> _formatGetter;
 
   String format(LocalMonth month) => _formatGetter().format(month.dateTime);
+  String formatRange(LocalMonth start, LocalMonth? end) {
+    if (end == null) {
+      return 'since ${format(start)}';
+    } else if (start == end) {
+      return format(start);
+    } else {
+      return '${format(start)} – ${format(end)}';
+    }
+  }
 }

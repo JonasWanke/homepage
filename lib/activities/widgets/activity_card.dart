@@ -38,18 +38,8 @@ class ActivityCard extends StatelessWidget {
       style: context.textTheme.titleLarge,
     );
 
-    const format = LocalMonthFormat.long;
-    final String rangeText;
-    if (activity.end == null) {
-      rangeText = 'since ${format.format(activity.start)}';
-    } else if (activity.start == activity.end) {
-      rangeText = format.format(activity.start);
-    } else {
-      rangeText =
-          '${format.format(activity.start)} – ${format.format(activity.end!)}';
-    }
     final range = Text(
-      rangeText,
+      LocalMonthFormat.long.formatRange(activity.start, activity.end),
       style: context.textTheme.bodySmall!.copyWith(
         color: context.theme.colorScheme.brightness.mediumEmphasisOnColor,
       ),
