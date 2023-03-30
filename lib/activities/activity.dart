@@ -1,29 +1,33 @@
 import 'package:dartx/dartx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../app/_.dart';
 import 'brand_icon.dart';
 import 'local_month.dart';
 import 'tag.dart';
 
-part 'activity.freezed.dart';
+class Activity {
+  const Activity(
+    this.title,
+    this.type, {
+    this.isHighlight = false,
+    required this.start,
+    this.end,
+    required this.description,
+    this.primaryTag,
+    this.tags = const <Tag>{},
+    this.links = const <Link>{},
+  });
 
-@freezed
-class Activity with _$Activity {
-  const factory Activity(
-    String title,
-    ActivityType type, {
-    @Default(false) bool isHighlight,
-    required LocalMonth start,
-    LocalMonth? end,
-    required String? description,
-    PrimaryTag? primaryTag,
-    @Default(<Tag>{}) Set<Tag> tags,
-    @Default(<Link>{}) Set<Link> links,
-  }) = _Activity;
-  const Activity._();
-
+  final String title;
+  final ActivityType type;
+  final bool isHighlight;
+  final LocalMonth start;
+  final LocalMonth? end;
+  final String? description;
+  final PrimaryTag? primaryTag;
+  final Set<Tag> tags;
+  final Set<Link> links;
   bool get isOngoing => end == null;
 }
 
@@ -64,85 +68,54 @@ enum ActivityType {
   Color get borderColor => color.withOpacity(0.4);
 }
 
-@freezed
-class Link with _$Link {
-  const factory Link.article(Uri url, String tooltip) = _ArticleLink;
-  const factory Link.competitionResults(Uri url, String tooltip) =
-      _CompetitionResultsLink;
-  const factory Link.facebook(String pageName) = _FacebookLink;
-  const factory Link.gitHub(String owner, String repo) = _GitHubLink;
-  const factory Link.googlePlay(String applicationId) = _GooglePlayLink;
-  const factory Link.homepage(Uri url) = _HomepageLink;
-  const factory Link.instagram(String username) = _InstagramLink;
-  const factory Link.newspaperArticle(String newspaperName, Uri url) =
-      _NewspaperArticleLink;
-  const factory Link.pubDev(String packageName) = _PubDevLink;
-  const factory Link.twitter(String username) = _TwitterLink;
-  const factory Link.youTubeChannel(String handle) = _YouTubeChannelLink;
-  const factory Link.youTubeVideo(String id, String tooltip) =
-      _YouTubeVideoLink;
-  const factory Link.other(
-    Uri url,
-    String tooltip, {
-    required Widget icon,
-  }) = _OtherLink;
-  const Link._();
+class Link {
+  const Link.article(this.url, this.tooltip)
+      : icon = const Icon(Icons.article_outlined);
+  const Link.competitionResults(this.url, this.tooltip)
+      : icon = const Icon(FontAwesomeIcons.award);
+  Link.facebook(String pageName)
+      : icon = BrandIcon.facebook.widget,
+        url = Uri.https('facebook.com', '/$pageName'),
+        tooltip = 'View on Facebook';
+  Link.gitHub(String owner, String repo)
+      : icon = const Icon(FontAwesomeIcons.github),
+        url = Uri.https('github.com', '/$owner/$repo'),
+        tooltip = 'View on GitHub';
+  Link.googlePlay(String applicationId)
+      : icon = BrandIcon.googlePlay.widget,
+        url = Uri.https(
+          'play.google.com',
+          '/store/apps/details?id=$applicationId',
+        ),
+        tooltip = 'View on Google Play';
+  const Link.homepage(this.url)
+      : icon = const Icon(Icons.web_outlined),
+        tooltip = 'Open homepage';
+  Link.instagram(String username)
+      : icon = BrandIcon.instagram.widget,
+        url = Uri.https('instagram.com', '/$username'),
+        tooltip = 'View on Instagram';
+  const Link.newspaperArticle(String newspaperName, this.url)
+      : icon = const Icon(Icons.article_outlined),
+        tooltip = 'Read an article in the newspaper “$newspaperName”';
+  Link.pubDev(String packageName)
+      : icon = BrandIcon.dart.widget,
+        url = Uri.https('pub.dev', '/packages/$packageName'),
+        tooltip = 'View on pub.dev';
+  Link.twitter(String username)
+      : icon = BrandIcon.twitter.widget,
+        url = Uri.https('twitter.com', '/$username'),
+        tooltip = 'View on Twitter';
+  Link.youTubeChannel(String handle)
+      : icon = BrandIcon.youTube.widget,
+        url = Uri.https('youtube.com', '/@$handle'),
+        tooltip = 'View channel on YouTube';
+  Link.youTubeVideo(String id, this.tooltip)
+      : icon = BrandIcon.youTube.widget,
+        url = Uri.https('youtube.com', '/watch', {'v': id});
+  const Link.other(this.icon, this.url, this.tooltip);
 
-  Widget get icon {
-    return map(
-      article: (_) => const Icon(Icons.article_outlined),
-      competitionResults: (_) => const Icon(FontAwesomeIcons.award),
-      facebook: (_) => BrandIcon.facebook.widget,
-      gitHub: (_) => const Icon(FontAwesomeIcons.github),
-      googlePlay: (_) => BrandIcon.googlePlay.widget,
-      homepage: (_) => const Icon(Icons.web_outlined),
-      instagram: (_) => BrandIcon.instagram.widget,
-      newspaperArticle: (_) => const Icon(Icons.article_outlined),
-      pubDev: (_) => BrandIcon.dart.widget,
-      twitter: (_) => BrandIcon.twitter.widget,
-      youTubeChannel: (_) => BrandIcon.youTube.widget,
-      youTubeVideo: (_) => BrandIcon.youTube.widget,
-      other: (it) => it.icon,
-    );
-  }
-
-  Uri get url {
-    return map(
-      article: (it) => it.url,
-      competitionResults: (it) => it.url,
-      facebook: (it) => Uri.https('facebook.com', '/${it.pageName}'),
-      gitHub: (it) => Uri.https('github.com', '/${it.owner}/${it.repo}'),
-      googlePlay: (it) => Uri.https(
-        'play.google.com',
-        '/store/apps/details?id=${it.applicationId}',
-      ),
-      homepage: (it) => it.url,
-      instagram: (it) => Uri.https('instagram.com', '/${it.username}'),
-      newspaperArticle: (it) => it.url,
-      pubDev: (it) => Uri.https('pub.dev', '/packages/${it.packageName}'),
-      twitter: (it) => Uri.https('twitter.com', '/${it.username}'),
-      youTubeChannel: (it) => Uri.https('youtube.com', '/@${it.handle}'),
-      youTubeVideo: (it) => Uri.https('youtube.com', '/watch', {'v': it.id}),
-      other: (it) => it.url,
-    );
-  }
-
-  String get tooltip {
-    return map(
-      article: (it) => it.tooltip,
-      competitionResults: (it) => it.tooltip,
-      facebook: (_) => 'View on Facebook',
-      gitHub: (_) => 'View on GitHub',
-      googlePlay: (_) => 'View on Google Play',
-      homepage: (_) => 'Open homepage',
-      instagram: (_) => 'View on Instagram',
-      newspaperArticle: (it) =>
-          'Read an article in the newspaper “${it.newspaperName}”',
-      pubDev: (_) => 'View on pub.dev',
-      twitter: (_) => 'View on Twitter',
-      youTubeChannel: (_) => 'View channel on YouTube',
-      youTubeVideo: (it) => it.tooltip,
-      other: (it) => it.tooltip,
-    );
-  }
+  final Widget icon;
+  final Uri url;
+  final String tooltip;
 }
