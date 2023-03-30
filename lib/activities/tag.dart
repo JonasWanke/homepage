@@ -31,6 +31,11 @@ class PrimaryTag extends BaseTag {
     'Hasso Plattner Institute',
     'The Hasso Plattner Institute for Digital Engineering hosts the Digital Engineering Faculty of the University of Potsdam, Germany.',
   );
+  static const heinrichHertzGymnasium = PrimaryTag(
+    BrandIcon.heinrichHertzGymnasium,
+    'Heinrich-Hertz-Gymnasium',
+    'The Heinrich-Hertz-Gymnasium is a high school (“Gymnasium”) with mathematical and scientific specialization in Berlin, Germany.',
+  );
   static const jugendForscht = PrimaryTag(
     BrandIcon.jugendForscht,
     'Jugend forscht',

@@ -11,6 +11,7 @@ enum BrandIcon {
   googleCloudPlatform(),
   googlePlay(),
   hassoPlattnerInstitute(proportionalPadding: EdgeInsets.all(0.15)),
+  heinrichHertzGymnasium(),
   instagram(),
   java(),
   jugendForscht(proportionalPadding: EdgeInsets.all(0.1)),

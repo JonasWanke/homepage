@@ -31,6 +31,7 @@ class Activity {
 
   static final values = [
     bachelor,
+    generalQualification,
     smusy,
     skillChecker,
     dBildungscloud,
@@ -71,6 +72,17 @@ class Activity {
         'I learned practical software engineering and more collaborative development, as well as deepened my understanding of fundamentals in the IT-Systems Engineering course of studies at the Hasso Plattner Institute.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
     links: {Link.homepage(Uri.parse('https://hpi.de'))},
+  );
+  static final generalQualification = Activity(
+    'General Qualification for University Entrance (“Abitur”)',
+    ActivityType.education,
+    isHighlight: true,
+    start: LocalMonth(2010, 10),
+    end: LocalMonth(2018, 06),
+    description:
+        'I also earned an additional degree for the first math semester from the Humboldt University by participating in intensified math and IT courses.',
+    primaryTag: PrimaryTag.heinrichHertzGymnasium,
+    links: {Link.homepage(Uri.parse('https://hhgym.de'))},
   );
 
   // Work
