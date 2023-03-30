@@ -7,13 +7,17 @@ class Link {
   const Link.article(this.url, this.tooltip)
       : icon = const Icon(Icons.article_outlined);
   const Link.competitionResults(this.url, this.tooltip)
-      : icon = const Icon(FontAwesomeIcons.award);
+      : icon = const FaIcon(FontAwesomeIcons.award);
+  Link.email(String emailAddress)
+      : icon = const Icon(Icons.mail_outline),
+        url = Uri.parse('mailto:$emailAddress'),
+        tooltip = 'Write an E-Mail';
   Link.facebook(String pageName)
       : icon = BrandIcon.facebook.widget,
         url = Uri.https('facebook.com', '/$pageName'),
         tooltip = 'View on Facebook';
   Link.gitHub(String owner, String repo)
-      : icon = const Icon(FontAwesomeIcons.github),
+      : icon = const FaIcon(FontAwesomeIcons.github),
         url = Uri.https('github.com', '/$owner/$repo'),
         tooltip = 'View on GitHub';
   Link.googlePlay(String applicationId)
@@ -30,6 +34,10 @@ class Link {
       : icon = BrandIcon.instagram.widget,
         url = Uri.https('instagram.com', '/$username'),
         tooltip = 'View on Instagram';
+  Link.linkedIn(String username)
+      : icon = const FaIcon(FontAwesomeIcons.linkedin),
+        url = Uri.https('linkedin.com', '/in/$username'),
+        tooltip = 'View on LinkedIn';
   const Link.newspaperArticle(String newspaperName, this.url)
       : icon = const Icon(Icons.article_outlined),
         tooltip = 'Read an article in the newspaper “$newspaperName”';
@@ -37,6 +45,10 @@ class Link {
       : icon = BrandIcon.dart.widget,
         url = Uri.https('pub.dev', '/packages/$packageName'),
         tooltip = 'View on pub.dev';
+  Link.telegram(String username)
+      : icon = const FaIcon(FontAwesomeIcons.telegram),
+        url = Uri.https('t.me', '/$username'),
+        tooltip = 'Contact on Telegram';
   Link.twitter(String username)
       : icon = BrandIcon.twitter.widget,
         url = Uri.https('twitter.com', '/$username'),
@@ -53,4 +65,9 @@ class Link {
   final Widget icon;
   final Uri url;
   final String tooltip;
+
+  static final jonasEmail = Link.email('contact-homepage@jonas-wanke.com');
+  static final jonasInstagram = Link.instagram('jonas.wanke');
+  static final jonasLinkedIn = Link.linkedIn('jonas-wanke');
+  static final jonasTelegram = Link.telegram('JonasWanke');
 }
