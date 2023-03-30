@@ -16,10 +16,14 @@ class Link {
       : icon = BrandIcon.facebook.widget,
         url = Uri.https('facebook.com', '/$pageName'),
         tooltip = 'View on Facebook';
-  Link.gitHub(String owner, String repo)
+  Link.gitHubUser(String user)
+      : icon = const FaIcon(FontAwesomeIcons.github),
+        url = Uri.https('github.com', '/$user'),
+        tooltip = 'View user on GitHub';
+  Link.gitHubRepository(String owner, String repo)
       : icon = const FaIcon(FontAwesomeIcons.github),
         url = Uri.https('github.com', '/$owner/$repo'),
-        tooltip = 'View on GitHub';
+        tooltip = 'View repository on GitHub';
   Link.googlePlay(String applicationId)
       : icon = BrandIcon.googlePlay.widget,
         url = Uri.https(
@@ -67,6 +71,7 @@ class Link {
   final String tooltip;
 
   static final jonasEmail = Link.email('contact-homepage@jonas-wanke.com');
+  static final jonasGitHub = Link.gitHubUser('JonasWanke');
   static final jonasInstagram = Link.instagram('jonas.wanke');
   static final jonasLinkedIn = Link.linkedIn('jonas-wanke');
   static final jonasTelegram = Link.telegram('JonasWanke');

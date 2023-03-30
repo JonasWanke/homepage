@@ -130,7 +130,7 @@ class Activity {
     primaryTag: PrimaryTag.dBildungscloud,
     tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
     links: {
-      Link.gitHub('hpi-schul-cloud', 'schulcloud-flutter'),
+      Link.gitHubRepository('hpi-schul-cloud', 'schulcloud-flutter'),
       _dBildungscloudHomepageLink,
       Link.article(
         Uri.parse('https://blog.dbildungscloud.de/author/jonas-wanke/'),
@@ -354,7 +354,7 @@ class Activity {
         'View debug infos and change settings via a central overlay for your app',
     tags: {Tag.dart},
     links: {
-      Link.gitHub('JonasWanke', 'debug_overlay'),
+      Link.gitHubRepository('JonasWanke', 'debug_overlay'),
       Link.pubDev('debug_overlay'),
     },
   );
@@ -367,7 +367,7 @@ class Activity {
         "Pure Dart implementation of Cap'n Proto – an extremely efficient protocol for sharing data and capabilities",
     tags: {Tag.dart},
     links: {
-      Link.gitHub('JonasWanke', 'capnproto-dart'),
+      Link.gitHubRepository('JonasWanke', 'capnproto-dart'),
       Link.pubDev('capnproto'),
     },
   );
@@ -380,7 +380,7 @@ class Activity {
     description:
         "A sweet programming language that is robust, minimalistic, and expressive. We're creating this language from scratch.",
     tags: {Tag.rust},
-    links: {Link.gitHub('candy-lang', 'candy')},
+    links: {Link.gitHubRepository('candy-lang', 'candy')},
   );
   static final dataSize = Activity(
     'data_size',
@@ -392,7 +392,7 @@ class Activity {
         'Customizable data size (bit & byte) formatting for interfacing with the user',
     tags: {Tag.dart},
     links: {
-      Link.gitHub('JonasWanke', 'data_size'),
+      Link.gitHubRepository('JonasWanke', 'data_size'),
       Link.pubDev('data_size'),
     },
   );
@@ -405,7 +405,7 @@ class Activity {
         'Recurrence rule parsing & calculation as defined in the iCalendar RFC',
     tags: {Tag.dart},
     links: {
-      Link.gitHub('JonasWanke', 'rrule'),
+      Link.gitHubRepository('JonasWanke', 'rrule'),
       Link.pubDev('rrule'),
     },
   );
@@ -418,7 +418,7 @@ class Activity {
         'Swipe to navigate back and admire beautifully morphing widgets',
     tags: {Tag.dart, Tag.flutter},
     links: {
-      Link.gitHub('JonasWanke', 'swipeable_page_route'),
+      Link.gitHubRepository('JonasWanke', 'swipeable_page_route'),
       Link.pubDev('swipeable_page_route'),
     },
   );
@@ -432,7 +432,7 @@ class Activity {
         'Handle all your routing with proper deep links and handle them declaratively!',
     tags: {Tag.dart, Tag.flutter},
     links: {
-      Link.gitHub('JonasWanke', 'flutter_deep_linking'),
+      Link.gitHubRepository('JonasWanke', 'flutter_deep_linking'),
       Link.pubDev('flutter_deep_linking'),
     },
   );
@@ -444,7 +444,7 @@ class Activity {
     end: const LocalMonth(2020, 03),
     description: 'A desktop editor for .arb-files',
     tags: {Tag.dart, Tag.flutter},
-    links: {Link.gitHub('JonasWanke', 'l42n')},
+    links: {Link.gitHubRepository('JonasWanke', 'l42n')},
   );
   static final blackHoleFlutter = Activity(
     'black_hole_flutter',
@@ -455,7 +455,7 @@ class Activity {
         'A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
     tags: {Tag.dart, Tag.flutter},
     links: {
-      Link.gitHub('JonasWanke', 'black_hole_flutter'),
+      Link.gitHubRepository('JonasWanke', 'black_hole_flutter'),
       Link.pubDev('black_hole_flutter'),
     },
   );
@@ -469,7 +469,7 @@ class Activity {
         'Customizable flutter calendar widget including day and week views',
     tags: {Tag.dart, Tag.flutter},
     links: {
-      Link.gitHub('JonasWanke', 'timetable'),
+      Link.gitHubRepository('JonasWanke', 'timetable'),
       Link.pubDev('timetable'),
     },
   );
@@ -481,7 +481,7 @@ class Activity {
     end: const LocalMonth(2020, 04),
     description: 'A tool to create, work on, test, and deploy projects',
     tags: {Tag.kotlin},
-    links: {Link.gitHub('JonasWanke', 'l42n')},
+    links: {Link.gitHubRepository('JonasWanke', 'l42n')},
   );
   static final homepage = Activity(
     'Homepage',
@@ -489,7 +489,7 @@ class Activity {
     start: const LocalMonth(2017, 03),
     description: "You're looking at it!",
     tags: {Tag.dart, Tag.flutter},
-    links: {Link.gitHub('JonasWanke', 'homepage')},
+    links: {Link.gitHubRepository('JonasWanke', 'homepage')},
   );
   static final lightYourDog = Activity(
     'Light your Dog',
