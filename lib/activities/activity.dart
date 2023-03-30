@@ -207,7 +207,7 @@ class Activity {
     isHighlight: true,
     start: const LocalMonth(2018, 02),
     description:
-        'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
+        'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp},
     links: {
@@ -225,7 +225,7 @@ class Activity {
     start: const LocalMonth(2017, 10),
     end: const LocalMonth(2017, 10),
     description:
-        'I won a bronze medal (first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor.',
+        'I won a bronze medal (the first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
@@ -263,7 +263,7 @@ class Activity {
     start: const LocalMonth(2017, 12),
     end: const LocalMonth(2018, 05),
     description:
-        "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D-picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
+        "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
     primaryTag: PrimaryTag.jugendForscht,
     links: {
       Link.competitionResults(
@@ -287,7 +287,7 @@ class Activity {
     start: const LocalMonth(2017, 06),
     end: const LocalMonth(2017, 06),
     description:
-        'I won the bronze medal (3rd place) at the European championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among seven competitors.',
+        'I won the bronze medal (3rd place) at the European championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among seven competitors.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
@@ -311,7 +311,7 @@ class Activity {
     start: const LocalMonth(2017, 02),
     end: const LocalMonth(2017, 02),
     description:
-        'I won the silver medal (2nd place) at the German championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among eight competitors.',
+        'I won the silver medal (2nd place) at the German championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among eight competitors.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
