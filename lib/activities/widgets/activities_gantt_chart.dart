@@ -15,7 +15,7 @@ import '../local_month.dart';
 import '../tag.dart';
 import 'activity_card.dart';
 
-class ActivitiesGanttChart extends HookWidget {
+class ActivitiesGanttChart extends StatelessWidget {
   ActivitiesGanttChart({
     super.key,
     required this.activities,
@@ -97,9 +97,11 @@ class ActivitiesGanttChart extends HookWidget {
       );
     });
 
-    return SizedBox(
-      height: (maxY + 1.25) * _activityHeight,
-      child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
+    return RepaintBoundary(
+      child: SizedBox(
+        height: (maxY + 1.25) * _activityHeight,
+        child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
+      ),
     );
   }
 
