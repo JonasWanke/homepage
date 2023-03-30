@@ -66,8 +66,8 @@ class Activity {
     'Bachelor of Science',
     ActivityType.education,
     isHighlight: true,
-    start: LocalMonth(2018, 10),
-    end: LocalMonth(2021, 09),
+    start: const LocalMonth(2018, 10),
+    end: const LocalMonth(2021, 09),
     description:
         'I learned practical software engineering and more collaborative development, as well as deepened my understanding of fundamentals in the IT-Systems Engineering course of studies at the Hasso Plattner Institute.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
@@ -77,8 +77,8 @@ class Activity {
     'General Qualification for University Entrance (“Abitur”)',
     ActivityType.education,
     isHighlight: true,
-    start: LocalMonth(2010, 10),
-    end: LocalMonth(2018, 06),
+    start: const LocalMonth(2010, 10),
+    end: const LocalMonth(2018, 06),
     description:
         'I also earned an additional degree for the first math semester from the Humboldt University by participating in intensified math and IT courses.',
     primaryTag: PrimaryTag.heinrichHertzGymnasium,
@@ -90,7 +90,7 @@ class Activity {
     'Flutter, Dart, & Google Cloud Developer at smusy.',
     ActivityType.work,
     isHighlight: true,
-    start: LocalMonth(2020, 09),
+    start: const LocalMonth(2020, 09),
     description:
         'I co-architected and co-designed the smusy.app, dashboards, backend, and API.',
     primaryTag: PrimaryTag.smusy,
@@ -108,8 +108,8 @@ class Activity {
     'Android Developer for Skill Checker',
     ActivityType.work,
     isHighlight: true,
-    start: LocalMonth(2018, 11),
-    end: LocalMonth(2019, 02),
+    start: const LocalMonth(2018, 11),
+    end: const LocalMonth(2019, 02),
     description:
         'I worked for Samsung and WorldSkills Germany on the SkillChecker Android app that helps young people find a professional orientation.',
     primaryTag: PrimaryTag.worldSkills,
@@ -120,8 +120,8 @@ class Activity {
     'Flutter and Android developer at dBildungscloud',
     ActivityType.work,
     isHighlight: true,
-    start: LocalMonth(2017, 12),
-    end: LocalMonth(2021, 03),
+    start: const LocalMonth(2017, 12),
+    end: const LocalMonth(2021, 03),
     description:
         'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
     primaryTag: PrimaryTag.dBildungscloud,
@@ -138,8 +138,8 @@ class Activity {
   static final dBildungscloudInternship = Activity(
     'Internship: Android Developer at dBildungscloud',
     ActivityType.work,
-    start: LocalMonth(2017, 07),
-    end: LocalMonth(2017, 08),
+    start: const LocalMonth(2017, 07),
+    end: const LocalMonth(2017, 08),
     description:
         "During summer vacations at school, I worked on the HPI Schul-Cloud's (now called dBildungscloud) Android app.",
     primaryTag: PrimaryTag.dBildungscloud,
@@ -152,7 +152,7 @@ class Activity {
     'WorldSkills Germany Expert',
     ActivityType.volunteering,
     isHighlight: true,
-    start: LocalMonth(2020, 06),
+    start: const LocalMonth(2020, 06),
     description:
         'I co-organized national competitions and prepared competitors for WorldSkills as the expert and national coach for the skill/discipline “Mobile Applications Development” at WorldSkills Germany.',
     primaryTag: PrimaryTag.worldSkills,
@@ -162,7 +162,7 @@ class Activity {
       ..._germanItSkillsSocialLinks,
     },
   );
-  static final eventsClub = Activity(
+  static const eventsClub = Activity(
     'Co-Head of the Events Club',
     ActivityType.volunteering,
     start: LocalMonth(2019, 06),
@@ -174,8 +174,8 @@ class Activity {
   static final culinaryClub = Activity(
     'Co-Head of the Culinary Club',
     ActivityType.volunteering,
-    start: LocalMonth(2019, 04),
-    end: LocalMonth(2020, 11),
+    start: const LocalMonth(2019, 04),
+    end: const LocalMonth(2020, 11),
     description:
         'Members of the Culinary Club regularly meet to cook or bake together. I was responsible for the baking part and organized a motive cake workshop. I also lead the creation of the HPI summer party cake in 2019 feeding around 400 people.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
@@ -188,7 +188,7 @@ class Activity {
       ),
     },
   );
-  static final mobileDevClub = Activity(
+  static const mobileDevClub = Activity(
     'Head/Co-Head of the MobileDev Club',
     ActivityType.volunteering,
     start: LocalMonth(2018, 11),
@@ -202,7 +202,7 @@ class Activity {
     'WorldSkills Germany Jury Member & National Trainer',
     ActivityType.volunteering,
     isHighlight: true,
-    start: LocalMonth(2018, 02),
+    start: const LocalMonth(2018, 02),
     description:
         'Since 2018, I am part of the German jury and trainer team for the skill/discipline “IT Software Solutions for Business”.',
     primaryTag: PrimaryTag.worldSkills,
@@ -218,8 +218,8 @@ class Activity {
     '🥉 Bronze Medal at the WorldSkills Abu Dhabi 2017',
     ActivityType.competition,
     isHighlight: true,
-    start: LocalMonth(2017, 10),
-    end: LocalMonth(2017, 10),
+    start: const LocalMonth(2017, 10),
+    end: const LocalMonth(2017, 10),
     description:
         'I won a bronze medal (first ever German medal in ICT skills) in the skill/discipline “IT Software Solutions for Business” at the WorldSkills Abu Dhabi 2017 among 27 countries/regions as the youngest competitor.',
     primaryTag: PrimaryTag.worldSkills,
@@ -256,8 +256,8 @@ class Activity {
     'DOSUAS',
     ActivityType.competition,
     isHighlight: true,
-    start: LocalMonth(2017, 12),
-    end: LocalMonth(2018, 05),
+    start: const LocalMonth(2017, 12),
+    end: const LocalMonth(2018, 05),
     description:
         "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D-picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
     primaryTag: PrimaryTag.jugendForscht,
@@ -279,8 +279,8 @@ class Activity {
   static final worldSkillsAlbertEinsteinCup = Activity(
     '🥉 Bronze Medal at the Albert Einstein Cup',
     ActivityType.competition,
-    start: LocalMonth(2017, 06),
-    end: LocalMonth(2017, 06),
+    start: const LocalMonth(2017, 06),
+    end: const LocalMonth(2017, 06),
     description:
         'I won the bronze medal (3rd place) at the European championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among seven competitors.',
     primaryTag: PrimaryTag.worldSkills,
@@ -302,8 +302,8 @@ class Activity {
   static final worldSkillsGermanChampionships = Activity(
     '🥈 Silver Medal at the German championships',
     ActivityType.competition,
-    start: LocalMonth(2017, 02),
-    end: LocalMonth(2017, 02),
+    start: const LocalMonth(2017, 02),
+    end: const LocalMonth(2017, 02),
     description:
         'I won the silver medal (2nd place) at the German championship of WorldSkills in skill/discipline “IT Software Solutions for Business” among eight competitors.',
     primaryTag: PrimaryTag.worldSkills,
@@ -324,8 +324,8 @@ class Activity {
   static final mathematicalGrammarSchoolCup = Activity(
     'Mathematical Grammar School Cup',
     ActivityType.competition,
-    start: LocalMonth(2016, 06),
-    end: LocalMonth(2016, 06),
+    start: const LocalMonth(2016, 06),
+    end: const LocalMonth(2016, 06),
     description: 'I won a silver medal in the computer science category.',
     primaryTag: PrimaryTag.mathematicalGrammarSchoolCup,
     tags: {Tag.cSharp},
@@ -342,7 +342,7 @@ class Activity {
   static final debugOverlay = Activity(
     '🐛 debug_overlay',
     ActivityType.project,
-    start: LocalMonth(2021, 03),
+    start: const LocalMonth(2021, 03),
     description:
         'View debug infos and change settings via a central overlay for your app',
     tags: {Tag.dart},
@@ -354,8 +354,8 @@ class Activity {
   static final capnProto = Activity(
     "Cap'n Proto for Dart",
     ActivityType.project,
-    start: LocalMonth(2020, 12),
-    end: LocalMonth(2021, 05),
+    start: const LocalMonth(2020, 12),
+    end: const LocalMonth(2021, 05),
     description:
         "Pure Dart implementation of Cap'n Proto – an extremely efficient protocol for sharing data and capabilities",
     tags: {Tag.dart},
@@ -368,7 +368,7 @@ class Activity {
     '🍭 Candy',
     ActivityType.project,
     isHighlight: true,
-    start: LocalMonth(2020, 06),
+    start: const LocalMonth(2020, 06),
     description:
         "A sweet programming language that is robust, minimalistic, and expressive. We're creating this language from scratch.",
     tags: {Tag.rust},
@@ -377,8 +377,8 @@ class Activity {
   static final dataSize = Activity(
     '🔟 data_size',
     ActivityType.project,
-    start: LocalMonth(2020, 05),
-    end: LocalMonth(2021, 03),
+    start: const LocalMonth(2020, 05),
+    end: const LocalMonth(2021, 03),
     description:
         'Customizable data size (bit & byte) formatting for interfacing with the user',
     tags: {Tag.dart},
@@ -390,7 +390,7 @@ class Activity {
   static final rrule = Activity(
     '🔁 rrule',
     ActivityType.project,
-    start: LocalMonth(2020, 05),
+    start: const LocalMonth(2020, 05),
     description:
         'Recurrence rule parsing & calculation as defined in the iCalendar RFC',
     tags: {Tag.dart},
@@ -402,7 +402,7 @@ class Activity {
   static final swipeablePageRoute = Activity(
     '🔙 swipeable_page_route',
     ActivityType.project,
-    start: LocalMonth(2020, 04),
+    start: const LocalMonth(2020, 04),
     description:
         'Swipe to navigate back and admire beautifully morphing widgets',
     tags: {Tag.dart, Tag.flutter},
@@ -414,8 +414,8 @@ class Activity {
   static final flutterDeepLinking = Activity(
     '🧭 flutter_deep_linking',
     ActivityType.project,
-    start: LocalMonth(2020, 03),
-    end: LocalMonth(2021, 04),
+    start: const LocalMonth(2020, 03),
+    end: const LocalMonth(2021, 04),
     description:
         'Handle all your routing with proper deep links and handle them declaratively!',
     tags: {Tag.dart, Tag.flutter},
@@ -427,8 +427,8 @@ class Activity {
   static final l42n = Activity(
     '🌍 L42n – for even better L10n!',
     ActivityType.project,
-    start: LocalMonth(2020, 03),
-    end: LocalMonth(2020, 03),
+    start: const LocalMonth(2020, 03),
+    end: const LocalMonth(2020, 03),
     description: 'A desktop editor for .arb-files',
     tags: {Tag.dart, Tag.flutter},
     links: {Link.gitHub('JonasWanke', 'l42n')},
@@ -436,7 +436,7 @@ class Activity {
   static final blackHoleFlutter = Activity(
     '🛠 black_hole_flutter',
     ActivityType.project,
-    start: LocalMonth(2020, 03),
+    start: const LocalMonth(2020, 03),
     description:
         'A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
     tags: {Tag.dart, Tag.flutter},
@@ -449,7 +449,7 @@ class Activity {
     '📅 Timetable',
     ActivityType.project,
     isHighlight: true,
-    start: LocalMonth(2020, 01),
+    start: const LocalMonth(2020, 01),
     description:
         'Customizable flutter calendar widget including day and week views',
     tags: {Tag.dart, Tag.flutter},
@@ -461,8 +461,8 @@ class Activity {
   static final unicorn = Activity(
     '🦄 Unicorn',
     ActivityType.project,
-    start: LocalMonth(2019, 01),
-    end: LocalMonth(2020, 04),
+    start: const LocalMonth(2019, 01),
+    end: const LocalMonth(2020, 04),
     description: 'A tool to create, work on, test, and deploy projects',
     tags: {Tag.kotlin},
     links: {Link.gitHub('JonasWanke', 'l42n')},
@@ -470,7 +470,7 @@ class Activity {
   static final homepage = Activity(
     'Homepage',
     ActivityType.project,
-    start: LocalMonth(2017, 03),
+    start: const LocalMonth(2017, 03),
     description: "You're looking at it!",
     tags: {Tag.dart, Tag.flutter},
     links: {Link.gitHub('JonasWanke', 'homepage')},
@@ -478,8 +478,8 @@ class Activity {
   static final lightYourDog = Activity(
     'Light your Dog',
     ActivityType.project,
-    start: LocalMonth(2016, 11),
-    end: LocalMonth(2018, 05),
+    start: const LocalMonth(2016, 11),
+    end: const LocalMonth(2018, 05),
     description:
         'Light your Dog developed illuminated dog harnesses as an alternative to lighted collars. The harness is fitted to the anatomy of the dog and is optionally customizable using an android app via bluetooth, e.g., for changing colors. With this project, we participated in the competition Jugend forscht.',
     primaryTag: PrimaryTag.jugendForscht,

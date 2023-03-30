@@ -4,17 +4,17 @@ import '../app/_.dart';
 
 @immutable
 class LocalMonth implements Comparable<LocalMonth> {
-  LocalMonth(int year, int month) : dateTime = DateTime.utc(year, month, 1);
+  const LocalMonth(this.year, this.month)
+      : assert(DateTime.january <= month && month <= DateTime.december);
   LocalMonth.fromDateTime(DateTime dateTime)
       : this(dateTime.year, dateTime.month);
 
   static LocalMonth get current => LocalMonth.fromDateTime(DateTime.now());
   static LocalMonth get next => current.plus(months: 1);
 
-  final DateTime dateTime;
-
-  int get year => dateTime.year;
-  int get month => dateTime.month;
+  final int year;
+  final int month;
+  DateTime get dateTime => DateTime.utc(year, month, 1);
 
   LocalMonth plus({int years = 0, int months = 0}) =>
       LocalMonth.fromDateTime(DateTime.utc(year + years, month + months));
@@ -37,8 +37,8 @@ class LocalMonth implements Comparable<LocalMonth> {
 
   @override
   String toString() {
-    final year = dateTime.year.toString().padLeft(4, '0');
-    final month = dateTime.month.toString().padLeft(2, '0');
+    final year = this.year.toString().padLeft(4, '0');
+    final month = this.month.toString().padLeft(2, '0');
     return '$year-$month';
   }
 }
