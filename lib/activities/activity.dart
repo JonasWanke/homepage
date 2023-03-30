@@ -126,7 +126,7 @@ class Activity {
     start: const LocalMonth(2017, 12),
     end: const LocalMonth(2021, 03),
     description:
-        'The dBildungscloud is a cloud solution for German schools. I worked on the native Android app and later the Flutter app.',
+        'I worked on the native Android app and later the Flutter app.',
     primaryTag: PrimaryTag.dBildungscloud,
     tags: {Tag.android, Tag.dart, Tag.flutter, Tag.kotlin},
     links: {
