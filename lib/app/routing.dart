@@ -1,14 +1,8 @@
-import 'dart:html';
-
-import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart' hide Route, Router;
 import 'package:flutter_deep_linking/flutter_deep_linking.dart';
 
 import 'pages/landing_page.dart';
 import 'widgets/app_bar.dart';
-
-String get domain => Uri.parse(window.location.href).host.removePrefix('www.');
-String webUrl(String path) => 'https://$domain/$path';
 
 final router = Router(
   routes: [
