@@ -263,7 +263,7 @@ class Activity {
     start: const LocalMonth(2017, 12),
     end: const LocalMonth(2018, 05),
     description:
-        "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo-headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad-Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
+        "DOSUAS is a device which uses acoustic signals for guiding blind people. We first take a 3D picture of a camera mounted on the person's head, then convert it using different algorithms and finally output it on stereo headphones. The distance is hereby represented by the pitch of the output – higher pitches correspond to something close, lower pitches to something more distant. We won the Konrad Zuse youth prize by the Eduard Rhein Foundation at the national round of Jugend forscht.",
     primaryTag: PrimaryTag.jugendForscht,
     links: {
       Link.competitionResults(
