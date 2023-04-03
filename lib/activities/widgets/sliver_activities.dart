@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../app/_.dart';
-import '../activities.dart';
 import '../activity.dart';
 import '../tag.dart';
 import 'activities_gantt_chart.dart';
@@ -33,7 +32,7 @@ class SliverActivities extends HookWidget {
       buildChip: (it) => TagChip(it, filters: tagFilters),
     );
 
-    final filteredActivities = activities
+    final filteredActivities = Activity.values
         .whereFiltersMatch(
           typeFilters.value,
           getFromActivity: (it) => [it.type],

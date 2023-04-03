@@ -1,7 +1,6 @@
 import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../activities/_.dart';
@@ -84,31 +83,10 @@ class _ContactWidget extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _ContactPossibility(
-              FontAwesomeIcons.telegram,
-              'Telegram',
-              Uri.parse('https://t.me/JonasWanke'),
-            ),
-            _ContactPossibility(
-              Icons.mail_outline,
-              'E-Mail',
-              Uri.parse('mailto:contact+homepage@jonas-wanke.com'),
-            ),
-            _ContactPossibility(
-              FontAwesomeIcons.linkedinIn,
-              'LinkedIn',
-              Uri.parse('https://linkedin.com/in/jonas-wanke'),
-            ),
-            _ContactPossibility(
-              FontAwesomeIcons.instagram,
-              'Instagram',
-              Uri.parse('https://instagram.com/jonas.wanke'),
-            ),
-            // _ContactPossibility(
-            //   FontAwesomeIcons.twitter,
-            //   'Twitter',
-            //   'https://twitter.com/JonasWanke',
-            // ),
+            _ContactPossibility(Link.jonasTelegram),
+            _ContactPossibility(Link.jonasEmail),
+            _ContactPossibility(Link.jonasLinkedIn),
+            _ContactPossibility(Link.jonasInstagram),
           ],
         ),
       ],
@@ -117,18 +95,16 @@ class _ContactWidget extends StatelessWidget {
 }
 
 class _ContactPossibility extends StatelessWidget {
-  const _ContactPossibility(this.icon, this.name, this.url);
+  const _ContactPossibility(this.link);
 
-  final IconData icon;
-  final String name;
-  final Uri url;
+  final Link link;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () async => tryLaunchingUrl(url),
-      tooltip: name,
-      icon: FaIcon(icon),
+      onPressed: () async => tryLaunchingUrl(link.url),
+      tooltip: link.tooltip,
+      icon: SizedBox.square(dimension: 20, child: link.icon),
     );
   }
 }

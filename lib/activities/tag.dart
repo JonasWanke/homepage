@@ -1,19 +1,15 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'brand_icon.dart';
 
-part 'tag.freezed.dart';
-
 abstract class BaseTag {
-  String get title;
-  String get description;
-  BrandIcon? get icon;
+  const BaseTag(this.title, this.description, this.icon);
+
+  final String title;
+  final String description;
+  final BrandIcon? icon;
 }
 
-@freezed
-class PrimaryTag extends BaseTag with _$PrimaryTag {
-  const factory PrimaryTag(String title, String description, BrandIcon icon) =
-      _PrimaryTag;
+class PrimaryTag extends BaseTag {
+  const PrimaryTag(super.title, super.description, super.icon);
 
   // Sorted alphabetically
   static final values = [
@@ -34,6 +30,11 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
     'Hasso Plattner Institute',
     'The Hasso Plattner Institute for Digital Engineering hosts the Digital Engineering Faculty of the University of Potsdam, Germany.',
     BrandIcon.hassoPlattnerInstitute,
+  );
+  static const heinrichHertzGymnasium = PrimaryTag(
+    'Heinrich-Hertz-Gymnasium',
+    'The Heinrich-Hertz-Gymnasium is a high school (“Gymnasium”) with mathematical and scientific specialization in Berlin, Germany.',
+    BrandIcon.heinrichHertzGymnasium,
   );
   static const jugendForscht = PrimaryTag(
     'Jugend forscht',
@@ -57,9 +58,8 @@ class PrimaryTag extends BaseTag with _$PrimaryTag {
   );
 }
 
-@freezed
-class Tag extends BaseTag with _$Tag {
-  const factory Tag(String title, String description, [BrandIcon? icon]) = _Tag;
+class Tag extends BaseTag {
+  const Tag(super.title, super.description, [super.icon]);
 
   // Sorted by importance
   static final values = [

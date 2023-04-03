@@ -79,11 +79,18 @@ class ProportionalPaddingRenderObject extends RenderShiftedBox {
   }
 
   EdgeInsets _resolvePadding(Size size) {
+    // Conditionals are necessary to avoid NaNs.
     return EdgeInsets.fromLTRB(
-      size.width * padding.left / (padding.horizontal + 1),
-      size.height * padding.top / (padding.vertical + 1),
-      size.width * padding.right / (padding.horizontal + 1),
-      size.height * padding.bottom / (padding.vertical + 1),
+      padding.left == 0
+          ? 0
+          : size.width * padding.left / (padding.horizontal + 1),
+      padding.top == 0 ? 0 : size.height * padding.top / (padding.vertical + 1),
+      padding.right == 0
+          ? 0
+          : size.width * padding.right / (padding.horizontal + 1),
+      padding.bottom == 0
+          ? 0
+          : size.height * padding.bottom / (padding.vertical + 1),
     );
   }
 }

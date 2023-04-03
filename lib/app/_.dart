@@ -8,7 +8,6 @@ export 'package:flutter/material.dart';
 export 'package:meta/meta.dart';
 export 'package:todo/todo.dart';
 
-export 'routing.dart' show webUrl;
 export 'services.dart' hide initServices;
 export 'utils.dart';
 export 'widgets/app.dart';

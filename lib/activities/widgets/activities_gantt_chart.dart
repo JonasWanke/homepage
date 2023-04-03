@@ -1,6 +1,10 @@
 import 'package:align_positioned/align_positioned.dart';
 import 'package:dartx/dartx.dart'
-    show ComparableSmallerEqualsExtension, IntRangeToExtension, IterableMinBy;
+    show
+        ComparableCoerceAtLeastExtension,
+        ComparableSmallerEqualsExtension,
+        IntRangeToExtension,
+        IterableMinBy;
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:tuple/tuple.dart';
@@ -21,6 +25,7 @@ class ActivitiesGanttChart extends StatelessWidget {
 
   static const _activityHeight = 32.0;
   static const _activityPadding = 2.0;
+  static const _minMonth = LocalMonth(2016, 01);
 
   final List<Activity> activities;
   final ValueNotifier<Set<PrimaryTag>> primaryTagFilters;
@@ -29,7 +34,8 @@ class ActivitiesGanttChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentMonth = LocalMonth.current;
-    final firstMonth = activities.map((it) => it.start).min;
+    final firstMonth =
+        activities.map((it) => it.start).min.coerceAtLeast(_minMonth);
     final lastMonth = currentMonth.plus(months: 1);
     final monthWidth = 1 / lastMonth.difference(firstMonth);
 
@@ -71,12 +77,11 @@ class ActivitiesGanttChart extends StatelessWidget {
       final activity = it.key;
       final position = it.value;
 
-      final duration =
-          (activity.end ?? currentMonth).difference(activity.start) + 1;
+      final start = activity.start.coerceAtLeast(firstMonth);
+      final duration = (activity.end ?? currentMonth).difference(start) + 1;
       return AlignPositioned(
         alignment: Alignment.topLeft,
-        moveByContainerWidth:
-            activity.start.difference(firstMonth) * monthWidth,
+        moveByContainerWidth: start.difference(firstMonth) * monthWidth,
         dy: (position + 1) * _activityHeight,
         childWidthRatio: duration * monthWidth,
         minChildWidth: _activityHeight,
@@ -92,9 +97,11 @@ class ActivitiesGanttChart extends StatelessWidget {
       );
     });
 
-    return SizedBox(
-      height: (maxY + 1.25) * _activityHeight,
-      child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
+    return RepaintBoundary(
+      child: SizedBox(
+        height: (maxY + 1.25) * _activityHeight,
+        child: Stack(children: [...yearLabelsAndDividers, ...activityChildren]),
+      ),
     );
   }
 
@@ -149,7 +156,7 @@ class _ActivityEntry extends HookWidget {
             ),
           Flexible(
             child: Text(
-              activity.title,
+              activity.fullTitle,
               maxLines: 1,
               softWrap: false,
               overflow: TextOverflow.clip,
