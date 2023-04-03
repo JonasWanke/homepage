@@ -418,7 +418,7 @@ final activities = [
     end: LocalMonth(2020, 04),
     description: 'A tool to create, work on, test, and deploy projects',
     tags: {Tag.gitHub, Tag.gitHubActions, Tag.kotlin},
-    links: {const Link.gitHubRepository('JonasWanke', 'l42n')},
+    links: {const Link.gitHubRepository('JonasWanke', 'Unicorn')},
   ),
   Activity(
     'Homepage',
