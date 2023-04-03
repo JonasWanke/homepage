@@ -137,7 +137,9 @@ class _PrimaryTagTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () => primaryTagFilters.set(primaryTag, true),
-      leading: SizedBox.square(dimension: 48, child: primaryTag.icon.widget),
+      leading: primaryTag.icon == null
+          ? null
+          : SizedBox.square(dimension: 48, child: primaryTag.icon!.widget),
       subtitle: Text(primaryTag.description),
     );
   }

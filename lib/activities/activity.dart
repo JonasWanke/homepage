@@ -119,7 +119,7 @@ class Activity {
         'I worked for Samsung and WorldSkills Germany on the SkillChecker Android app that helps young people find a professional orientation.',
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.kotlin},
-    links: {const Link.googlePlay('com.worldskills.skillchecker')},
+    links: {Link.googlePlay('com.worldskills.skillchecker')},
   );
   static final dBildungscloud = Activity(
     'Flutter and Android developer at dBildungscloud',
@@ -140,7 +140,7 @@ class Activity {
       Tag.kotlin,
     },
     links: {
-      const Link.gitHubRepository('hpi-schul-cloud', 'schulcloud-flutter'),
+      Link.gitHubRepository('hpi-schul-cloud', 'schulcloud-flutter'),
       _dBildungscloudHomepageLink,
       Link.article(
         Uri.parse('https://blog.dbildungscloud.de/author/jonas-wanke/'),
@@ -201,11 +201,11 @@ class Activity {
       ),
     },
   );
-  static const mobileDevClub = Activity(
+  static final mobileDevClub = Activity(
     'Head/Co-Head of the MobileDev Club',
     ActivityType.volunteering,
-    start: LocalMonth(2018, 11),
-    end: LocalMonth(2021, 09),
+    start: const LocalMonth(2018, 11),
+    end: const LocalMonth(2021, 09),
     description:
         'I rebuilt the club from the ground up and organized weekly meetings. As part of the club, I organized a Google I/O Extended Event (2019) and Flutter, Material Design, Kotlin, and Git workshops. I also architected & co-designed the native HPI Android app and later on the Flutter app, as well as the backend.',
     primaryTag: PrimaryTag.hassoPlattnerInstitute,
@@ -219,7 +219,7 @@ class Activity {
       Tag.kotlin,
       Tag.protocolBuffers,
     },
-    links: {Link.gitHubOrganization('hpi-de')},
+    links: {Link.gitHubUser('hpi-de')},
   );
   static final worldSkillsSkill09 = Activity(
     'WorldSkills Germany Jury Member & National Trainer',
@@ -312,7 +312,7 @@ class Activity {
     primaryTag: PrimaryTag.worldSkills,
     tags: {Tag.android, Tag.cSharp, Tag.kotlin},
     links: {
-      const Link.youTubeVideo('BsBxcwiwOeg', 'Video about this event'),
+      Link.youTubeVideo('BsBxcwiwOeg', 'Video about this event'),
       Link.article(
         Uri.parse('https://hhgym.de/worldskills-einstein-cup/'),
         "My school's article about this event",
@@ -375,8 +375,8 @@ class Activity {
         'View debug infos and change settings via a central overlay for your app',
     tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'debug_overlay'),
-      const Link.pubDev('debug_overlay'),
+      Link.gitHubRepository('JonasWanke', 'debug_overlay'),
+      Link.pubDev('debug_overlay'),
     },
   );
   static final capnProto = Activity(
@@ -388,8 +388,8 @@ class Activity {
         "Pure Dart implementation of Cap'n Proto – an extremely efficient protocol for sharing data and capabilities",
     tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'capnproto-dart'),
-      const Link.pubDev('capnproto'),
+      Link.gitHubRepository('JonasWanke', 'capnproto-dart'),
+      Link.pubDev('capnproto'),
     },
   );
   static final candy = Activity(
@@ -401,7 +401,7 @@ class Activity {
     description:
         "A sweet programming language that is robust, minimalistic, and expressive. We're creating this language from scratch.",
     tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions, Tag.rust},
-    links: {const Link.gitHubRepository('candy-lang', 'candy')},
+    links: {Link.gitHubRepository('candy-lang', 'candy')},
   );
   static final dataSize = Activity(
     'data_size',
@@ -413,8 +413,8 @@ class Activity {
         'Customizable data size (bit & byte) formatting for interfacing with the user',
     tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'data_size'),
-      const Link.pubDev('data_size'),
+      Link.gitHubRepository('JonasWanke', 'data_size'),
+      Link.pubDev('data_size'),
     },
   );
   static final rrule = Activity(
@@ -426,8 +426,8 @@ class Activity {
         'Recurrence rule parsing & calculation as defined in the iCalendar RFC',
     tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'rrule'),
-      const Link.pubDev('rrule'),
+      Link.gitHubRepository('JonasWanke', 'rrule'),
+      Link.pubDev('rrule'),
     },
   );
   static final swipeablePageRoute = Activity(
@@ -439,8 +439,8 @@ class Activity {
         'Swipe to navigate back and admire beautifully morphing widgets',
     tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'swipeable_page_route'),
-      const Link.pubDev('swipeable_page_route'),
+      Link.gitHubRepository('JonasWanke', 'swipeable_page_route'),
+      Link.pubDev('swipeable_page_route'),
     },
   );
   static final flutterDeepLinking = Activity(
@@ -453,8 +453,8 @@ class Activity {
         'Handle all your routing with proper deep links and handle them declaratively!',
     tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'flutter_deep_linking'),
-      const Link.pubDev('flutter_deep_linking'),
+      Link.gitHubRepository('JonasWanke', 'flutter_deep_linking'),
+      Link.pubDev('flutter_deep_linking'),
     },
   );
   static final l42n = Activity(
@@ -465,7 +465,7 @@ class Activity {
     end: const LocalMonth(2020, 03),
     description: 'A desktop editor for .arb-files',
     tags: {Tag.dart, Tag.flutter, Tag.gitHub},
-    links: {const Link.gitHubRepository('JonasWanke', 'l42n')},
+    links: {Link.gitHubRepository('JonasWanke', 'l42n')},
   );
   static final blackHoleFlutter = Activity(
     'black_hole_flutter',
@@ -476,8 +476,8 @@ class Activity {
         'A package absorbing all Flutter utility functions, including extension functions and commonly used widgets',
     tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'black_hole_flutter'),
-      const Link.pubDev('black_hole_flutter'),
+      Link.gitHubRepository('JonasWanke', 'black_hole_flutter'),
+      Link.pubDev('black_hole_flutter'),
     },
   );
   static final timetable = Activity(
@@ -490,8 +490,8 @@ class Activity {
         'Customizable flutter calendar widget including day and week views',
     tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
     links: {
-      const Link.gitHubRepository('JonasWanke', 'timetable'),
-      const Link.pubDev('timetable'),
+      Link.gitHubRepository('JonasWanke', 'timetable'),
+      Link.pubDev('timetable'),
     },
   );
   static final unicorn = Activity(
@@ -502,7 +502,7 @@ class Activity {
     end: const LocalMonth(2020, 04),
     description: 'A tool to create, work on, test, and deploy projects',
     tags: {Tag.gitHub, Tag.gitHubActions, Tag.kotlin},
-    links: {const Link.gitHubRepository('JonasWanke', 'l42n')},
+    links: {Link.gitHubRepository('JonasWanke', 'l42n')},
   );
   static final homepage = Activity(
     'Homepage',
@@ -510,7 +510,7 @@ class Activity {
     start: const LocalMonth(2017, 03),
     description: "You're looking at it!",
     tags: {Tag.dart, Tag.flutter, Tag.gitHub, Tag.gitHubActions},
-    links: {const Link.gitHubRepository('JonasWanke', 'homepage')},
+    links: {Link.gitHubRepository('JonasWanke', 'homepage')},
   );
   static final lightYourDog = Activity(
     'Light your Dog',
@@ -522,8 +522,8 @@ class Activity {
     primaryTag: PrimaryTag.jugendForscht,
     tags: {Tag.android, Tag.firebase, Tag.gitHub, Tag.java},
     links: {
-      const Link.instagram('lightyourdog'),
-      const Link.twitter('LightYourDog'),
+      Link.instagram('lightyourdog'),
+      Link.twitter('LightYourDog'),
       Link.newspaperArticle(
         'Berliner Woche',
         Uri.parse(
@@ -534,10 +534,10 @@ class Activity {
   );
 
   static final _germanItSkillsSocialLinks = {
-    const Link.youTubeChannel('GermanItSkills'),
-    const Link.instagram('german.it.skills'),
-    const Link.facebook('GermanItSkills'),
-    const Link.twitter('GermanItSkills'),
+    Link.youTubeChannel('GermanItSkills'),
+    Link.instagram('german.it.skills'),
+    Link.facebook('GermanItSkills'),
+    Link.twitter('GermanItSkills'),
   };
   static final _dBildungscloudHomepageLink =
       Link.homepage(Uri.parse('https://dbildungscloud.de'));
