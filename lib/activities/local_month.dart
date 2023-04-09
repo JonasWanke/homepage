@@ -57,7 +57,17 @@ enum LocalMonthFormat {
   String format(LocalMonth month) => _formatGetter().format(month.dateTime);
   String formatRange(LocalMonth start, LocalMonth? end) {
     if (end == null) {
-      return 'since ${format(start)}';
+      final String since;
+      switch (Intl.defaultLocale?.substring(0, 2)) {
+        case 'de':
+          since = 'seit';
+          break;
+        case 'en':
+        default:
+          since = 'since';
+          break;
+      }
+      return '$since ${format(start)}';
     } else if (start == end) {
       return format(start);
     } else {
