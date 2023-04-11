@@ -35,6 +35,7 @@ class Activity {
   static final values = [
     bachelor,
     generalQualification,
+    cashew,
     smusy,
     skillChecker,
     dBildungscloud,
@@ -89,6 +90,15 @@ class Activity {
   );
 
   // Work
+  static const cashew = Activity(
+    'CO₂ Measurement',
+    ActivityType.work,
+    isHighlight: true,
+    start: LocalMonth(2021, 07),
+    end: LocalMonth(2021, 07),
+    description:
+        'We developed a CO₂ measurement device including a database and a web frontend.',
+  );
   static final smusy = Activity(
     'Flutter, Dart, & Google Cloud Developer at smusy.',
     ActivityType.work,
