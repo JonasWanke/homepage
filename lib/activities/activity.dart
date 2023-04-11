@@ -94,6 +94,7 @@ class Activity {
     ActivityType.work,
     isHighlight: true,
     start: const LocalMonth(2020, 09),
+    end: const LocalMonth(2023, 04),
     description:
         'I co-architected and co-designed the smusy.app, dashboards, backend, and API.',
     primaryTag: PrimaryTag.smusy,
