@@ -1,9 +1,7 @@
-import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
-import 'package:flutter/material.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 import '../../settings/_.dart';
-import '../services.dart';
 
 class FancyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FancyAppBar({this.title});

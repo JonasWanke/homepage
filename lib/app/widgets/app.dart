@@ -1,11 +1,10 @@
-import 'package:black_hole_flutter/black_hole_flutter.dart';
-import 'package:flutter/material.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 import '../../settings/_.dart';
 import '../routing.dart';
-import '../services.dart';
-import '../utils.dart';
 import 'konami_wrapper.dart';
+
+const cardBorderRadius = 16.0;
 
 class App extends StatelessWidget {
   @override
@@ -20,7 +19,7 @@ class App extends StatelessWidget {
           darkTheme: createTheme(Brightness.dark),
           themeMode: brightness.isLight ? ThemeMode.light : ThemeMode.dark,
           onGenerateRoute: router.onGenerateRoute,
-          navigatorObservers: [createLoggingNavigatorObserver()],
+          navigatorObservers: [createLoggingNavigatorObserver(null)],
         ),
       ),
     );

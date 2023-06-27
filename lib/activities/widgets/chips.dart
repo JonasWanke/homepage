@@ -1,4 +1,5 @@
-import '../../app/_.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
+
 import '../activity.dart';
 import '../tag.dart';
 import 'sliver_activities.dart';

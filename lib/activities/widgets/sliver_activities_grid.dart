@@ -1,6 +1,6 @@
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
-import '../../app/_.dart';
 import '../activity.dart';
 import '../tag.dart';
 import 'activity_card.dart';

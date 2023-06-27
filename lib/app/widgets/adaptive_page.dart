@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../utils.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 class AdaptivePage extends StatelessWidget {
   const AdaptivePage({this.isFullwidth = false, required this.builder});

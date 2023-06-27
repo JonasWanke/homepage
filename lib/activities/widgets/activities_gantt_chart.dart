@@ -1,17 +1,8 @@
-import 'package:align_positioned/align_positioned.dart';
-import 'package:dartx/dartx.dart'
-    show
-        ComparableCoerceAtLeastExtension,
-        ComparableSmallerEqualsExtension,
-        IntRangeToExtension,
-        IterableMinBy;
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
-import 'package:tuple/tuple.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 import '../../app/_.dart';
 import '../activity.dart';
-import '../local_month.dart';
 import '../tag.dart';
 import 'activity_card.dart';
 
@@ -66,13 +57,12 @@ class ActivitiesGanttChart extends StatelessWidget {
         .groupListsBy((it) => it.type)
         .entries
         .sortedBy<num>((it) => it.key.index)
-        .fold(const Tuple2(0, <Activity, int>{}), (state, it) {
-      final positions = _calculateActivityPositions(it.value, state.item1);
-      positions.addAll(state.item2);
-      return Tuple2(positions.values.max + 1, positions);
+        .fold((maxY: 0, positions: <Activity, int>{}), (state, it) {
+      final positions = _calculateActivityPositions(it.value, state.maxY);
+      positions.addAll(state.positions);
+      return (maxY: positions.values.max + 1, positions: positions);
     });
-    final maxY = maxYAndPositions.item1;
-    final positions = maxYAndPositions.item2;
+    final (:maxY, :positions) = maxYAndPositions;
     final activityChildren = positions.entries.map((it) {
       final activity = it.key;
       final position = it.value;

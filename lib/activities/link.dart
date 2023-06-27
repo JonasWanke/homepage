@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 import 'brand_icon.dart';
 

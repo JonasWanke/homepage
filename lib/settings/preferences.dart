@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 class Preferences {
   Preferences._(StreamingSharedPreferences sharedPreferences)
@@ -25,10 +24,12 @@ extension PreferencesGetIt on GetIt {
 class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
   @override
   Brightness? getValue(SharedPreferences preferences, String key) {
-    return {
-      'light': Brightness.light,
-      'dark': Brightness.dark,
-    }[preferences.getString(key)];
+    final value = preferences.getString(key);
+    return switch (value) {
+      'light' => Brightness.light,
+      'dark' => Brightness.dark,
+      _ => throw ArgumentError.value(value, key, 'Invalid brightness')
+    };
   }
 
   @override
@@ -37,10 +38,10 @@ class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
     String key,
     Brightness value,
   ) {
-    final string = {
-      Brightness.light: 'light',
-      Brightness.dark: 'dark',
-    }[value]!;
+    final string = switch (value) {
+      Brightness.light => 'light',
+      Brightness.dark => 'dark',
+    };
     return preferences.setString(key, string);
   }
 }

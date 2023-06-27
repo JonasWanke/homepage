@@ -1,6 +1,5 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
-import 'package:black_hole_flutter/black_hole_flutter.dart';
-import 'package:flutter/material.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 class ChipGroup extends StatelessWidget {
   const ChipGroup({

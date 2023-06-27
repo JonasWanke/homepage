@@ -1,8 +1,6 @@
-import 'package:dartx/dartx.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
-import '../app/_.dart';
 import 'link.dart';
-import 'local_month.dart';
 import 'tag.dart';
 
 class Activity {

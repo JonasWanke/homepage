@@ -1,11 +1,7 @@
-import 'package:black_hole_flutter/black_hole_flutter.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:sliver_tools/sliver_tools.dart';
+import 'package:supernova_flutter/supernova_flutter.dart';
 
 import '../../activities/_.dart';
-import '../utils.dart';
-import '../widgets/adaptive_page.dart';
 import '../widgets/app_bar.dart';
 
 class LandingPage extends StatelessWidget {
