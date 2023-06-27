@@ -140,7 +140,7 @@ class _PrimaryTagTile extends StatelessWidget {
       leading: primaryTag.icon == null
           ? null
           : SizedBox.square(dimension: 48, child: primaryTag.icon!.widget),
-      subtitle: Text(primaryTag.description),
+      title: Text(primaryTag.description, style: context.textTheme.bodyMedium),
     );
   }
 }

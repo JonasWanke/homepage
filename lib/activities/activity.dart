@@ -35,6 +35,7 @@ class Activity {
   static final values = [
     bachelor,
     generalQualification,
+    aGym,
     cashew,
     smusy,
     skillChecker,
@@ -90,6 +91,23 @@ class Activity {
   );
 
   // Work
+  static const aGym = Activity(
+    'Flutter, Firebase, & TypeScript Developer at A GYM',
+    ActivityType.work,
+    isHighlight: true,
+    start: LocalMonth(2023, 06),
+    description: 'Coming soon',
+    primaryTag: PrimaryTag.aGym,
+    tags: {
+      Tag.android,
+      Tag.dart,
+      Tag.flutter,
+      Tag.firebase,
+      Tag.gitHub,
+      Tag.gitHubActions,
+      Tag.googleCloudPlatform,
+    },
+  );
   static const cashew = Activity(
     'CO₂ Measurement',
     ActivityType.work,

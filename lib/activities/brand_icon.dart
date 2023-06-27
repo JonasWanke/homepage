@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../app/_.dart';
 
 enum BrandIcon {
+  aGym(proportionalPadding: EdgeInsets.all(0.15)),
   android(proportionalPadding: EdgeInsets.only(bottom: 0.1)),
   cSharp(),
   dart(proportionalPadding: EdgeInsets.all(0.1)),
