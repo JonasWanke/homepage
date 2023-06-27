@@ -28,7 +28,7 @@ class _BrightnessAdapter extends PreferenceAdapter<Brightness> {
     return switch (value) {
       'light' => Brightness.light,
       'dark' => Brightness.dark,
-      _ => throw ArgumentError.value(value, key, 'Invalid brightness')
+      _ => null,
     };
   }
 

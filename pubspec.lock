@@ -870,8 +870,8 @@ packages:
     dependency: transitive
     description:
       path: supernova
-      ref: ae6c4a8ca210579dd1c5ba5a5f322d59ad899f0a
-      resolved-ref: ae6c4a8ca210579dd1c5ba5a5f322d59ad899f0a
+      ref: ee44cebf0cc90086ef3c0db3f07c7a5e77816b88
+      resolved-ref: ee44cebf0cc90086ef3c0db3f07c7a5e77816b88
       url: "https://github.com/JonasWanke/supernova.git"
     source: git
     version: "0.0.0"
@@ -879,8 +879,8 @@ packages:
     dependency: "direct main"
     description:
       path: supernova_flutter
-      ref: ee91e4b530c1a27323853d9b6b56ce66fb075e84
-      resolved-ref: ee91e4b530c1a27323853d9b6b56ce66fb075e84
+      ref: d66051f0f016cc42c3b5c6f0135a48875df5417e
+      resolved-ref: d66051f0f016cc42c3b5c6f0135a48875df5417e
       url: "https://github.com/JonasWanke/supernova.git"
     source: git
     version: "0.0.0"
@@ -1061,6 +1061,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      sha256: d88238e5eac9a42bb43ca4e721edba3c08c6354d4a53063afaa568516217621b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   win32:
     dependency: transitive
     description:
