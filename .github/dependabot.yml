@@ -7,7 +7,7 @@ updates:
     schedule:
       interval: weekly
 
-  - package-ecosystem: dart
+  - package-ecosystem: pub
     directory: /
     labels: ['T: Build']
     reviewers: [JonasWanke]
