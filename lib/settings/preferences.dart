@@ -8,7 +8,8 @@ class Preferences {
   Preferences._(StreamingSharedPreferences sharedPreferences)
       : brightness = sharedPreferences.getCustomValue(
           'brightness',
-          defaultValue: SchedulerBinding.instance.window.platformBrightness,
+          defaultValue:
+              SchedulerBinding.instance.platformDispatcher.platformBrightness,
           adapter: _BrightnessAdapter(),
         );
   static Future<Preferences> create() async =>
