@@ -48,7 +48,11 @@ class ActivitiesGanttChart extends StatelessWidget {
               child: Text(year.toString(), textAlign: TextAlign.center),
             ),
           ),
-          const Expanded(child: VerticalDivider()),
+          Expanded(
+            child: VerticalDivider(
+              color: context.theme.contrastColor.withOpacity(0.12),
+            ),
+          ),
         ]),
       );
     });
