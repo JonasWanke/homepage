@@ -4,10 +4,7 @@
 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-Jonas Wanke
-Weerthstraße 8
-12489 Berlin
-
+Jonas Wanke  
 contact+homepage+privacy@jonas-wanke.com
 
 Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).
@@ -36,13 +33,13 @@ Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, d
 
 In Server-Log-Dateien erhebt und speichert der Provider der Website automatisch Informationen, die Ihr Browser automatisch an uns übermittelt. Dies sind:
 
-* Besuchte Seite auf unserer Domain
-* Datum und Uhrzeit der Serveranfrage
-* Browsertyp und Browserversion
-* Verwendetes Betriebssystem
-* Referrer URL
-* Hostname des zugreifenden Rechners
-* IP-Adresse
+- Besuchte Seite auf unserer Domain
+- Datum und Uhrzeit der Serveranfrage
+- Browsertyp und Browserversion
+- Verwendetes Betriebssystem
+- Referrer URL
+- Hostname des zugreifenden Rechners
+- IP-Adresse
 
 Es findet keine Zusammenführung dieser Daten mit anderen Datenquellen statt. Grundlage der Datenverarbeitung bildet Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen gestattet.
 
