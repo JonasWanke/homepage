@@ -50,6 +50,7 @@ class Activity {
     worldSkillsGermanChampionships,
     mathematicalGrammarSchoolCup,
     chrono,
+    resume,
     debugOverlay,
     capnProto,
     candy,
@@ -406,6 +407,14 @@ class Activity {
       // TODO(JonasWanke): Add pub.dev link when publishing chrono
       // Link.pubDev('chrono'),
     },
+  );
+  static final resume = const Activity(
+    'resume',
+    emoji: '📅',
+    ActivityType.project,
+    start: LocalMonth(2023, 03),
+    description: 'My resume, generated using the PDF package in Flutter',
+    tags: {Tag.dart, Tag.flutter},
   );
   static final debugOverlay = Activity(
     'debug_overlay',
