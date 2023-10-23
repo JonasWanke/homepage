@@ -43,8 +43,8 @@ class SliverActivities extends HookWidget {
         .whereFiltersMatch(tagFilters.value, getFromActivity: (it) => it.tags)
         .toList();
     return MultiSliver(children: [
-      SliverToBoxAdapter(
-        child: Column(children: [
+      SliverList(
+        delegate: SliverChildListDelegate.fixed([
           typeFilterWidget,
           const SizedBox(height: 16),
           primaryTagFilterWidget,
