@@ -12,21 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_deep_linking: ^0.2.1
-  flutter_staggered_grid_view: ^0.6.2
+  flutter_staggered_grid_view: ^0.7.0
   font_awesome_flutter: ^10.4.0
   just_the_tooltip: ^0.0.12
   supernova_flutter:
     git:
       url: https://github.com/JonasWanke/supernova.git
       path: supernova_flutter
-      ref: d66051f0f016cc42c3b5c6f0135a48875df5417e
-
-dev_dependencies:
-  dart_code_metrics: ^5.0.1
-  flutter_lints: ^2.0.1
-
-dependency_overrides:
-  http: ^1.0.0
+      ref: c0877455f70e3a9c00c659a91a881a33f372c726
 
 flutter:
   uses-material-design: true
