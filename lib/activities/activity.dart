@@ -627,5 +627,5 @@ enum ActivityType {
   }
 
   Color get backgroundColor => color.withOpacity(0.1);
-  Color get borderColor => color.withOpacity(0.4);
+  Color get borderColor => color.withOpacity(0.6);
 }
