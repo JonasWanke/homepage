@@ -90,7 +90,7 @@ class Activity {
 
   // Work
   static const aGym = Activity(
-    'Flutter, Firebase, & TypeScript Developer at A GYM',
+    'Flutter, Firebase, & TypeScript Developer at aGYM',
     ActivityType.work,
     isHighlight: true,
     start: LocalMonth(2023, 06),

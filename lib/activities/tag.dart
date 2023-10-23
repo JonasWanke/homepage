@@ -22,7 +22,7 @@ class PrimaryTag extends BaseTag {
     worldSkills,
   ];
 
-  static const aGym = PrimaryTag('A GYM', 'Coming soon', BrandIcon.aGym);
+  static const aGym = PrimaryTag('aGYM', 'Coming soon', BrandIcon.aGym);
   static const dBildungscloud = PrimaryTag(
     'dBildungscloud',
     'The dBildungscloud (formerly HPI Schul-Cloud) is a cloud solution for German schools.',
