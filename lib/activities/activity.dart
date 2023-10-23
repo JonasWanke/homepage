@@ -49,6 +49,7 @@ class Activity {
     worldSkillsAlbertEinsteinCup,
     worldSkillsGermanChampionships,
     mathematicalGrammarSchoolCup,
+    chrono,
     debugOverlay,
     capnProto,
     candy,
@@ -393,6 +394,19 @@ class Activity {
   );
 
   // Project
+  static final chrono = Activity(
+    'chrono',
+    emoji: '📅',
+    ActivityType.project,
+    start: const LocalMonth(2023, 04),
+    description: 'Strongly-typed date and time arithmetic in Dart',
+    tags: {Tag.dart, Tag.gitHub, Tag.gitHubActions},
+    links: {
+      Link.gitHubRepository('JonasWanke', 'chrono'),
+      // TODO(JonasWanke): Add pub.dev link when publishing chrono
+      // Link.pubDev('chrono'),
+    },
+  );
   static final debugOverlay = Activity(
     'debug_overlay',
     emoji: '🐛',
