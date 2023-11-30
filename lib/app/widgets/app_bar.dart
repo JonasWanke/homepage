@@ -4,7 +4,7 @@ import 'package:supernova_flutter/supernova_flutter.dart';
 import '../../settings/_.dart';
 
 class FancyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const FancyAppBar({this.title});
+  const FancyAppBar({super.key, this.title});
 
   final Widget? title;
 

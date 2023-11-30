@@ -415,7 +415,7 @@ packages:
     source: hosted
     version: "2.4.1"
   get_it:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: get_it
       sha256: f79870884de16d689cf9a7d15eedf31ed61d750e813c538a6efb92660fea83c3
@@ -703,7 +703,7 @@ packages:
     source: hosted
     version: "2.2.0"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: "81429e4481e1ccfb51ede496e916348668fd0921627779233bd24cc3ff6abd02"
@@ -796,7 +796,7 @@ packages:
     source: hosted
     version: "2.1.1"
   streaming_shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: streaming_shared_preferences
       sha256: "015a7999d8cf6e87a685635e0614910116ee187c885ae0f630da276f8435e457"

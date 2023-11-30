@@ -5,7 +5,7 @@ import '../tag.dart';
 import 'sliver_activities.dart';
 
 class ActivityTypeChip extends StatelessWidget {
-  const ActivityTypeChip(this.type, {required this.filters});
+  const ActivityTypeChip(this.type, {super.key, required this.filters});
 
   final ActivityType type;
   final ValueNotifier<Set<ActivityType>> filters;
@@ -23,7 +23,7 @@ class ActivityTypeChip extends StatelessWidget {
 }
 
 class TagChip<T extends BaseTag> extends StatelessWidget {
-  const TagChip(this.tag, {required this.filters});
+  const TagChip(this.tag, {super.key, required this.filters});
 
   final T tag;
   final ValueNotifier<Set<T>> filters;

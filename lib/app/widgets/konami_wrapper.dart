@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:supernova_flutter/supernova_flutter.dart';
 
 class KonamiWrapper extends StatefulWidget {
-  const KonamiWrapper({required this.child});
+  const KonamiWrapper({super.key, required this.child});
 
   final Widget child;
 
@@ -66,7 +66,8 @@ class _KonamiWrapperState extends State<KonamiWrapper>
     final filtered = _events.takeLast(_code.length).map((it) => it.logicalKey);
     if (!const DeepCollectionEquality().equals(filtered, _code)) return;
 
-    _controller.reset();
-    _controller.forward();
+    _controller
+      ..reset()
+      ..forward();
   }
 }

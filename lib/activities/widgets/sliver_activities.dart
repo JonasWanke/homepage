@@ -42,34 +42,36 @@ class SliverActivities extends HookWidget {
         )
         .whereFiltersMatch(tagFilters.value, getFromActivity: (it) => it.tags)
         .toList();
-    return MultiSliver(children: [
-      SliverList(
-        delegate: SliverChildListDelegate.fixed([
-          typeFilterWidget,
-          const SizedBox(height: 16),
-          primaryTagFilterWidget,
-          const SizedBox(height: 16),
-          tagFilterWidget,
-          const SizedBox(height: 16),
-          if (filteredActivities.isEmpty)
-            const Text('No activities match your filters')
-          else ...[
-            ActivitiesGanttChart(
-              activities: filteredActivities,
-              primaryTagFilters: primaryTagFilters,
-              tagFilters: tagFilters,
-            ),
+    return MultiSliver(
+      children: [
+        SliverList(
+          delegate: SliverChildListDelegate.fixed([
+            typeFilterWidget,
             const SizedBox(height: 16),
-          ],
-        ]),
-      ),
-      if (filteredActivities.isNotEmpty)
-        SliverActivitiesGrid(
-          activities: filteredActivities,
-          primaryTagFilters: primaryTagFilters,
-          tagFilters: tagFilters,
+            primaryTagFilterWidget,
+            const SizedBox(height: 16),
+            tagFilterWidget,
+            const SizedBox(height: 16),
+            if (filteredActivities.isEmpty)
+              const Text('No activities match your filters')
+            else ...[
+              ActivitiesGanttChart(
+                activities: filteredActivities,
+                primaryTagFilters: primaryTagFilters,
+                tagFilters: tagFilters,
+              ),
+              const SizedBox(height: 16),
+            ],
+          ]),
         ),
-    ]);
+        if (filteredActivities.isNotEmpty)
+          SliverActivitiesGrid(
+            activities: filteredActivities,
+            primaryTagFilters: primaryTagFilters,
+            tagFilters: tagFilters,
+          ),
+      ],
+    );
   }
 }
 

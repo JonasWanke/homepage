@@ -13,19 +13,13 @@ class ChipGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double lineSpacing;
-    switch (context.theme.materialTapTargetSize) {
-      case MaterialTapTargetSize.padded:
-        lineSpacing = 0;
-        break;
-      case MaterialTapTargetSize.shrinkWrap:
-        lineSpacing = 8;
-        break;
-    }
     return WrapSuper(
       alignment: alignment,
       spacing: 8,
-      lineSpacing: lineSpacing,
+      lineSpacing: switch (context.theme.materialTapTargetSize) {
+        MaterialTapTargetSize.padded => 0,
+        MaterialTapTargetSize.shrinkWrap => 8,
+      },
       children: children,
     );
   }

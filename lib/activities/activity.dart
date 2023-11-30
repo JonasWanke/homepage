@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:supernova_flutter/supernova_flutter.dart';
 
 import 'link.dart';
@@ -408,7 +410,7 @@ class Activity {
       // Link.pubDev('chrono'),
     },
   );
-  static final resume = const Activity(
+  static const resume = Activity(
     'resume',
     emoji: '📅',
     ActivityType.project,
@@ -595,7 +597,7 @@ class Activity {
 
 extension ListOfActivity on List<Activity> {
   List<Activity> sortedByEndLength() {
-    return sortedByDescending((it) => it.end ?? LocalMonth.current)
+    return sortedByDescending((it) => it.end ?? LocalMonth.current())
         .thenByDescending((it) => it.start);
   }
 }

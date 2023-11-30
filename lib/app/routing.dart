@@ -6,13 +6,13 @@ import 'widgets/app_bar.dart';
 
 final router = Router(
   routes: [
-    Route(materialBuilder: (_, __) => LandingPage()),
+    Route(materialBuilder: (_, __) => const LandingPage()),
     Route(materialBuilder: (_, result) => NotFoundPage(result.uri)),
   ],
 );
 
 class NotFoundPage extends StatelessWidget {
-  const NotFoundPage(this.uri);
+  const NotFoundPage(this.uri, {super.key});
 
   final Uri uri;
 

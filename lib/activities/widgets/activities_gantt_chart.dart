@@ -24,7 +24,7 @@ class ActivitiesGanttChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentMonth = LocalMonth.current;
+    final currentMonth = LocalMonth.current();
     final firstMonth =
         activities.map((it) => it.start).min.coerceAtLeast(_minMonth);
     final lastMonth = currentMonth.plus(months: 1);
@@ -41,19 +41,21 @@ class ActivitiesGanttChart extends StatelessWidget {
           0,
         ),
         childHeightRatio: 1,
-        child: Column(children: [
-          SizedBox(
-            height: _activityHeight * 0.75,
-            child: Center(
-              child: Text(year.toString(), textAlign: TextAlign.center),
+        child: Column(
+          children: [
+            SizedBox(
+              height: _activityHeight * 0.75,
+              child: Center(
+                child: Text(year.toString(), textAlign: TextAlign.center),
+              ),
             ),
-          ),
-          Expanded(
-            child: VerticalDivider(
-              color: context.theme.contrastColor.withOpacity(0.12),
+            Expanded(
+              child: VerticalDivider(
+                color: context.theme.contrastColor.withOpacity(0.12),
+              ),
             ),
-          ),
-        ]),
+          ],
+        ),
       );
     });
 
@@ -62,8 +64,8 @@ class ActivitiesGanttChart extends StatelessWidget {
         .entries
         .sortedBy<num>((it) => it.key.index)
         .fold((maxY: 0, positions: <Activity, int>{}), (state, it) {
-      final positions = _calculateActivityPositions(it.value, state.maxY);
-      positions.addAll(state.positions);
+      final positions = _calculateActivityPositions(it.value, state.maxY)
+        ..addAll(state.positions);
       return (maxY: positions.values.max + 1, positions: positions);
     });
     final (:maxY, :positions) = maxYAndPositions;
@@ -182,7 +184,7 @@ class _ActivityEntry extends HookWidget {
 
 extension on Activity {
   bool intersects(Activity other) {
-    final currentMonth = LocalMonth.current;
+    final currentMonth = LocalMonth.current();
     final thisEnd = end ?? currentMonth;
     final otherEnd = other.end ?? currentMonth;
     return start <= otherEnd && other.start <= thisEnd;

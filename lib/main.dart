@@ -9,5 +9,5 @@ Future<void> main() async {
   await initApp();
   await initSettings();
 
-  runApp(App());
+  runApp(const App());
 }

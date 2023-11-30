@@ -10,6 +10,7 @@ import 'sliver_activities.dart';
 class ActivityCard extends StatelessWidget {
   const ActivityCard(
     this.activity, {
+    super.key,
     required this.primaryTagFilters,
     required this.tagFilters,
   });
@@ -46,9 +47,11 @@ class ActivityCard extends StatelessWidget {
       ),
     );
 
-    final tags = ChipGroup(children: [
-      for (final tag in activity.tags) TagChip(tag, filters: tagFilters),
-    ]);
+    final tags = ChipGroup(
+      children: [
+        for (final tag in activity.tags) TagChip(tag, filters: tagFilters),
+      ],
+    );
 
     return ActivityColoredCard(
       activity,
@@ -102,6 +105,7 @@ class ActivityCard extends StatelessWidget {
 class ActivityColoredCard extends StatelessWidget {
   const ActivityColoredCard(
     this.activity, {
+    super.key,
     this.borderRadius,
     required this.child,
   });

@@ -7,6 +7,8 @@ import 'konami_wrapper.dart';
 const cardBorderRadius = 16.0;
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return PreferenceBuilder(

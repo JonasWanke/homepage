@@ -57,10 +57,12 @@ class ProportionalPaddingRenderObject extends RenderShiftedBox {
     final innerConstraints =
         constraints.deflate(_resolvePadding(constraints.biggest));
     final childSize = child!.getDryLayout(innerConstraints);
-    return constraints.constrain(Size(
-      childSize.width * (padding.horizontal + 1),
-      childSize.height * (padding.vertical + 1),
-    ));
+    return constraints.constrain(
+      Size(
+        childSize.width * (padding.horizontal + 1),
+        childSize.height * (padding.vertical + 1),
+      ),
+    );
   }
 
   @override
@@ -72,10 +74,12 @@ class ProportionalPaddingRenderObject extends RenderShiftedBox {
     final childParentData = child!.parentData! as BoxParentData;
     final resolvedPadding = _resolvePadding(child!.size);
     childParentData.offset = resolvedPadding.topLeft;
-    size = constraints.constrain(Size(
-      child!.size.width + resolvedPadding.horizontal,
-      child!.size.height + resolvedPadding.vertical,
-    ));
+    size = constraints.constrain(
+      Size(
+        child!.size.width + resolvedPadding.horizontal,
+        child!.size.height + resolvedPadding.vertical,
+      ),
+    );
   }
 
   EdgeInsets _resolvePadding(Size size) {
