@@ -16,7 +16,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   get_it: ^7.6.7
   just_the_tooltip: ^0.0.12
-  shared_preferences: ^2.2.2
+  shared_preferences: ^2.2.3
   streaming_shared_preferences: ^2.0.0
   supernova_flutter:
     git:
