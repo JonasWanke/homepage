@@ -3,11 +3,11 @@ version: 3.0.0
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ^3.4.0
   flutter: '>=3.10.0'
 
 dependencies:
-  assorted_layout_widgets: ^8.0.4
+  assorted_layout_widgets: ^9.0.2
   day_night_switcher: ^0.2.0
   flutter:
     sdk: flutter
@@ -22,7 +22,7 @@ dependencies:
     git:
       url: https://github.com/JonasWanke/supernova.git
       path: supernova_flutter
-      ref: bd9109d8ce8504bf6786b8f38813a20ae86f7544
+      ref: c568672838f2982d0b04562f33b42f6bafa85f70
 
 flutter:
   uses-material-design: true
