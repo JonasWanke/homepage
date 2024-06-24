@@ -26,7 +26,7 @@ class _KonamiWrapperState extends State<KonamiWrapper>
     LogicalKeyboardKey.keyA,
   ];
   final _focusNode = FocusNode()..requestFocus();
-  final _events = <RawKeyEvent>[];
+  final _events = <KeyEvent>[];
 
   late AnimationController _controller;
 
@@ -42,9 +42,9 @@ class _KonamiWrapperState extends State<KonamiWrapper>
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
+    return KeyboardListener(
       focusNode: _focusNode,
-      onKey: _addEvent,
+      onKeyEvent: _addEvent,
       child: AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
@@ -58,8 +58,8 @@ class _KonamiWrapperState extends State<KonamiWrapper>
     );
   }
 
-  void _addEvent(RawKeyEvent event) {
-    if (event is! RawKeyDownEvent) return;
+  void _addEvent(KeyEvent event) {
+    if (event is! KeyDownEvent) return;
     _events.add(event);
     if (_events.length < _code.length) return;
 

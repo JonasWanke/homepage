@@ -1,6 +1,4 @@
 import 'package:flutter/scheduler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 import 'package:supernova_flutter/supernova_flutter.dart';
 
 class Preferences {
