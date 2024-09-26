@@ -5,6 +5,6 @@ export 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 export 'preferences.dart';
 
-Future<void> initSettings() async {
+void initSettings() {
   services.registerSingletonAsync(Preferences.create);
 }

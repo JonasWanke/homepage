@@ -6,8 +6,7 @@ import 'settings/_.dart';
 Future<void> main() async {
   await initSupernova(shouldInitializeTimeMachine: false);
 
-  await initApp();
-  await initSettings();
+  initSettings();
 
   runApp(const App());
 }
