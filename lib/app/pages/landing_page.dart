@@ -136,7 +136,15 @@ class _Footer extends StatelessWidget {
             'the repository',
             Uri.parse('https://github.com/JonasWanke/homepage'),
           ),
-          _text(' contains the source code and privacy policy.'),
+          _text(' contains the source code and '),
+          _link(
+            context,
+            'privacy policy',
+            Uri.parse(
+              'https://github.com/JonasWanke/homepage/blob/main/privacy-policy-de.md',
+            ),
+          ),
+          _text('.'),
         ],
       ),
       style: context.textTheme.bodySmall,
