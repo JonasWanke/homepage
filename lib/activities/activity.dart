@@ -98,6 +98,7 @@ class Activity {
     ActivityType.work,
     isHighlight: true,
     start: LocalMonth(2023, 06),
+    end: LocalMonth(2024, 12),
     description: 'Coming soon',
     primaryTag: PrimaryTag.aGym,
     tags: {
